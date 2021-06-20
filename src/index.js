@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import Auth from './IITISoC---Restaurant-social-website/HotelX/Auth'
+import Auth from './HotelX/Auth'
 ReactDOM.render(
   <React.StrictMode>
     <Auth/>
