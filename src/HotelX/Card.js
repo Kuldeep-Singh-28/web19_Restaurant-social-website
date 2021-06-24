@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import "./style/card.css"
+import "./styles/card.css"
 import ReactCardFlip from 'react-card-flip';
 import db from './firebase'
 function Card({user}) {
@@ -17,29 +17,24 @@ function Card({user}) {
     
     console.log(dish)
     const handleClick =()=>{
-        setIsFlipled(!isFlipped);
+        setIsFlipled(!isFlipped); 
     }
+    const count=0;
     return (
-        <div >
+        <div className="_card">
             
-                {dish.map(x=>(
-                    <div className="flip-card">
+                
                     <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical" >
-                    <div>
-                      {x.email}
-                      <button onClick={handleClick}>Click to flip</button>
+                    <div onClick={handleClick}>
+                    <img src="/download.jpg" className="flip" ></img>
+                      
                     </div>
             
-                    <div>
-                        {x.name}
-                      <button onClick={handleClick}>Click to flip</button>
+                    <div onClick={handleClick}>
+                        tasty
+                      
                     </div>
-                  </ReactCardFlip>
-                  </div>
-                ))}
-            
-            
-           
+                  </ReactCardFlip >
             </div>
 
     )

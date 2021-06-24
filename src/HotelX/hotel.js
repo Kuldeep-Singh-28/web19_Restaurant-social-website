@@ -3,9 +3,11 @@ import db, { provider, storage } from "./firebase";
 import firebase from "firebase";
 import Card from './Card'
 import { useAuthState } from "react-firebase-hooks/auth";
-import {Container} from 'react-bootstrap'
+import {Container,Row,Col} from 'react-bootstrap'
 import {BrowserRouter as Router,Route,Switch,useParams} from 'react-router-dom'
 import Navbar from './Navbar'
+import './styles/hotel.css'
+import ReactPlayer from 'react-player'
 const auth = firebase.auth();
 
 function Hotel({ user }) {
@@ -27,12 +29,36 @@ function Hotel({ user }) {
     };
     return (
         <div>
-            hello
-            <input type="file" onChange={(e) => upload(e)} />
-            <Container>
-                hello
-                <Navbar/>
+           <Container fluid={true} >
+           <Container className="navbarx" >
+                <Router>
+                <Navbar/>    
+                </Router>
             </Container>
+            <Container className="navbarx" fluid={true}>
+            <Row>
+                <Col>
+                <ReactPlayer
+          className='react-player'
+          url='https://www.youtube.com/watch?v=ysz5S6PUM-U'
+          width='450px'
+          height='400px' />
+                </Col>
+            <Col>
+                    <div className='comment'>
+                        this is awesome i like very much!
+                    </div>
+            </Col>
+            </Row>
+            </Container>
+            <div>
+            <Container className='_statement' className="navbarx" >
+                helafa;nfa afjnkanfaoh
+            </Container>
+            </div>
+          
+           </Container>
+           
         </div>
     );
 }

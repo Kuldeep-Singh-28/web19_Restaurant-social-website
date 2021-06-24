@@ -1,0 +1,7 @@
+._card{
+  display:flex;
+  justify-content:center;
+}
+.flip-card{
+  margin: 10px;
+}

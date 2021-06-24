@@ -1,0 +1,19 @@
+.navbarx{
+    margin-bottom: 10px;
+
+
+}
+.react-player{
+    position: absolute;
+  top: 0;
+  left: 50px;
+}
+.comment{
+    background: rgb(79,98,157);
+background: linear-gradient(90deg, rgba(79,98,157,1) 0%, rgba(88,131,255,1) 97%);   
+
+}
+._statement{
+    background: rgb(79,98,157);
+    background-image: url('../images/statement.jpg')
+}
