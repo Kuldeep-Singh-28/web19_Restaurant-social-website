@@ -1,0 +1,27 @@
+._register {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: lightblue;
+}
+.form-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin-top: 5px;
+  font-family: "Courier New", Courier, monospace;
+}
+._button {
+  border-radius: "10px";
+}
+._b {
+  font-size: 12px;
+}
+._form-control {
+  box-shadow: 10;
+  margin-left: 2px;
+  border-radius: 20px;
+}

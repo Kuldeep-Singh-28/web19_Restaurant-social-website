@@ -1,0 +1,12 @@
+.navbar_link {
+  text-decoration: none;
+  text-align: center;
+}
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  border-bottom: 1px solid rgb(6, 145, 163);
+  cursor: pointer;
+}
