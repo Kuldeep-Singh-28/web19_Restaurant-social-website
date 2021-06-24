@@ -1,20 +1,28 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
-import "./styles/Navbar.css"
-function Navbar() {
+import React from "react";
+import { Link } from "react-router-dom";
+import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import "./styles/NavBar.css";
+function NavBar() {
     return (
-        <div>
-    <div className="navbar">
-            <div><Link to="menu" className="navbar_link">menu</Link> </div>
-            <div> <Link to="login" className="navbar_link"> LOGIN</Link></div>
-            <div><Link to="contact" className="navbar_link">contact</Link> </div>
-            <div><Link to="about" className="navbar_link">ABOUT</Link></div>
-            
-        </div>            
+        <div className="Nav">
+            <Navbar bg="dark" variant="dark">
+                <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+                <Nav className="mr-auto">
+                    <Nav.Link href="/">Home</Nav.Link>
+                    <Nav.Link href="#features">Features</Nav.Link>
+                    <Nav.Link href="/menu">Menu</Nav.Link>
+                </Nav>
+                <Form inline>
+                    <FormControl
+                        type="text"
+                        placeholder="Search"
+                        className="mr-sm-2"
+                    />
+                    <Button variant="outline-info">Search</Button>
+                </Form>
+            </Navbar>
         </div>
-    )
-
-    
+    );
 }
 
-export default Navbar
+export default NavBar;
