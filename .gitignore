@@ -12,7 +12,6 @@
 firebase.json
 .eslintrc.json
 .eslintcache
-/public
 
 # testing
 /coverage
