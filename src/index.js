@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Auth from './HotelX/Auth'
+import Hotel from './HotelX/Hotel'
 ReactDOM.render(
   <React.StrictMode>
-    <Auth/>
+    <Hotel/>
   </React.StrictMode>,
   document.getElementById('root')
 );

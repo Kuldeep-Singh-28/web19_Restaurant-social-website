@@ -1,19 +1,28 @@
+*{
+    margin:0;
+}
 .navbarx{
     margin-bottom: 10px;
 
 
 }
 .react-player{
-    position: absolute;
+
   top: 0;
   left: 50px;
 }
 .comment{
-    background: rgb(79,98,157);
-background: linear-gradient(90deg, rgba(79,98,157,1) 0%, rgba(88,131,255,1) 97%);   
+   
+height:300px;width:450px;
+border: 1px solid rgb(53, 32, 32);
 
 }
 ._statement{
-    background: rgb(79,98,157);
+    width: 100%;
+    height: 200px;
+    background: rgb(32, 75, 204);
     background-image: url('../images/statement.jpg')
+}
+.quote{
+   transform: rotateZ(180deg);       
 }
