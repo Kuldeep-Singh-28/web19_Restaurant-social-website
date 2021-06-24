@@ -3,7 +3,7 @@ import { provider } from "./firebase";
 import firebase from "firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import db from "./firebase";
-import Hotel from "./Hotel";
+import Hotel from "./Hotel"
 const auth = firebase.auth();
 function Auth() {
     const [user] = useAuthState(auth);

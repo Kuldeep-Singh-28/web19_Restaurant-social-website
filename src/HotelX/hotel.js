@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
 import db, { provider, storage } from "./firebase";
 import firebase from "firebase";
-import Card from './Card'
+import Card from "./Card";
 import { useAuthState } from "react-firebase-hooks/auth";
 import {Container,Row,Col} from 'react-bootstrap'
 import {BrowserRouter as Router,Route,Switch,useParams} from 'react-router-dom'
 import Navbar from './Navbar'
 import './styles/hotel.css'
 import ReactPlayer from 'react-player'
+import Menu from "./Menu";
+
 const auth = firebase.auth();
 
 function Hotel({ user }) {
@@ -28,7 +30,9 @@ function Hotel({ user }) {
         Storage.put(file);
     };
     return (
+
         <div>
+            <div>
            <Container fluid={true} >
            <Container className="navbarx" >
                 <Router>
@@ -52,16 +56,28 @@ function Hotel({ user }) {
             </Row>
             </Container>
             <div>
-            <Container className='_statement' className="navbarx" >
+            <Row className='_statement' className="navbarx" >
                 helafa;nfa afjnkanfaoh
-            </Container>
+            </Row>
             </div>
           
            </Container>
            
         </div>
+
+        <Router>
+            <div>
+                <Container>
+            
+                    <input type="file" onChange={(e) => upload(e)} />
+                    <Switch>
+                        <Route path="/menu" component={Menu} />
+                    </Switch>
+                </Container>
+            </div>
+        </Router>
+        </div>
     );
 }
 
 export default Hotel;
-
