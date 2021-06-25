@@ -7,6 +7,7 @@ import StarHalfIcon from '@material-ui/icons/StarHalf';
 import './styles/hotel.css'
 import StarIcon from '@material-ui/icons/Star';
 function Homepage() {
+    //IITISoC---Restaurant-social-website
     return (
         <div>
             <Container className="navbarx" fluid={true}>
@@ -32,13 +33,24 @@ function Homepage() {
             </Row>
           
             <Row  className="navbarx"  >
-                <div className='_statement'>
+                <div className='_statement mx-5'>
                     afmhelafa;nfa afjnkanfaoh
                 </div>
                 
+            </Row>
+            <Row>
+                <Row >
+                <div className='_circleI1'>
+                    <img src="/download.jpg"/>
+                </div>
+                </Row>
+                <Row >
+                <div className='_circleI2'   >
+                    <img src="/download.jpg"/>
+                </div>
+                </Row>
                 
             </Row>
-          
            </Container>
         </div>
     )
