@@ -29,6 +29,7 @@ function NavBar() {
     const [user] = useAuthState(auth);
     return (
         <div className="Nav" className="n1 mb-5">
+
             <img src="/logo.jpg" className="_logo"/>
                 <Nav className="mr-auto" className="n">
                     <Nav.Link href="/" className="n2">Home</Nav.Link>
@@ -36,6 +37,22 @@ function NavBar() {
                     <Nav.Link href="/menu" className="n2">Menu</Nav.Link>
                     <Nav.Link href="/login" className="n2">{user ? <SignOut/>:<span>login</span>}</Nav.Link>
                 </Nav>
+
+            <Nav className="mr-auto" className="n">
+                <Nav.Link href="/" className="n2">
+                    Home
+                </Nav.Link>
+                <Nav.Link href="#features" className="n2">
+                    Features
+                </Nav.Link>
+                <Nav.Link href="/menu" className="n2">
+                    Menu
+                </Nav.Link>
+                <Nav.Link href="/Login" className="n2">
+                    Login
+                </Nav.Link>
+            </Nav>
+
         </div>
     );
 }

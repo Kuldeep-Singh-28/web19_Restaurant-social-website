@@ -4,6 +4,7 @@ import firebase from "firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import db from "./firebase";
 import Homepage from "./Homepage"
+import Hotel from "./Hotel";
 const auth = firebase.auth();
 function Auth() {
     const [user] = useAuthState(auth);

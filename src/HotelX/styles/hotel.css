@@ -1,29 +1,24 @@
-*{
-    margin:0;
+* {
+    margin: 0;
 }
-.navbarx{
+.navbarx {
     margin-bottom: 10px;
-
-
 }
-.react-player{
-
-  top: 0;
-  left: 50px;
+.react-player {
+    top: 0;
+    left: 50px;
 }
-.comment{
-   
-height:100%;
-
+.comment {
+    height: 100%;
 }
 .comment-text {
     margin-top: 0.2rem;
-    font-size: xx-large; 
-    font-family: 'Kaushan Script', cursive;
+    font-size: xx-large;
+    font-family: "Kaushan Script", cursive;
     color: #fff !important;
     margin-bottom: 25px;
 }
-.com-con{
+.com-con {
     position: relative;
     display: flex;
     justify-content: center;
@@ -31,47 +26,45 @@ height:100%;
 }
 
 img {
-  filter: blur(4px);
+    filter: blur(4px);
 }
 .MuiSvgIcon-root {
- color: gold; 
+    color: gold;
 }
 .quote {
-  color: black !important;
-  position: absolute;
-  top: -11px;
-  left: 0;
+    color: black !important;
+    position: absolute;
+    top: -11px;
+    left: 0;
 }
 .quote2 {
-  color: black !important;
-    position : absolute;
-    bottom:14px;
-    right:0;
+    color: black !important;
+    position: absolute;
+    bottom: 14px;
+    right: 0;
 }
 
-._statement{
+._statement {
     left: 50%;
     display: flex;
 
     width: 90%;
     height: 500px;
-    
+
     align-items: center;
     justify-content: center;
-    background-image: url('../images/new.jpg')  
+    background-image: url("../images/statement.jpg");
 }
-.quote{
-   transform: rotateZ(180deg);       
+.quote {
+    transform: rotateZ(180deg);
 }
-._circleI1{
+._circleI1 {
     margin-left: 300px;
     margin-bottom: 10px;
     border-radius: 50%;
 }
-._circleI2{
-    right:0;
+._circleI2 {
+    right: 0;
     bottom: 0;
- margin-top: 100px;
- 
-    
+    margin-top: 100px;
 }
