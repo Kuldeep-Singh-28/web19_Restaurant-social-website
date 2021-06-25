@@ -1,0 +1,29 @@
+.footer {
+    color: white;
+    background-color: black;
+    margin-top: 2.5rem;
+    font-family: "Open Sans Condensed", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    height: 45vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    line-height: 1.9rem;
+}
+
+li a {
+    color: rgb(228, 225, 225);
+}
+li a:link {
+    text-decoration: none;
+}
+
+li a:hover {
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+}
