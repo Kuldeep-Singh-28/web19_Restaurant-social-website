@@ -121,7 +121,7 @@ function Homepage() {
                 </Row>
                 <Row >
                 <div className='_circleI2'   >
-                    <img src="/s.jpg"/>
+                    
                 </div>
                 </Row>
                 

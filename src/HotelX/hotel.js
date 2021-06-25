@@ -21,17 +21,6 @@ function Hotel() {
     return (
         <div>
             <div>
-           <Container fluid={true} className="px-0" >
-           <Container className="navbarx mx-0 px-0 w-100" style={{maxWidth:'100vw'}} >
-                <Router>
-                <Navbar/> 
-                <Route path="/menu" component={Menu}/>   
-                <Route exact path="/" component={Homepage}/>
-                <Route path='/login' component={Auth}/>
-                </Router>
-            </Container>
-            </Container>
-            </div>
                 <Container fluid={true} className="px-0">
                     <Container
                         className="navbarx mx-0 px-0 w-100"
@@ -47,7 +36,7 @@ function Hotel() {
                 </Container>
                 <Footer />
             </div>
-        
+       </div> 
     );
 }
 

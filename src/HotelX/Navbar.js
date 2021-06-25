@@ -15,7 +15,7 @@ function SignOut() {
            <div>
                <span className="sign-out" onClick={() => auth.signOut()}>
                 Sign Out
-                <Redirect to="/"/>
+                
             </span>
             <span className="mx-3">
                 welcome {user.displayName}
@@ -38,21 +38,7 @@ function NavBar() {
                     <Nav.Link href="/login" className="n2">{user ? <SignOut/>:<span>login</span>}</Nav.Link>
                 </Nav>
 
-            <Nav className="mr-auto" className="n">
-                <Nav.Link href="/" className="n2">
-                    Home
-                </Nav.Link>
-                <Nav.Link href="#features" className="n2">
-                    Features
-                </Nav.Link>
-                <Nav.Link href="/menu" className="n2">
-                    Menu
-                </Nav.Link>
-                <Nav.Link href="/Login" className="n2">
-                    Login
-                </Nav.Link>
-            </Nav>
-
+          
         </div>
     );
 }
