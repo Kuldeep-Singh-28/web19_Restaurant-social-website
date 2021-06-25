@@ -13,16 +13,39 @@
 }
 .comment{
    
-height:300px;width:450px;
-border: 6px dotted rgb(53, 32, 32);
+height:100%;
 
+}
+.comment-text {
+    margin-top: 0.2rem;
+    font-size: xx-large; 
+    font-family: 'Kaushan Script', cursive;
+    color: #fff !important;
+    margin-bottom: 25px;
 }
 .com-con{
     position: relative;
+    display: flex;
+    justify-content: center;
+    bottom: 2rem;
+}
+
+img {
+  filter: blur(4px);
+}
+.MuiSvgIcon-root {
+ color: gold; 
+}
+.quote {
+  color: black !important;
+  position: absolute;
+  top: -11px;
+  left: 0;
 }
 .quote2 {
+  color: black !important;
     position : absolute;
-    bottom:0;
+    bottom:14px;
     right:0;
 }
 
