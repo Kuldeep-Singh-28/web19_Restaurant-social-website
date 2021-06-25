@@ -6,7 +6,7 @@
     font-size: 15px;
     font-weight: 600;
     text-transform: uppercase;
-    height: 45vh;
+    min-height: 45vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
