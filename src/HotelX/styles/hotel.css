@@ -1,6 +1,9 @@
 * {
     margin: 0;
 }
+body {
+    overflow-x: hidden;
+}
 .navbarx {
     margin-bottom: 10px;
 }
