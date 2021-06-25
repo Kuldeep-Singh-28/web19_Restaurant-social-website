@@ -82,7 +82,7 @@ function ControlledCarousel() {
                         <StarIcon/> 
                         <StarIcon/> 
                         <StarIcon/> 
-                        <StarIcon/> 
+                        <StarIcon/>     
                         <StarHalfIcon/>
                         </div> 
                         <FormatQuoteRoundedIcon className="quote2"/>
@@ -121,7 +121,7 @@ function Homepage() {
                 </Row>
                 <Row >
                 <div className='_circleI2'   >
-                    <img src="/download.jpg"/>
+                    <img src="/s.jpg"/>
                 </div>
                 </Row>
                 

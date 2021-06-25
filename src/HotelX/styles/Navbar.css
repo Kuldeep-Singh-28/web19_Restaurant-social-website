@@ -10,19 +10,23 @@
   border-bottom: 1px solid rgb(6, 145, 163);
   cursor: pointer;
 }
-.n{
-  padding:0;
-  margin:0;
+
+.n1{
+ 
   display: flex;
   justify-content: center;
   align-items:center ;
   color:black !important;
   height: 10vh;
   border-bottom: 1px solid #313130;
-  background-size: cover;
+  
 }
 .n2{
   color:rgb(255, 128, 55) !important;
   /* font-family: "Chalkduster" */
   font-family: 'Kaushan Script', cursive;
+}
+._logo{
+  margin: 10px;
+  filter:none
 }

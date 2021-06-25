@@ -8,8 +8,8 @@ import {BrowserRouter as Router,Route,Switch,useParams} from 'react-router-dom'
 import Navbar from './Navbar'
 import Homepage from './Homepage'
 import Menu from "./Menu";
+import Auth from './Auth'
 
-const auth = firebase.auth();
 
 function Hotel() {
  
@@ -23,6 +23,7 @@ function Hotel() {
                 <Navbar/> 
                 <Route path="/menu" component={Menu}/>   
                 <Route exact path="/" component={Homepage}/>
+                <Route path='/login' component={Auth}/>
                 </Router>
             </Container>
             </Container>
