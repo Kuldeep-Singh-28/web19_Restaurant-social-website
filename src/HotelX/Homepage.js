@@ -1,11 +1,12 @@
-import React, {useState} from 'react'
-import ReactPlayer from 'react-player'
-import {Container,Row,Col,Carousel} from 'react-bootstrap'
-import FormatQuoteRoundedIcon from '@material-ui/icons/FormatQuoteRounded';
-import StarHalfIcon from '@material-ui/icons/StarHalf';
+import React, { useState } from "react";
+import ReactPlayer from "react-player";
+import { Container, Row, Col, Carousel } from "react-bootstrap";
+import FormatQuoteRoundedIcon from "@material-ui/icons/FormatQuoteRounded";
+import StarHalfIcon from "@material-ui/icons/StarHalf";
 
-import './styles/hotel.css'
-import StarIcon from '@material-ui/icons/Star';
+import "./styles/hotel.css";
+import StarIcon from "@material-ui/icons/Star";
+import Home_carousel from "./Home_carousel";
 
 function ControlledCarousel() {
     const [index, setIndex] = useState(0);
@@ -29,17 +30,18 @@ function ControlledCarousel() {
                     alt="First slide"
                 />
                 <Carousel.Caption>
-                    <div className='comment com-con'>
-                        <FormatQuoteRoundedIcon className="quote"/>
-                        <div className='mx-5 comment-text'>
-                            This is awesome i like very much!<br/> 
-                        <StarIcon/> 
-                        <StarIcon/> 
-                        <StarIcon/> 
-                        <StarIcon/> 
-                        <StarHalfIcon/>
-                        </div> 
-                        <FormatQuoteRoundedIcon className="quote2"/>
+                    <div className="comment com-con">
+                        <FormatQuoteRoundedIcon className="quote" />
+                        <div className="mx-5 comment-text">
+                            This is awesome i like very much!
+                            <br />
+                            <StarIcon />
+                            <StarIcon />
+                            <StarIcon />
+                            <StarIcon />
+                            <StarHalfIcon />
+                        </div>
+                        <FormatQuoteRoundedIcon className="quote2" />
                     </div>
                 </Carousel.Caption>
             </Carousel.Item>
@@ -52,17 +54,18 @@ function ControlledCarousel() {
                 />
 
                 <Carousel.Caption>
-                    <div className='comment com-con'>
-                        <FormatQuoteRoundedIcon className="quote"/>
-                        <div className='mx-5 comment-text'>
-                            This is awesome i like very much!<br/> 
-                        <StarIcon/> 
-                        <StarIcon/> 
-                        <StarIcon/> 
-                        <StarIcon/> 
-                        <StarHalfIcon/>
-                        </div> 
-                        <FormatQuoteRoundedIcon className="quote2"/>
+                    <div className="comment com-con">
+                        <FormatQuoteRoundedIcon className="quote" />
+                        <div className="mx-5 comment-text">
+                            This is awesome i like very much!
+                            <br />
+                            <StarIcon />
+                            <StarIcon />
+                            <StarIcon />
+                            <StarIcon />
+                            <StarHalfIcon />
+                        </div>
+                        <FormatQuoteRoundedIcon className="quote2" />
                     </div>
                 </Carousel.Caption>
             </Carousel.Item>
@@ -75,17 +78,18 @@ function ControlledCarousel() {
                 />
 
                 <Carousel.Caption>
-                    <div className='comment com-con'>
-                        <FormatQuoteRoundedIcon className="quote"/>
-                        <div className='mx-5 comment-text'>
-                            This is awesome i like very much!<br/> 
-                        <StarIcon/> 
-                        <StarIcon/> 
-                        <StarIcon/> 
-                        <StarIcon/>     
-                        <StarHalfIcon/>
-                        </div> 
-                        <FormatQuoteRoundedIcon className="quote2"/>
+                    <div className="comment com-con">
+                        <FormatQuoteRoundedIcon className="quote" />
+                        <div className="mx-5 comment-text">
+                            This is awesome i like very much!
+                            <br />
+                            <StarIcon />
+                            <StarIcon />
+                            <StarIcon />
+                            <StarIcon />
+                            <StarHalfIcon />
+                        </div>
+                        <FormatQuoteRoundedIcon className="quote2" />
                     </div>
                 </Carousel.Caption>
             </Carousel.Item>
@@ -97,38 +101,30 @@ function Homepage() {
     //IITISoC---Restaurant-social-website
     return (
         <div>
+            <Home_carousel />
             <Container className="navbarx" fluid={true}>
-            <Row className="mb-4" style={{minHeight:'41vh'}}>
-                <Col sm={5}>
-                <ReactPlayer  className='react-player' url='https://www.youtube.com/watch?v=ysz5S6PUM-U'  width='100%' height='100%' />
-                </Col>
-                <Col sm={7}>
-                    <ControlledCarousel />                    
-                </Col>
-            </Row>
-          
-            <Row  className="navbarx"  >
-                <div className='_statement mx-5'>
-                    afmhelafa;nfa afjnkanfaoh
-                </div>
-                
-            </Row>
-            <Row>
-                <Row >
-                <div className='_circleI1'>
-                    <img src="/download.jpg"/>
-                </div>
+                <Row className="mb-4" style={{ minHeight: "41vh" }}>
+                    <Col sm={5} className="mb-3" style={{ minHeight: "41vh" }}>
+                        <ReactPlayer
+                            className="react-player"
+                            url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
+                            width="100%"
+                            height="100%"
+                        />
+                    </Col>
+                    <Col sm={7}>
+                        <ControlledCarousel />
+                    </Col>
                 </Row>
-                <Row >
-                <div className='_circleI2'   >
-                    
-                </div>
+
+                <Row className="navbarx">
+                    <div className="_statement mx-5">
+                        afmhelafa;nfa afjnkanfaoh
+                    </div>
                 </Row>
-                
-            </Row>
-           </Container>
+            </Container>
         </div>
-    )
+    );
 }
 
-export default Homepage
+export default Homepage;
