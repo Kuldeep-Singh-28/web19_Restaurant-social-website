@@ -66,15 +66,12 @@ const Home_carousel = () => {
 
     const func = () => {
         let i = document.getElementById("kiran");
-        // console.log(i, "select element by id is working");
         let temp = document.createElement("DIV");
         temp.classList.add("col-md-3");
         temp.classList.add("col-sm-6");
         temp.classList.add(style.col5);
         temp.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.33)),url(${used[0].img})`;
         temp.style.backgroundSize = `cover`;
-        // temp.style.backdropFilter = `blur(2px)`;
-        // temp.style.backgroundColor = "grey";
         temp.innerHTML = `
 			<div class=${style.innertext}>
 				<h1>${used[0].name}</h1>
@@ -108,6 +105,22 @@ const Home_carousel = () => {
     let last = 4;
     useEffect(() => {
         used.push(array[last]);
+
+        let col2 = document.getElementById("col_2");
+        let col3 = document.getElementById("col_3");
+        let col4 = document.getElementById("col_4");
+
+        let ti = window.getComputedStyle(col2).width;
+        let ar = Array.from(ti);
+        ar.pop();
+        ar.pop();
+        ar = ar.join("");
+        ar = Number(ar);
+        console.log(ar, "the value of ar is");
+        col2.style.left = `${ar}px`;
+        col3.style.left = `${ar * 2}px`;
+        col4.style.left = `${ar * 3}px`;
+
         setInterval(async () => {
             await func();
             last = (last + 1) % 8;
@@ -125,19 +138,19 @@ const Home_carousel = () => {
                             <h3>{array[0].price}</h3>
                         </div>
                     </Col>
-                    <Col md={3} sm={6} className={style.col2}>
+                    <Col id="col_2" md={3} sm={6} className={style.col2}>
                         <div className={style.innertext}>
                             <h1>{array[1].name}</h1>
                             <h3>{array[1].price}</h3>
                         </div>
                     </Col>
-                    <Col md={3} sm={6} className={style.col3}>
+                    <Col id="col_3" md={3} sm={6} className={style.col3}>
                         <div className={style.innertext}>
                             <h1>{array[2].name}</h1>
                             <h3>{array[2].price}</h3>
                         </div>
                     </Col>
-                    <Col md={3} sm={6} className={style.col4}>
+                    <Col id="col_4" md={3} sm={6} className={style.col4}>
                         <div className={style.innertext}>
                             <h1>{array[3].name}</h1>
                             <h3>{array[3].price}</h3>
