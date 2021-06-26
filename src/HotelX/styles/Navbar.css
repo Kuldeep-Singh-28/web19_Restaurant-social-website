@@ -11,16 +11,22 @@
   cursor: pointer;
 }
 
+
 .n1{
  
   display: flex;
-  justify-content: center;
-  align-items:center ;
+  justify-content: space-between;
+  align-items: center;
   color:black !important;
   height: 10vh;
   border-bottom: 1px solid #313130;
   position: relative;
   
+}
+.n{
+  right:0;
+  display: flex;
+  justify-content: center;
 }
 .n2{
   color:rgb(255, 128, 55) !important;
@@ -35,6 +41,6 @@
   margin: 10px;
   filter:none;
   transform: scale(0.45);
-  position: absolute;
+  position: relative;
   left:0;
 }

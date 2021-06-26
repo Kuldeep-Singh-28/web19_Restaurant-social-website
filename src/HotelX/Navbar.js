@@ -2,7 +2,7 @@ import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 import "./styles/Navbar.css";
-
+import InstagramIcon from '@material-ui/icons/Instagram';
 import firebase from "firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { user } from "./Auth";
@@ -42,6 +42,7 @@ function NavBar() {
                     {user ? <div> welcome {user.displayName}</div>: <span></span>}
                 </Nav.Link>
             </Nav>
+            
         </div>
     );
 }
