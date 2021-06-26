@@ -15,6 +15,7 @@ import Homepage from "./Homepage";
 import Menu from "./Menu";
 import Auth from './Auth'
 import Footer from "./Footer";
+
 const auth = firebase.auth();
 
 function Hotel() {

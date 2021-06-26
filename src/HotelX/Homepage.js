@@ -6,7 +6,6 @@ import StarHalfIcon from "@material-ui/icons/StarHalf";
 
 import "./styles/hotel.css";
 import StarIcon from "@material-ui/icons/Star";
-import Home_carousel from "./Home_carousel";
 
 function ControlledCarousel() {
     const [index, setIndex] = useState(0);
@@ -101,9 +100,8 @@ function Homepage() {
     //IITISoC---Restaurant-social-website
     return (
         <div>
-            <Home_carousel />
             <Container className="navbarx" fluid={true}>
-                <Row className="mb-4" style={{ minHeight: "41vh" }}>
+                <Row className="mb-4 mt-2" style={{ minHeight: "41vh" }}>
                     <Col sm={5} className="mb-3" style={{ minHeight: "41vh" }}>
                         <ReactPlayer
                             className="react-player"
