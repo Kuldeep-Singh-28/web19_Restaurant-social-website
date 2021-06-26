@@ -101,7 +101,7 @@ function Homepage() {
     return (
         <div>
             <Container className="navbarx" fluid={true}>
-                <Row className="mb-4" style={{ minHeight: "41vh" }}>
+                <Row className="mb-4 mt-2" style={{ minHeight: "41vh" }}>
                     <Col sm={5} className="mb-3" style={{ minHeight: "41vh" }}>
                         <ReactPlayer
                             className="react-player"
