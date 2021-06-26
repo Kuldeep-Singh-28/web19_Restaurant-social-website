@@ -14,7 +14,7 @@
 		url("../images/food2.jpg");
 	background-size: cover;
 	transition: all 1s linear;
-	min-width: 337.25px;
+	/* min-width: 337.25px; */
 	position: absolute;
 	left: 0px;
 	height: 100%;
@@ -30,7 +30,7 @@
 		url("../images/food3.jpg");
 	background-size: cover;
 	transition: all 1s linear;
-	min-width: 337.25px;
+	/* min-width: 337.25px; */
 	position: absolute;
 	left: calc(337.25px * 1);
 	height: 100%;
@@ -46,7 +46,7 @@
 		url("../images/s.jpg");
 	background-size: cover;
 	transition: all 1s linear;
-	min-width: 337.25px;
+	/* min-width: 337.25px; */
 	position: absolute;
 	left: calc(337.25px * 2);
 	height: 100%;
@@ -62,7 +62,7 @@
 		url("../images/shaun_meintjes.jpg");
 	background-size: cover;
 	transition: all 1s linear;
-	min-width: 337.25px;
+	/* min-width: 337.25px; */
 	position: absolute;
 	left: calc(337.25px * 3);
 	height: 100%;
@@ -76,7 +76,7 @@
 	border-right: 1px solid black;
 	border-bottom: 1px solid black;
 	transition: all 1s linear;
-	min-width: 337.25px;
+	/* min-width: 337.25px; */
 	position: absolute;
 	left: calc(337.25px * 4);
 	height: 100%;
