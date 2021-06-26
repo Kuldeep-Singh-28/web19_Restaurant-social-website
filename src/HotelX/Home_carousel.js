@@ -61,6 +61,7 @@ const Home_carousel = () => {
     ];
 
     const used = [];
+    let tr;
 
     // const first = useRef();
 
@@ -70,6 +71,7 @@ const Home_carousel = () => {
         temp.classList.add("col-md-3");
         temp.classList.add("col-sm-6");
         temp.classList.add(style.col5);
+        temp.style.left = `${tr * 4}px`;
         temp.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.33)),url(${used[0].img})`;
         temp.style.backgroundSize = `cover`;
         temp.innerHTML = `
@@ -116,6 +118,7 @@ const Home_carousel = () => {
         ar.pop();
         ar = ar.join("");
         ar = Number(ar);
+        tr = ar;
         console.log(ar, "the value of ar is");
         col2.style.left = `${ar}px`;
         col3.style.left = `${ar * 2}px`;
