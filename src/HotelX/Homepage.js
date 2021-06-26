@@ -3,7 +3,7 @@ import ReactPlayer from "react-player";
 import { Container, Row, Col, Carousel } from "react-bootstrap";
 import FormatQuoteRoundedIcon from "@material-ui/icons/FormatQuoteRounded";
 import StarHalfIcon from "@material-ui/icons/StarHalf";
-
+ import HomePageCorusel from "./HomePageCorusel"
 import "./styles/hotel.css";
 import StarIcon from "@material-ui/icons/Star";
 
@@ -100,6 +100,7 @@ function Homepage() {
     //IITISoC---Restaurant-social-website
     return (
         <div>
+                <HomePageCorusel/>
             <Container className="navbarx" fluid={true}>
                 <Row className="mb-4 mt-2" style={{ minHeight: "41vh" }}>
                     <Col sm={5} className="mb-3" style={{ minHeight: "41vh" }}>

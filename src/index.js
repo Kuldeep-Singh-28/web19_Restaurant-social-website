@@ -4,6 +4,7 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Auth from './HotelX/Auth'
 import Hotel from './HotelX/Hotel'
+import HomePageCorusel from './HotelX/HomePageCorusel'
 ReactDOM.render(
   <React.StrictMode>
     <Hotel/>
