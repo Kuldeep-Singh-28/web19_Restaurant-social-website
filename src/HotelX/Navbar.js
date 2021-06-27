@@ -1,14 +1,17 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect,useHistory } from "react-router-dom";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 import "./styles/Navbar.css";
 import InstagramIcon from '@material-ui/icons/Instagram';
+import FacebookIcon from '@material-ui/icons/Facebook';
 import firebase from "firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { user } from "./Auth";
 const auth = firebase.auth();
 function SignOut() {
     const [user] = useAuthState(auth);
+   
+    
     return (
         auth.currentUser && (
             <div>
@@ -21,6 +24,7 @@ function SignOut() {
     );
 }
 function NavBar() {
+ 
     const [user] = useAuthState(auth);
     return (
         <div className="Nav" className="n1">
@@ -40,7 +44,13 @@ function NavBar() {
                 </Nav.Link>
                 <Nav.Link href="/login" className="n2">
                     {user ? <div> welcome {user.displayName}</div>: <span></span>}
+
                 </Nav.Link>
+                <div className="_navIcon">
+                <span className="_navIcons"><InstagramIcon style={{color: "#7b877c",size:.5}}/></span>
+                <span className="_navIcons"><FacebookIcon style={{color: "#7b877c",size:.5}}/></span>
+                </div>
+               
             </Nav>
             
         </div>
