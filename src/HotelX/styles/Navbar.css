@@ -1,59 +1,75 @@
 .navbar_link {
-  text-decoration: none;
-  text-align: center;
-}
-.navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  border-bottom: 1px solid rgb(6, 145, 163);
-  cursor: pointer;
+    text-decoration: none;
+    text-align: center;
 }
 
-
-.n1{
- 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color:black !important;
-  height: 10vh;
-  border-bottom: 1px solid #313130;
-  position: relative;
-  
-}
-.n{
-  right:0;  
-  display: flex;
-  justify-content: center;
-}
-.n2{
-  color:rgb(36, 18, 7) !important;
-  /* font-family: "Chalkduster" */
-  font-weight: bold;
-  font-style: italic;
-  font-family: 'Gloria', cursive;
-}
-.n2:hover{
-  border-bottom: 2px solid black;
-  border-top: 2px solid black;
-}
-._logo{
-  margin: 10px;
-  filter:none;
-  transform: scale(0.45);
-  position: relative;
-  left:0;
-}
-._navIcon{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 2px;
-}
-._navIcons:hover{
-transform: scale(1.1);
-transform: color(black);
+.navbar2 {
+    backdrop-filter: blur(4px);
+    box-shadow: 0 1rem 7rem rgba(0, 0, 0, 0.35) !important;
+    background-color: rgba(255, 255, 255, 0.88);
 }
 
+.sign-out {
+    width: fit-content;
+}
+
+.n1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black !important;
+    height: 12vh;
+    width: 100%;
+    border-bottom: 1px solid #313130;
+    position: relative;
+}
+.n {
+    display: flex;
+    justify-content: center;
+}
+.n2 {
+    color: rgb(36, 18, 7) !important;
+    /*font-family: "PT Sans", sans-serif;*/
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    border: 2px solid transparent;
+    transition: border 0.5s linear;
+    transition: color 0.4s linear;
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: large;
+    /*font-weight: bold;*/
+}
+.n2:hover {
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    color: gray !important;
+}
+._logo {
+    margin: 0px;
+    filter: none;
+    height: 7vh;
+    position: relative;
+    left: 0;
+}
+._navIcon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2px;
+    margin-right: 1rem;
+}
+._navIcons:hover {
+    color: black;
+}
+
+@media (min-width: 992px) {
+    .n {
+        position: absolute;
+        right: 0;
+    }
+}
+
+#right,
+#left {
+    margin-right: 1.5rem;
+}
