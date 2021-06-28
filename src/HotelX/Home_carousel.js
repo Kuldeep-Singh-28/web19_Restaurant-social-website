@@ -113,8 +113,7 @@ const Home_carousel = () => {
             ar.pop();
             ar = ar.join("");
             ar = Number(ar);
-            // let movement = ele.offsetLeft - ar;
-            // ele.style.left = `${movement}px`;
+
             if (instinct === 0) {
                 ele.style.left = `${i * 100 - 100}%`;
             } else if (instinct === 1) {
@@ -142,22 +141,6 @@ const Home_carousel = () => {
     useEffect(() => {
         used.push(array[last]);
 
-        // let ti = window.getComputedStyle(col2).width;
-        // let ar = Array.from(ti);
-        // ar.pop();
-        // ar.pop();
-        // ar = ar.join("");
-        // ar = Number(ar);
-        // tr = ar;
-
-        // console.log(ar, "the value of ar is");
-        // col2.style.left = `${ar}px`;
-        // col3.style.left = `${ar * 2}px`;
-        // col4.style.left = `${ar * 3}px`;
-        // col2.style.left = `100%`;
-        // col3.style.left = `200%`;
-        // col4.style.left = `300%`;
-
         setInterval(async () => {
             await func();
             last = (last + 1) % 8;
@@ -170,6 +153,7 @@ const Home_carousel = () => {
         let col2 = document.getElementById("col_2");
         let col3 = document.getElementById("col_3");
         let col4 = document.getElementById("col_4");
+
         if (window.innerWidth >= 576) {
             let ti = window.getComputedStyle(col2).width;
             let ar = Array.from(ti);
@@ -195,6 +179,7 @@ const Home_carousel = () => {
     window.addEventListener("resize", function (e) {
         let i = document.getElementById("kiran");
         let trans = Array.from(i.childNodes);
+
         if (window.innerWidth >= 576 && instinct != 1) {
             trans.forEach((ele, i) => {
                 let ti = window.getComputedStyle(ele).width;
@@ -218,7 +203,7 @@ const Home_carousel = () => {
     // ===================================
 
     return (
-        <div className="home_carousel">
+        <div className={style.home_carousel}>
             <Container fluid className="mx-0">
                 <Row id="kiran" className={style.main_carousel}>
                     <Col sm={3} className={style.col1}>
