@@ -47,8 +47,8 @@ function NavBar() {
 
                 </Nav.Link>
                 <div className="_navIcon">
-                <span className="_navIcons"><InstagramIcon style={{color: "#7b877c",size:.5}}/></span>
-                <span className="_navIcons"><FacebookIcon style={{color: "#7b877c",size:.5}}/></span>
+                <span className="_navIcons" ><a href=" http://instagram.com/ujjawalmittal55/" target="_blank"><InstagramIcon style={{color: "#7b877c",size:.5}}/></a></span>
+                <span className="_navIcons"><a href=" http://facebook.com" target="_blank"><FacebookIcon style={{color: "#7b877c",size:.5}}/></a></span>
                 </div>
                
             </Nav>

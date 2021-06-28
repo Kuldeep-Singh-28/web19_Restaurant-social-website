@@ -52,9 +52,13 @@
     -webkit-animation: scroll 40s linear infinite;
             animation: scroll 40s linear infinite;
     display: flex;
-    width: calc(250px * 6);
+    width: calc(250px * 4);
   }
   .slider .slide {
     height: 100px;
     width: 250px;
   } 
+  ._image{
+    height: 100px;
+    width: 100px;
+  }

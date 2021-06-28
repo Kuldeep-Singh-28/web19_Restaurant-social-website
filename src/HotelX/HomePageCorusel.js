@@ -1,6 +1,7 @@
 import React from 'react'
 import './styles/HomePageCorusel.css'
 function HomePageCorusel() {
+	
     return (
         <div>
             <div class="slider">

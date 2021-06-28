@@ -1,23 +1,34 @@
 .Starters {
     margin-top: 2rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
+    height:450px;
+    width:550px
 }
 
-.Main_course {
-    margin-bottom: 2.5rem;
+.Main_course {  
+    margin-bottom: 1.5rem;
+    height:450px;
+    width:550px
 }
 
 .Dessert {
-    margin-bottom: 2.5rem;
+    height:450px;
+    width:550px;    
+    margin-bottom: 1.5rem;
 }
 
 .img_container {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
     top: 0;
     left: 0;
     z-index: -1;
     background-size: cover;
-    background-image: url(./test2.jpg);
+    
+}
+.menu_container{
+    background-image: url("./test2.jpg");
+}
+._container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

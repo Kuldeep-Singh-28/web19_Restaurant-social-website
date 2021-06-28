@@ -7,8 +7,8 @@ import Style from "./styles/Menu.module.css";
 const Menu = () => {
     return (
         <div className={Style.menu_container}>
-            <div className={Style.img_container}></div>
-            <Container fluid>
+            <div className={Style.img_container}>
+            <Container fluid className={Style._container}>
                 <div className={Style.Starters}>
                     <Link to="/starters">
                         <Carousel />
@@ -25,6 +25,8 @@ const Menu = () => {
                     </Link>
                 </div>
             </Container>
+            </div>
+            
         </div>
     );
 };
