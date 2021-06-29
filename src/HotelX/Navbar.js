@@ -1,59 +1,70 @@
 import React from "react";
-import { Link, Redirect,useHistory } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 import "./styles/Navbar.css";
-import InstagramIcon from '@material-ui/icons/Instagram';
-import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from "@material-ui/icons/Instagram";
+import FacebookIcon from "@material-ui/icons/Facebook";
 import firebase from "firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { user } from "./Auth";
 const auth = firebase.auth();
+
+//===================================
 function SignOut() {
     const [user] = useAuthState(auth);
-   
-    
     return (
         auth.currentUser && (
             <div>
                 <span className="sign-out" onClick={() => auth.signOut()}>
-                    Sign Out
+                    SIGN OUT
                 </span>
-                <span className="mx-3"></span>
             </div>
         )
     );
 }
+//=====================================
+
 function NavBar() {
- 
     const [user] = useAuthState(auth);
     return (
-        <div className="Nav" className="n1">
-            <img src="/logo.jpg" className="_logo" />
-            <Nav className="mr-auto" className="n">
-                <Nav.Link href="/" className="n2">
-                    Home
-                </Nav.Link>
-                <Nav.Link href="#features" className="n2">
-                    Features
-                </Nav.Link>
-                <Nav.Link href="/menu" className="n2">
-                    Menu
-                </Nav.Link>
-                <Nav.Link href="/login" className="n2">
-                    {user ? <SignOut /> : <span>login</span>}
-                </Nav.Link>
-                <Nav.Link href="/login" className="n2">
-                    {user ? <div> welcome {user.displayName}</div>: <span></span>}
-
-                </Nav.Link>
-                <div className="_navIcon">
-                <span className="_navIcons" ><a href=" http://instagram.com/ujjawalmittal55/" target="_blank"><InstagramIcon style={{color: "#7b877c",size:.5}}/></a></span>
-                <span className="_navIcons"><a href=" http://facebook.com" target="_blank"><FacebookIcon style={{color: "#7b877c",size:.5}}/></a></span>
-                </div>
-               
-            </Nav>
-            
-        </div>
+        <Navbar fixed="top" expand="lg" className="navbar2">
+            <Navbar.Brand href="/">
+                <img src="/logo.jpg" className="_logo" />
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="n" style={{ alignItems: `center` }}>
+                    <Nav.Link href="/" className="n2">
+                        HOME
+                    </Nav.Link>
+                    <Nav.Link href="/menu" className="n2">
+                        MENU
+                    </Nav.Link>
+                    <Nav.Link href="/login" className="n2" id="left">
+                        {user ? <SignOut /> : <span>LOGIN</span>}
+                    </Nav.Link>
+                    <Nav.Link href="/login" className="n2" id="right">
+                        {user ? (
+                            <div> WELCOME {user.displayName}</div>
+                        ) : (
+                            <span></span>
+                        )}
+                    </Nav.Link>
+                    <div className="_navIcon">
+                        <span className="_navIcons">
+                            <InstagramIcon
+                                style={{ color: "#7b877c", size: 0.5 }}
+                            />
+                        </span>
+                        <span className="_navIcons">
+                            <FacebookIcon
+                                style={{ color: "#7b877c", size: 0.5 }}
+                            />
+                        </span>
+                    </div>
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
     );
 }
 

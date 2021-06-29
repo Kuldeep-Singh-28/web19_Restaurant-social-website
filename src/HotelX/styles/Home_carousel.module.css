@@ -1,8 +1,13 @@
+.home_carousel {
+    margin-top: 15vh !important;
+}
+
 .main_carousel {
     height: 75vh;
     margin-top: 0;
     margin-bottom: 2rem;
     flex-wrap: nowrap !important;
+    box-shadow: 0 1rem 7rem rgba(0, 0, 0, 0.35) !important;
     overflow-x: hidden;
     position: relative;
 }
@@ -10,6 +15,7 @@
 .col1 {
     border-right: 1px solid black;
     border-bottom: 1px solid black;
+    border-top: 1px solid black;
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
         url("../images/food2.jpg");
     background-size: cover;
@@ -26,6 +32,7 @@
 .col2 {
     border-right: 1px solid black;
     border-bottom: 1px solid black;
+    border-top: 1px solid black;
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.33)),
         url("../images/food3.jpg");
     background-size: cover;
@@ -42,6 +49,7 @@
 .col3 {
     border-right: 1px solid black;
     border-bottom: 1px solid black;
+    border-top: 1px solid black;
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.33)),
         url("../images/s.jpg");
     background-size: cover;
@@ -58,6 +66,7 @@
 .col4 {
     border-right: 1px solid black;
     border-bottom: 1px solid black;
+    border-top: 1px solid black;
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.33)),
         url("../images/shaun_meintjes.jpg");
     background-size: cover;
@@ -75,6 +84,7 @@
 .col5 {
     border-right: 1px solid black;
     border-bottom: 1px solid black;
+    border-top: 1px solid black;
     transition: all 1s linear;
     min-width: 337.25px;
     position: absolute;
