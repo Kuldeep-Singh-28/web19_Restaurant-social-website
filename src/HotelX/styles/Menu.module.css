@@ -1,20 +1,27 @@
+
 .Starters {
     margin-top: 2rem;
     margin-bottom: 1.5rem;
-    height:450px;
-    width:550px
+    width: 600px;
+    border: 1px solid #232526;
+    
 }
 
 .Main_course {  
     margin-bottom: 1.5rem;
-    height:450px;
-    width:550px
+    width: 600px;
+    border: 1px solid #232526;
+    
 }
-
+._content{
+    margin-top:10px;
+    border: 1px solid black;
+}
 .Dessert {
-    height:450px;
-    width:550px;    
+   
     margin-bottom: 1.5rem;
+    width: 600px;
+    border: 1px solid #232526;  
 }
 
 .img_container {
@@ -24,11 +31,4 @@
     background-size: cover;
     
 }
-.menu_container{
-    background-image: url("./test2.jpg");
-}
-._container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+

@@ -14,12 +14,12 @@ function ControlledCarousel() {
     };
 
     return (
-        <Carousel activeIndex={index} onSelect={handleSelect}>
+        <Carousel activeIndex={index} onSelect={handleSelect} >
             <Carousel.Item>
                 <img
                     className="d-block w-100"
                     style={w}
-                    src="./test1.jpg"
+                    src="./food2.jpg"
                     alt="First slide"
                 />
                 <Carousel.Caption>
@@ -33,7 +33,7 @@ function ControlledCarousel() {
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src="./test1.jpg"
+                    src="./food3.jpg"
                     style={w}
                     alt="Second slide"
                 />
