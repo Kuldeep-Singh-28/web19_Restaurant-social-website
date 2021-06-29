@@ -25,7 +25,7 @@ function Hotel() {
                 <Container fluid={true} className="px-0">
                     <Container
                         className="navbarx mx-0 px-0 w-100"
-                        style={{ maxWidth: "100vw" }}
+                        style={{ maxWidth: "100vw" }} 
                     >
                         <Router>
                             <Navbar />

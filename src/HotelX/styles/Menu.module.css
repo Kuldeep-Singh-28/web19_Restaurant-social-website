@@ -2,25 +2,33 @@
 .Starters {
     margin-top: 2rem;
     margin-bottom: 1.5rem;
-    width: 600px;
+    height : min(319px,71vw);
     border: 1px solid #232526;
-    
 }
 
 .Main_course {  
+    margin-top: 2rem;
     margin-bottom: 1.5rem;
-    width: 600px;
+    height: min(319px,71vw);
     border: 1px solid #232526;
     
 }
-._content{
-    margin-top:10px;
-    border: 1px solid black;
+.content{
+    margin-top:2rem;
 }
+
+.row {
+    border-radius: 1rem;
+    margin: 30px;
+}
+
+.row:hover {
+    box-shadow: 0rem 0rem 9rem rgba(0,0,0,0.48);
+}
+
 .Dessert {
-   
     margin-bottom: 1.5rem;
-    width: 600px;
+    height: min(319px,71vw);
     border: 1px solid #232526;  
 }
 
@@ -29,6 +37,5 @@
     left: 0;
     z-index: -1;
     background-size: cover;
-    
 }
 

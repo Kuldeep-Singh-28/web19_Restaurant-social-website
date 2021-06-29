@@ -9,12 +9,12 @@ function ControlledCarousel() {
     };
 
     const w = {
-        height: "40vh",
+        height: "min(319px,71vw)",
         objectFit: "cover",
     };
 
     return (
-        <Carousel activeIndex={index} onSelect={handleSelect} >
+        <Carousel activeIndex={index} onSelect={handleSelect} style={{height:`100%`}} >
             <Carousel.Item>
                 <img
                     className="d-block w-100"

@@ -5,8 +5,13 @@
 
 .navbar2 {
     backdrop-filter: blur(4px);
-    box-shadow: 0 1rem 7rem rgba(0, 0, 0, 0.35) !important;
+    transition: box-shadow 0.1s linear;
+    box-shadow: 0 1rem 7rem rgba(0, 0, 0, 0.15) !important;
     background-color: rgba(255, 255, 255, 0.88);
+}
+
+.navbar2:hover {
+    box-shadow: 0 1rem 7rem rgba(0, 0, 0, 0.35) !important;
 }
 
 .sign-out {
@@ -59,7 +64,7 @@
     margin-right: 1rem;
 }
 ._navIcons:hover {
-    color: black;
+    transform:scale(1.1);
 }
 
 @media (min-width: 992px) {

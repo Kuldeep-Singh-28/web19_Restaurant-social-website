@@ -29,7 +29,7 @@ function NavBar() {
     return (
         <Navbar fixed="top" expand="lg" className="navbar2">
             <Navbar.Brand href="/">
-                <img src="/logo.jpg" className="_logo" />
+                <img src="/newLogo.jpg" className="_logo" />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
