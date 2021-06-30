@@ -2,6 +2,9 @@ import React from "react";
 import { Container, Row,Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Carousel from "./Carousel";
+import Carousel1 from "./McCarousel";
+import Carousel2 from "./Dcarousel";
+import Carousel3 from "./BCarousel";
 import Style from "./styles/Menu.module.css";
 import FormatQuoteRoundedIcon from "@material-ui/icons/FormatQuoteRounded";
 const Menu = () => {
@@ -36,7 +39,7 @@ const Menu = () => {
             
                       <div className={Style.Starters}>
                     <Link to="/main-course">
-                        <Carousel />
+                        <Carousel1/>
                     </Link>
                     
                 </div>
@@ -46,7 +49,7 @@ const Menu = () => {
                     <Col sm={7}>
                         <div className={Style.Main_course}>
                             <Link to="/dessert">
-                                <Carousel />
+                                <Carousel2 />
                             </Link>
                         </div>
                     </Col>
@@ -67,7 +70,7 @@ const Menu = () => {
             
                       <div className={Style.Starters}>
                     <Link to="/bevrages">
-                        <Carousel />
+                        <Carousel3 />
                     </Link>
                     
                 </div>
