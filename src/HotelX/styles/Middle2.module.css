@@ -1,0 +1,57 @@
+.main {
+    height: max(600px, 50vw);
+    border: 1px solid black;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url(../images/middle2.2.jpg);
+    background-size: cover;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Oswald", sans-serif;
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.5s linear;
+}
+
+.main:hover {
+    color: rgba(255, 255, 255);
+}
+.bt2:hover {
+    border-color: #6c757d !important;
+}
+
+.desc {
+    margin-right: 10vw;
+    margin-left: 10vw;
+    margin-bottom: 2rem;
+}
+
+.content {
+    text-align: center;
+}
+
+.heading {
+    color: white;
+    margin-bottom: 2rem;
+}
+
+a {
+    transition: all 1s linear;
+}
+
+a:hover {
+    transform: translateY(-2px);
+}
+
+@media (min-width: 992px) {
+    .desc {
+        margin-right: 25vw;
+        margin-left: 25vw;
+    }
+}
+
+@media (min-width: 576px) {
+    .desc {
+        font-size: larger;
+    }
+}
