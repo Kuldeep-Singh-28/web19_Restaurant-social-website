@@ -8,13 +8,19 @@ function Middle1() {
             <Container fluid>
                 <Row className={Style.row}>
                     <Col className={Style.col1}>
-                        <a href="/menu">VIEW OUR MENU</a>
+                        <a className={Style.atag} href="/menu">
+                            VIEW OUR MENU
+                        </a>
                     </Col>
                     <Col className={Style.col2}>
-                        <a href="#">LOCATE US</a>
+                        <a className={Style.atag} href="#">
+                            LOCATE US
+                        </a>
                     </Col>
-                    <Col className={Style.col3}>
-                        <a href="/menu">ORDER ONLINE</a>
+                    <Col className={Style.col3} style={{ marginRight: `0` }}>
+                        <a className={Style.atag} href="/menu">
+                            ORDER ONLINE
+                        </a>
                     </Col>
                 </Row>
             </Container>
