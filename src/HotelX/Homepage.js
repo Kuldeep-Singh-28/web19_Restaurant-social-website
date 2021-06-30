@@ -6,6 +6,7 @@ import StarHalfIcon from "@material-ui/icons/StarHalf";
 import Home_carousel from "./Home_carousel";
 import "./styles/hotel.css";
 import StarIcon from "@material-ui/icons/Star";
+import Middle1 from "./Middle1";
 
 function ControlledCarousel() {
     const [index, setIndex] = useState(0);
@@ -102,7 +103,7 @@ function Homepage() {
         <div>
             <Home_carousel />
             <Container className="navbarx" fluid={true}>
-                <Row className="mb-4 mt-2" style={{ minHeight: "41vh" }}>
+                <Row className="mb-2 mt-2" style={{ minHeight: "41vh" }}>
                     <Col sm={5} className="mb-3" style={{ minHeight: "41vh" }}>
                         <ReactPlayer
                             className="react-player"
@@ -115,12 +116,7 @@ function Homepage() {
                         <ControlledCarousel />
                     </Col>
                 </Row>
-
-                <Row className="navbarx">
-                    <div className="_statement mx-5">
-                        afmhelafa;nfa afjnkanfaoh
-                    </div>
-                </Row>
+                <Middle1 />
             </Container>
         </div>
     );
