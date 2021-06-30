@@ -7,6 +7,7 @@ import Home_carousel from "./Home_carousel";
 import "./styles/hotel.css";
 import StarIcon from "@material-ui/icons/Star";
 import Middle1 from "./Middle1";
+import Middle2 from "./Middle2";
 
 function ControlledCarousel() {
     const [index, setIndex] = useState(0);
@@ -103,8 +104,21 @@ function Homepage() {
         <div>
             <Home_carousel />
             <Container className="navbarx" fluid={true}>
-                <Row className="mb-2 mt-2" style={{ minHeight: "41vh" }}>
-                    <Col sm={5} className="mb-3" style={{ minHeight: "41vh" }}>
+                <Row
+                    className="mb-2 mt-2"
+                    style={{
+                        minHeight: "41vh",
+                        backgroundColor: `blanchedalmond`,
+                    }}
+                >
+                    <Col
+                        sm={5}
+                        style={{
+                            minHeight: "41vh",
+                            marginTop: `2rem`,
+                            marginBottom: `2rem`,
+                        }}
+                    >
                         <ReactPlayer
                             className="react-player"
                             url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
@@ -112,10 +126,15 @@ function Homepage() {
                             height="100%"
                         />
                     </Col>
-                    <Col sm={7}>
+                    <Col
+                        id="temp2"
+                        sm={7}
+                        style={{ marginTop: `2rem`, marginBottom: `2rem` }}
+                    >
                         <ControlledCarousel />
                     </Col>
                 </Row>
+                <Middle2 />
                 <Middle1 />
             </Container>
         </div>
