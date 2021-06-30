@@ -7,64 +7,55 @@ const Home_carousel = () => {
         {
             name: "Dal Khichdi",
             price: 23,
-            desc:
-                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
+            desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./food2.jpg",
         },
         {
             name: "Dal Khichdi",
             price: 34,
-            desc:
-                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
+            desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./food3.jpg",
         },
         {
             name: "Dal Khichdi",
             price: 34,
-            desc:
-                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
+            desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./s.jpg",
         },
         {
             name: "Dal Khichdi",
             price: 30,
-            desc:
-                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
+            desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./images/shaun_meintjes.jpg",
         },
         {
             name: "Dal Khichdi",
             price: 98,
-            desc:
-                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
+            desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./judith-girard-marczak-26Tp__tUAWc-unsplash.jpg",
         },
         {
             name: "Dal Khichdi",
             price: 25,
-            desc:
-                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
+            desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./food3.jpg",
         },
         {
             name: "Dal Khichdi",
             price: 45,
-            desc:
-                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
+            desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./food2.jpg",
         },
         {
             name: "Dal Khichdi",
             price: 63,
-            desc:
-                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
+            desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./statement.jpg",
         },
         {
             name: "Dal Khichdi",
             price: 71,
-            desc:
-                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
+            desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./s.jpg",
         },
     ];
@@ -91,7 +82,7 @@ const Home_carousel = () => {
             let arr = Math.max(337.25, ar);
             temp.style.left = `${arr * 4}px`;
         }
-        temp.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.33)),url(${used[0].img})`;
+        temp.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)),url(${used[0].img})`;
         temp.style.backgroundSize = `cover`;
         temp.innerHTML = `
             <div class=${style.innertext}>
@@ -203,36 +194,38 @@ const Home_carousel = () => {
     // ===================================
 
     return (
-        <div className={style.home_carousel}>
-            <Container fluid className="mx-0">
-                <Row id="kiran" className={style.main_carousel}>
-                    <Col sm={3} className={style.col1}>
-                        <div className={style.innertext}>
-                            <h1>{array[0].name}</h1>
-                            <h3>{array[0].price}</h3>
-                        </div>
-                    </Col>
-                    <Col id="col_2" sm={3} className={style.col2}>
-                        <div className={style.innertext}>
-                            <h1>{array[1].name}</h1>
-                            <h3>{array[1].price}</h3>
-                        </div>
-                    </Col>
-                    <Col id="col_3" sm={3} className={style.col3}>
-                        <div className={style.innertext}>
-                            <h1>{array[2].name}</h1>
-                            <h3>{array[2].price}</h3>
-                        </div>
-                    </Col>
-                    <Col id="col_4" sm={3} className={style.col4}>
-                        <div className={style.innertext}>
-                            <h1>{array[3].name}</h1>
-                            <h3>{array[3].price}</h3>
-                        </div>
-                    </Col>
-                </Row>
-            </Container>
-        </div>
+        <a href="/menu">
+            <div className={style.home_carousel}>
+                <Container fluid className="mx-0">
+                    <Row id="kiran" className={style.main_carousel}>
+                        <Col sm={3} className={style.col1}>
+                            <div className={style.innertext}>
+                                <h1>{array[0].name}</h1>
+                                <h3>{array[0].price}</h3>
+                            </div>
+                        </Col>
+                        <Col id="col_2" sm={3} className={style.col2}>
+                            <div className={style.innertext}>
+                                <h1>{array[1].name}</h1>
+                                <h3>{array[1].price}</h3>
+                            </div>
+                        </Col>
+                        <Col id="col_3" sm={3} className={style.col3}>
+                            <div className={style.innertext}>
+                                <h1>{array[2].name}</h1>
+                                <h3>{array[2].price}</h3>
+                            </div>
+                        </Col>
+                        <Col id="col_4" sm={3} className={style.col4}>
+                            <div className={style.innertext}>
+                                <h1>{array[3].name}</h1>
+                                <h3>{array[3].price}</h3>
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
+        </a>
     );
 };
 
