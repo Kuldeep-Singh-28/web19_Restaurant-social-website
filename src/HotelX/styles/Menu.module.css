@@ -1,20 +1,16 @@
-
 .Starters {
     margin-top: 2rem;
     margin-bottom: 1.5rem;
-    height : min(319px,71vw);
-    border: 1px solid #232526;
+    height: min(319px, 71vw);
 }
 
-.Main_course {  
+.Main_course {
     margin-top: 2rem;
     margin-bottom: 1.5rem;
-    height: min(319px,71vw);
-    border: 1px solid #232526;
-    
+    height: min(319px, 71vw);
 }
-.content{
-    margin-top:2rem;
+.content {
+    margin-top: 2rem;
 }
 
 .row {
@@ -23,13 +19,12 @@
 }
 
 .row:hover {
-    box-shadow: 0rem 0rem 9rem rgba(0,0,0,0.48);
+    box-shadow: 0rem 0rem 9rem rgba(0, 0, 0, 0.48);
 }
 
 .Dessert {
     margin-bottom: 1.5rem;
-    height: min(319px,71vw);
-    border: 1px solid #232526;  
+    height: min(319px, 71vw);
 }
 
 .img_container {
@@ -38,4 +33,3 @@
     z-index: -1;
     background-size: cover;
 }
-
