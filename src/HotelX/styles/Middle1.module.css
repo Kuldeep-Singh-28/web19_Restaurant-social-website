@@ -15,11 +15,11 @@
     color: white !important;
 }
 
-a {
+.atag {
     color: white !important;
     text-decoration: none;
 }
-a:hover {
+.atag:hover {
     text-decoration: none !important;
 }
 
