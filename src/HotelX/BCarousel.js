@@ -29,6 +29,7 @@ function ControlledCarousel() {
     const w = {
         height: "min(319px,71vw)",
         objectFit: "cover",
+        filter: `none`,
     };
 
     return (
@@ -46,10 +47,6 @@ function ControlledCarousel() {
                 />
                 <Carousel.Caption>
                     <h3>First slide label</h3>
-                    <p>
-                        Nulla vitae elit libero, a pharetra augue mollis
-                        interdum.
-                    </p>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -62,10 +59,6 @@ function ControlledCarousel() {
 
                 <Carousel.Caption>
                     <h3>Second slide label</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elite.
-                    </p>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -78,10 +71,6 @@ function ControlledCarousel() {
 
                 <Carousel.Caption>
                     <h3>Third slide label</h3>
-                    <p>
-                        Praesent commodo cursus magna, vel scelerisque nisl
-                        consectetur.
-                    </p>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>
