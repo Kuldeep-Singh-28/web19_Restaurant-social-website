@@ -8,7 +8,7 @@ function ControlledCarousel() {
         var storageRef = storage.ref("images");
         const fetchImages = async () => {
             
-        let result = await storageRef.child('Starters').listAll();
+        let result = await storageRef.child('Beverages').listAll();
             let urlPromises = result.items.map(imageRef => imageRef.getDownloadURL());
         
             return Promise.all(urlPromises);
