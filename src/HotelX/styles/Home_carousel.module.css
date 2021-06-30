@@ -1,11 +1,11 @@
 .home_carousel {
-    margin-top: 15vh !important;
+    margin-top: 12vh !important;
 }
 
 .main_carousel {
-    height: 75vh;
+    height: 85vh;
     margin-top: 0;
-    margin-bottom: 2rem;
+    cursor: pointer;
     flex-wrap: nowrap !important;
     overflow-x: hidden;
     position: relative;
@@ -15,7 +15,7 @@
     border-right: 1px solid black;
     border-bottom: 1px solid black;
     border-top: 1px solid black;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
         url("../images/food2.jpg");
     background-size: cover;
     transition: all 1s linear;
@@ -32,7 +32,7 @@
     border-right: 1px solid black;
     border-bottom: 1px solid black;
     border-top: 1px solid black;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.33)),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)),
         url("../images/food3.jpg");
     background-size: cover;
     transition: all 1s linear;
@@ -49,7 +49,7 @@
     border-right: 1px solid black;
     border-bottom: 1px solid black;
     border-top: 1px solid black;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.33)),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)),
         url("../images/s.jpg");
     background-size: cover;
     transition: all 1s linear;
@@ -66,7 +66,7 @@
     border-right: 1px solid black;
     border-bottom: 1px solid black;
     border-top: 1px solid black;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.33)),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)),
         url("../images/shaun_meintjes.jpg");
     background-size: cover;
     transition: all 1s linear;
@@ -104,6 +104,13 @@
     font-family: "Kaushan Script", cursive;
     color: rgba(255, 255, 255, 0.95);
     height: 100%;
-    backdrop-filter: blur(3px);
+    /* backdrop-filter: blur(3px); */
+    transition: all 0.5s linear;
     z-index: 3;
+}
+
+.innertext:hover {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3px);
 }
