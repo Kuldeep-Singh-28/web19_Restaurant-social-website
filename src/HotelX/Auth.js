@@ -2,9 +2,8 @@ import React from "react";
 import { provider } from "./firebase";
 import firebase from "firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import db from "./firebase";
 import Homepage from "./Homepage"
-import Hotel from "./Hotel";
+import "./styles/auth.css"
 const auth = firebase.auth();
 function Auth() {
     const [user] = useAuthState(auth);
@@ -26,6 +25,7 @@ function Auth() {
                 var credential = error.credential;
             });
     };
+    console.log(user);
     function SignIn() {
         return (
             <button onClick={(e) => signup(e)} className="SignInButt">
@@ -34,7 +34,8 @@ function Auth() {
         );
     }
     return (
-        <div>
+        <div className="_auth">
+            
             {user ?<Homepage/> : <SignIn/>}
         </div>
     );

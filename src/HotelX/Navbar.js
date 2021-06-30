@@ -93,12 +93,12 @@ function NavBar() {
                     )}
                     <div className="_navIcon">
                         <span className="_navIcons">
-                            <InstagramIcon
+                            <a href="http://instagram.com/ujjawalmittal55" target="_blank"><InstagramIcon 
                                 style={{ color: "#7b877c", size: 0.5 }}
-                            />
+                            /> </a>
                         </span>
                         <span className="_navIcons">
-                            <FacebookIcon
+                          <a href="http://facebook.com" target="_blank"> </a>  <FacebookIcon
                                 style={{ color: "#7b877c", size: 0.5 }}
                             />
                         </span>

@@ -1,10 +1,26 @@
 .Starters {
+    filter: none;
     margin-top: 2rem;
     margin-bottom: 1.5rem;
     height: min(319px, 71vw);
 }
 
 .Main_course {
+    filter: none;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    height: min(319px, 71vw);
+    border: 1px solid #232526;
+}
+.Desserts {
+    filter: none;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    height: min(319px, 71vw);
+    border: 1px solid #232526;
+}
+.bevrages {
+    filter: none;
     margin-top: 2rem;
     margin-bottom: 1.5rem;
     height: min(319px, 71vw);
