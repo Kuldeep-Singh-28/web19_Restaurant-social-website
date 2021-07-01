@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <style>
+    .mt{
+      font-family: 'Cinzel', serif;
+    }
+    .input-container {
+        display: flex;
+        width: 100%;
+        margin-bottom: 15px;
+        margin-top:20px;
+      }
+      
+      /* Style the form icons */
+      .icon {
+        margin-top:0px;
+        padding: 15px;
+        background: dodgerblue;
+        color: white;
+        min-width: 50px;
+        text-align: center;
+      }
+
+      /* Style the input fields */
+      .input-field {
+        width: 100%;
+        padding: 10px;
+        outline: none;
+      }
+    .md{
+      background-image: url('../static/img/bglogin.jpg'); 
+      background-repeat: no-repeat;
+      background-size:500px 580px;
+      
+    }
+    .mb{
+      font-family: 'Ubuntu', sans-serif;
+    }
+        .modal-title {
+            margin-left: 200px;
+        }
+        
+        .lgimg {
+            height: 60px;
+            width: 60px;
+            margin-left: 200px;
+        }
+        .or{
+          margin-left: 220px;
+        }
+        .gl{
+          height:45px;
+          margin-top:20px;
+          width:400px;
+          background-color:#ff471a;
+          border-radius:10px;
+        }
+        .gl2{
+          color:white;
+          margin-left:95px;
+        }
+        
+        .lb{
+          width:200px;
+          margin-right: 120px;
+          border-radius:10px;
+          {% comment %} background: dodgerblue; {% endcomment %}
+          background-color:#005c99;
+        }
+    </style>
+    <title>Todos List</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">TODO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">Task</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/card">card</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Login
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content md">
+                <div class="modal-header">
+                    <h3 class="modal-title mt" id="exampleModalLabel">LOGIN</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body mb">
+                    <img class="lgimg" src="../static/img/ic2.jpg" alt="">
+                    <div class="input-container">
+                    <i class="fa fa-user icon"></i>
+                    <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" placeholder="Name" required>
+                    </div>
+                    <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Email" name="email">
+                    </div>
+                    
+
+                    <div class="input-container">
+                      <i class="fa fa-key icon"></i>
+                      <input class="input-field" type="password" placeholder="Password" name="psw">
+                    </div>
+                    <div class="or">Or</div>
+                    <div class="container gl">
+                    <a href="#" class="google btn gl2 py-2">
+                      <i class="fa fa-google fa-fw"></i> Login with Google
+                    </a>
+                    </div>
+                <br>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary lb">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

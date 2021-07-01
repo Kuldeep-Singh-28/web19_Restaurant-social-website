@@ -1,10 +1,10 @@
 .footer {
-    color: white;
+    color: yellow;
     background-color: black;
     margin-top: 2.5rem;
-    font-family: "Open Sans Condensed", sans-serif;
     font-size: 15px;
     font-weight: 600;
+    font-family: "Ubuntu", sans-serif;
     text-transform: uppercase;
     min-height: 45vh;
     display: flex;
@@ -13,15 +13,26 @@
     line-height: 1.9rem;
 }
 
-li a {
-    color: rgb(228, 225, 225);
+.hd {
+    font-family: "Cinzel", serif;
 }
+
+.bd {
+    font-family: "Ubuntu", sans-serif;
+    color: green;
+}
+
+.lb {
+    color: green;
+}
+
 li a:link {
+    color: green;
     text-decoration: none;
 }
 
 li a:hover {
-    color: white;
+    color: green;
 }
 
 ul {
