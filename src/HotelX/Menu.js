@@ -6,7 +6,6 @@ import Carousel1 from "./McCarousel";
 import Carousel2 from "./Dcarousel";
 import Carousel3 from "./BCarousel";
 import Style from "./styles/Menu.module.css";
-import FormatQuoteRoundedIcon from "@material-ui/icons/FormatQuoteRounded";
 const Menu = () => {
     return (
         <div className={Style.menu_container}>
@@ -37,7 +36,7 @@ const Menu = () => {
                 
                 <Col sm={7}>
             
-                      <div className={Style.Starters}>
+                      <div className={Style.Main_course}>
                     <Link to="/main-course">
                         <Carousel1/>
                     </Link>
@@ -47,7 +46,7 @@ const Menu = () => {
                   </Row>  
                 <Row className={Style.row}>
                     <Col sm={7}>
-                        <div className={Style.Main_course}>
+                        <div className={Style.Desserts}>
                             <Link to="/dessert">
                                 <Carousel2 />
                             </Link>
@@ -68,7 +67,7 @@ const Menu = () => {
                 
                 <Col sm={7}>
             
-                      <div className={Style.Starters}>
+                      <div className={Style.bevrages}>
                     <Link to="/bevrages">
                         <Carousel3 />
                     </Link>

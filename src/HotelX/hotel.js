@@ -1,8 +1,4 @@
 import React, { useEffect } from "react";
-import db, { provider, storage } from "./firebase";
-import firebase from "firebase";
-import Card from "./Card";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { Container, Row, Col } from "react-bootstrap";
 import {
     BrowserRouter as Router,
@@ -15,9 +11,8 @@ import Homepage from "./Homepage";
 import Menu from "./Menu";
 import Auth from "./Auth";
 import Footer from "./Footer";
-
-const auth = firebase.auth();
-
+import Starters from "./Starters";
+import X from "./X";
 function Hotel() {
     return (
         <div>
@@ -32,6 +27,8 @@ function Hotel() {
                             <Route path="/menu" component={Menu} />
                             <Route exact path="/" component={Homepage} />
                             <Route path="/login" component={Auth} />
+                            <Route path="/starters" component={Starters}/>
+                            <Route path="/x" component={X}/>
                         </Router>
                     </Container>
                 </Container>

@@ -1,0 +1,32 @@
+._starters{
+    margin-top: 120px;
+}
+._imgS{
+    
+    margin-bottom: 25px;
+    margin-top: 8px;
+    border-radius:20px;
+    border: 1px solid #232526;
+    
+}
+._box{
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    /* border: 1px solid #232526; */
+    
+    align-items: center;
+    
+}
+._box:hover {
+    box-shadow: 0rem 0rem 9rem rgba(0,0,0,0.48);
+}
+._typo{
+    margin-left: 20vh;
+}
+._cart{
+    margin-top: 10vh;
+}
+._cart:hover {
+    transform:scale(1.1)
+}
