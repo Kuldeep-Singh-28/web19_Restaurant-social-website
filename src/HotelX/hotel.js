@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import {
-    BrowserRouter as Router,
-    Route,
-    Switch,
-    useParams,
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useParams,
 } from "react-router-dom";
 import Navbar from "./Navbar";
 import Homepage from "./Homepage";
@@ -13,29 +13,30 @@ import Auth from "./Auth";
 import Footer from "./Footer";
 import Starters from "./Starters";
 import X from "./X";
+
 function Hotel() {
-    return (
-        <div>
-            <div>
-                <Container fluid={true} className="px-0">
-                    <Container
-                        className="navbarx mx-0 px-0 w-100"
-                        style={{ maxWidth: "100vw" }} 
-                    >
-                        <Router>
-                            <Navbar />
-                            <Route path="/menu" component={Menu} />
-                            <Route exact path="/" component={Homepage} />
-                            <Route path="/login" component={Auth} />
-                            <Route path="/starters" component={Starters}/>
-                            <Route path="/x" component={X}/>
-                        </Router>
-                    </Container>
-                </Container>
-                <Footer />
-            </div>
-        </div>
-    );
+  return (
+    <div>
+      <div>
+        <Container fluid={true} className="px-0">
+          <Container
+            className="navbarx mx-0 px-0 w-100"
+            style={{ maxWidth: "100vw" }}
+          >
+            <Router>
+              <Navbar />
+              <Route path="/menu" component={Menu} />{" "}
+              <Route exact path="/" component={Homepage} />{" "}
+              <Route path="/login" component={Auth} />{" "}
+              <Route path="/starters" component={Starters} />{" "}
+              <Route path="/x" component={X} />{" "}
+            </Router>{" "}
+          </Container>{" "}
+        </Container>{" "}
+        <Footer />
+      </div>{" "}
+    </div>
+  );
 }
 
 export default Hotel;
