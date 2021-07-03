@@ -8,6 +8,7 @@ import "./styles/hotel.css";
 import StarIcon from "@material-ui/icons/Star";
 import Middle1 from "./Middle1";
 import Middle2 from "./Middle2";
+import Middle3 from "./Middle3";
 
 function ControlledCarousel() {
     const [index, setIndex] = useState(0);
@@ -136,6 +137,7 @@ function Homepage() {
                 </Row>
                 <Middle2 />
                 <Middle1 />
+                <Middle3 />
             </Container>
         </div>
     );
