@@ -11,7 +11,15 @@ const Middle3 = () => {
 						<h1 className={Style.header}>
 							Order in a click <br /> The delivery is on Us
 						</h1>
-						<a href="/menu" className="btn btn-secondary">
+						<a
+							href="/menu"
+							className="btn btn-lg btn-outline-secondary"
+							style={{
+								color: `white`,
+								marginLeft: `15px`,
+								marginTop: `20px`,
+							}}
+						>
 							Order Online
 						</a>
 					</div>
