@@ -73,6 +73,71 @@
     color: rgba(255, 255, 255, 0.8) !important;
 }
 
+.mt {
+    font-family: "Cinzel", serif;
+}
+.input-container {
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+/* Style the form icons */
+.icon {
+    margin-top: 0px;
+    padding: 15px;
+    background: dodgerblue;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+}
+
+/* Style the input fields */
+.input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+}
+.md {
+    background-image: url("../images/canvas.jpeg");
+    background-repeat: no-repeat;
+    background-size: 500px 580px;
+}
+.mb {
+    font-family: "Ubuntu", sans-serif;
+}
+.modal-title {
+    margin-left: 200px;
+}
+
+.lgimg {
+    height: 60px;
+    width: 60px;
+    margin-left: 200px;
+}
+.or {
+    margin-left: 220px;
+}
+.gl {
+    height: 45px;
+    margin-top: 20px;
+    width: 400px;
+    background-color: #ff471a;
+    border-radius: 10px;
+}
+.gl2 {
+    color: white;
+    margin-left: 95px;
+}
+
+.lb {
+    width: 200px;
+    margin-right: 120px;
+    border-radius: 10px;
+    background-color: #005c99;
+}
+
 @media (min-width: 992px) {
     .n {
         position: absolute;
