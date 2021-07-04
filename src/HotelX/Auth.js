@@ -2,8 +2,8 @@ import React from "react";
 import { provider } from "./firebase";
 import firebase from "firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import Homepage from "./Homepage"
-import "./styles/auth.css"
+import Homepage from "./Homepage";
+import "./styles/auth.css";
 const auth = firebase.auth();
 function Auth() {
     const [user] = useAuthState(auth);
@@ -33,12 +33,6 @@ function Auth() {
             </button>
         );
     }
-    return (
-        <div className="_auth">
-            
-            {user ?<Homepage/> : <SignIn/>}
-        </div>
-    );
 }
-export  var user;
+export var user;
 export default Auth;
