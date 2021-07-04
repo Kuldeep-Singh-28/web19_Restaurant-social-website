@@ -4,13 +4,17 @@
     margin-top: 2rem;
     font-size: 14px;
     font-weight: 400;
-    font-family: "Oswald", sans-serif;
+    font-family: "Ubuntu", sans-serif;
     text-transform: uppercase;
     min-height: 45vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
     line-height: 1.9rem;
+}
+
+.ic {
+    margin-right: 5px;
 }
 
 .logo {
@@ -23,12 +27,12 @@
 
 .hd {
     color: #ea6a47;
-    font-family: "Oswald", sans-serif;
+    font-family: "Ubuntu", sans-serif;
 }
 
 .bd {
     color: white;
-    font-family: "Oswald", sans-serif;
+    font-family: "Ubuntu", sans-serif;
 }
 
 .alink {

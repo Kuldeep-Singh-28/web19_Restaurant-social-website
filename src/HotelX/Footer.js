@@ -53,13 +53,19 @@ function Footer() {
             <ul className={Foo_style.ul}>
               <li className={Foo_style.hd}>Follow us</li>
               <li className={Foo_style.bd}>
-                <FacebookIcon style={{ color: `white` }} />
+                <FacebookIcon
+                  className={Foo_style.ic}
+                  style={{ color: `white` }}
+                />
                 <a className={Foo_style.alink} href="#">
                   Facebook
                 </a>
               </li>
               <li className={Foo_style.bd}>
-                <InstagramIcon style={{ color: `white` }} />
+                <InstagramIcon
+                  className={Foo_style.ic}
+                  style={{ color: `white` }}
+                />
                 <a className={Foo_style.alink} href="#">
                   Instagram
                 </a>
