@@ -1,10 +1,10 @@
 .footer {
-    color: yellow;
+    position: relative;
     background-color: black;
-    margin-top: 2.5rem;
-    font-size: 15px;
-    font-weight: 600;
-    font-family: "Ubuntu", sans-serif;
+    margin-top: 2rem;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Oswald", sans-serif;
     text-transform: uppercase;
     min-height: 45vh;
     display: flex;
@@ -13,28 +13,54 @@
     line-height: 1.9rem;
 }
 
+.logo {
+    position: relative;
+    bottom: 12px;
+    max-width: 140px;
+    max-height: 140px;
+    filter: none !important;
+}
+
 .hd {
-    font-family: "Cinzel", serif;
+    color: #ea6a47;
+    font-family: "Oswald", sans-serif;
 }
 
 .bd {
-    font-family: "Ubuntu", sans-serif;
-    color: red;
+    color: white;
+    font-family: "Oswald", sans-serif;
 }
 
-.lb {
-    color: red;
-}
-
-li a:link {
-    color: green;
+.alink {
+    color: white;
     text-decoration: none;
 }
 
-li a:hover {
-    color: green;
+a.alink:hover,
+a.alink:active,
+a.alink:visited,
+a.alink:link {
+    text-decoration: none;
+}
+
+a.alink:hover {
+    color: rgba(255, 255, 255, 0.9) !important;
 }
 
 ul {
     list-style-type: none;
+}
+
+@media (max-width: 575px) {
+    .ul {
+        margin-top: 2rem;
+        padding: 0;
+    }
+    .logo {
+        position: absolute;
+        bottom: 177px;
+        right: 10vw;
+        max-width: 170px;
+        max-height: 170px;
+    }
 }

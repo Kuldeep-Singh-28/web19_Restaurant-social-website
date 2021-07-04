@@ -10,46 +10,64 @@ function Footer() {
       <Container fluid>
         <Row>
           <Col sm={3}>
-            <p>LOGO</p>
-          </Col>
-          <Col sm={3} className="px-1">
-            <ul>
+            <ul className={Foo_style.ul}>
               <li className={Foo_style.hd}>
-                <a href="/">HotelX</a>
+                <a
+                  className={Foo_style.alink}
+                  style={{ color: `#EA6A47` }}
+                  href="/"
+                >
+                  HotelX
+                </a>
               </li>
               <li className={Foo_style.bd}>
-                <a href="#">Home</a>
+                <a className={Foo_style.alink} href="#">
+                  Home
+                </a>
               </li>
               <li className={Foo_style.bd}>
-                <a href="#">Menu</a>
+                <a className={Foo_style.alink} href="#">
+                  Menu
+                </a>
               </li>
               <li className={Foo_style.bd}>
-                <a href="#">My Cart</a>
+                <a className={Foo_style.alink} href="#">
+                  My Cart
+                </a>
               </li>
             </ul>
           </Col>
-          <Col sm={3} className="px-1">
-            <ul>
+          <Col sm={3}>
+            <ul className={Foo_style.ul}>
               <li className={Foo_style.hd}>Our Company</li>
               <li className={Foo_style.bd}>
-                <a href="#">Locate us</a>
+                <a className={Foo_style.alink} href="#">
+                  Locate us
+                </a>
               </li>
               <li className={Foo_style.bd}>Contact Us</li>
               <li className={Foo_style.bd}>Privacy Policy</li>
             </ul>
           </Col>
-          <Col sm={3} className="px-1">
-            <ul>
+          <Col sm={3}>
+            <ul className={Foo_style.ul}>
               <li className={Foo_style.hd}>Follow us</li>
               <li className={Foo_style.bd}>
-                <FacebookIcon color="secondary" className="mx-2" />
-                <a href="#">Facebook</a>
+                <FacebookIcon style={{ color: `white` }} />
+                <a className={Foo_style.alink} href="#">
+                  Facebook
+                </a>
               </li>
               <li className={Foo_style.bd}>
-                <InstagramIcon color="secondary" className="mx-2" />
-                <a href="#">Instagram</a>
+                <InstagramIcon style={{ color: `white` }} />
+                <a className={Foo_style.alink} href="#">
+                  Instagram
+                </a>
               </li>
             </ul>
+          </Col>
+          <Col sm={3}>
+            <img src="/newLogo.png" className={Foo_style.logo} />
           </Col>
         </Row>
       </Container>

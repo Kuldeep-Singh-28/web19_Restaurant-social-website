@@ -12,8 +12,6 @@ import Menu from "./Menu";
 import Auth from "./Auth";
 import Footer from "./Footer";
 import Starters from "./Starters";
-import X from "./X";
-
 function Hotel() {
   return (
     <div>
@@ -25,16 +23,15 @@ function Hotel() {
           >
             <Router>
               <Navbar />
-              <Route path="/menu" component={Menu} />{" "}
-              <Route exact path="/" component={Homepage} />{" "}
-              <Route path="/login" component={Auth} />{" "}
-              <Route path="/starters" component={Starters} />{" "}
-              <Route path="/x" component={X} />{" "}
-            </Router>{" "}
-          </Container>{" "}
-        </Container>{" "}
+              <Route path="/menu" component={Menu} />
+              <Route exact path="/" component={Homepage} />
+              <Route path="/login" component={Auth} />
+              <Route path="/starters" component={Starters} />
+            </Router>
+          </Container>
+        </Container>
         <Footer />
-      </div>{" "}
+      </div>
     </div>
   );
 }
