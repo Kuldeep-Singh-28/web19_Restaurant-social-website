@@ -9,7 +9,10 @@ const Middle3 = () => {
 				<Row>
 					<div className={Style.main_cont}>
 						<h1 className={Style.header}>
-							Order in a click <br /> The delivery is on Us
+							Order in a <br className={Style.small_middle3} />
+							click <br /> The delivery is on{" "}
+							<br className={Style.small_middle3} />
+							Us
 						</h1>
 						<a
 							href="/menu"
