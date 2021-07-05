@@ -1,6 +1,6 @@
-/* .row {
-    height: min(319px, 71vw);
-} */
+.row {
+    margin-top: 0.8rem;
+}
 
 .col1,
 .col2,
