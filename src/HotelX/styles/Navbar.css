@@ -73,69 +73,117 @@
     color: rgba(255, 255, 255, 0.8) !important;
 }
 
-.mt {
-    font-family: "Cinzel", serif;
-}
 .input-container {
     display: flex;
     width: 100%;
     margin-bottom: 15px;
     margin-top: 20px;
-}
-
-/* Style the form icons */
-.icon {
-    margin-top: 0px;
-    padding: 15px;
-    background: dodgerblue;
-    color: white;
-    min-width: 50px;
-    text-align: center;
+    justify-content: center;
 }
 
 /* Style the input fields */
 .input-field {
-    width: 100%;
+    width: 70%;
     padding: 10px;
     outline: none;
-}
-.md {
-    background-image: url("../images/canvas.jpeg");
-    background-repeat: no-repeat;
-    background-size: 500px 580px;
-}
-.mb {
-    font-family: "Ubuntu", sans-serif;
-}
-.modal-title {
-    margin-left: 200px;
+    border-right: 0;
+    border-top: 0;
+    border-left: 0;
+    color: rgba(0, 0, 0);
+    font-size: 18px;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: border-color 0.5s linear;
 }
 
-.lgimg {
-    height: 60px;
-    width: 60px;
-    margin-left: 200px;
-}
-.or {
-    margin-left: 220px;
-}
-.gl {
-    height: 45px;
-    margin-top: 20px;
-    width: 400px;
-    background-color: #ff471a;
-    border-radius: 10px;
-}
-.gl2 {
-    color: white;
-    margin-left: 95px;
+.input-field:hover {
+    border-bottom-color: #162d3d;
 }
 
-.lb {
-    width: 200px;
-    margin-right: 120px;
-    border-radius: 10px;
-    background-color: #005c99;
+.terms {
+    font-size: 14px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.75);
+}
+
+button.close {
+    position: relative;
+    right: 5px;
+}
+
+.modal-header {
+    padding: 0;
+    border: 0;
+}
+
+.container-google {
+    margin-top: 0.8rem;
+    display: flex;
+    justify-content: center;
+}
+
+.login-prompt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Noto Sans TC", sans-serif;
+    color: #162d3d !important;
+}
+
+.header-login {
+    font-weight: 700 !important;
+    font-size: 56px;
+    margin-bottom: 17px;
+}
+
+.login-btn-submit {
+    margin-left: 15%;
+    border-radius: 17px;
+    margin-top: 0.5rem;
+    padding-top: 2px;
+    padding-bottom: 8px;
+    color: #3483ff !important;
+    border-color: #3483ff !important;
+}
+
+.login-btn-submit:hover {
+    color: white !important;
+    background-color: #3483ff !important;
+}
+
+::placeholder {
+    color: #162d3d;
+    opacity: 1;
+}
+
+.divider {
+    width: 63%;
+    opacity: 0.8;
+    background-color: #858f96;
+    margin: 29px 0px;
+    height: 1px;
+    margin-left: 19%;
+    margin-bottom: 21px;
+}
+
+.google-button {
+    border: 1px solid rgba(0, 0, 0, 0.45);
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.google-button:hover {
+    transform: none;
+}
+
+.login-with-google {
+    display: inline-block;
+    height: 100% !important;
+    padding-top: 0.4rem;
+    padding-right: 0.7rem;
 }
 
 @media (min-width: 992px) {
