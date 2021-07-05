@@ -5,6 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import { Navbar, Nav, Form, FormControl, Button, Modal } from "react-bootstrap";
 import "./styles/Navbar.css";
+import Google_svg from "./Google_svg";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import FacebookIcon from "@material-ui/icons/Facebook";
 // import { user } from "./Auth";
@@ -154,59 +155,73 @@ function NavBar() {
             </Navbar>
 
             <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>LOGIN</Modal.Title>
-                </Modal.Header>
+                <Modal.Header closeButton></Modal.Header>
                 <Modal.Body>
-                    <img className="lgimg" src="./images/canvas.jpeg" alt="" />
-                    <div className="input-container">
-                        <i className="fa fa-user icon"></i>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="name"
-                            name="name"
-                            aria-describedby="emailHelp"
-                            placeholder="Name"
-                            required
-                        />
+                    <div className="login-prompt">
+                        <h1
+                            style={{ color: `#20303c` }}
+                            className="header-login"
+                        >
+                            Log In
+                        </h1>
+                        <br />
+                        <div>
+                            Don't have an account?{" "}
+                            <span
+                                style={{ color: `#3483ff`, cursor: `pointer` }}
+                            >
+                                Sign up
+                            </span>
+                        </div>
+                    </div>
+                    <div className="container-google">
+                        <a
+                            href="#"
+                            onClick={(e) => signup(e)}
+                            className="btn btn-outline-secondary google-button"
+                        >
+                            <Google_svg />
+                            <div className="login-with-google">
+                                Login with Google
+                            </div>
+                        </a>
                     </div>
                     <div className="input-container">
-                        <i className="fa fa-envelope icon"></i>
                         <input
                             className="input-field"
                             type="text"
                             placeholder="Email"
                             name="email"
+                            style={{ color: `black` }}
                         />
                     </div>
 
                     <div className="input-container">
-                        <i className="fa fa-key icon"></i>
                         <input
                             className="input-field"
                             type="password"
                             placeholder="Password"
                             name="psw"
+                            style={{ color: `black` }}
                         />
                     </div>
-                    <div className="or">Or</div>
-                    <div className="container gl">
-                        <a
-                            href="#"
-                            onClick={(e) => signup(e)}
-                            className="google btn gl2 py-2"
-                        >
-                            <i className="fa fa-google fa-fw"></i> Login with
-                            Google
-                        </a>
+                    <Button
+                        variant="outline-primary"
+                        className="login-btn-submit"
+                        onClick={handleClose}
+                    >
+                        Log In
+                    </Button>
+                    <div className="divider"></div>
+                    <div className="terms">
+                        * By logging in, you agree to our{" "}
+                        <span style={{ color: `#3483ff` }}>Terms of Use</span>{" "}
+                        and to receive HotelX emails & updates and acknowledge
+                        that you read our{" "}
+                        <span style={{ color: `#3483ff` }}>Privacy Policy</span>
+                        .
                     </div>
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Submit
-                    </Button>
-                </Modal.Footer>
             </Modal>
         </div>
     );
