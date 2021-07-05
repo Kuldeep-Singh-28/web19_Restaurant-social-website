@@ -2,9 +2,9 @@
     position: relative;
     background-color: black;
     margin-top: 2rem;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 400;
-    font-family: "Ubuntu", sans-serif;
+    font-family: "Oswald", sans-serif;
     text-transform: uppercase;
     min-height: 45vh;
     display: flex;
@@ -27,12 +27,12 @@
 
 .hd {
     color: #ea6a47;
-    font-family: "Ubuntu", sans-serif;
+    font-family: "Oswald", sans-serif;
 }
 
 .bd {
     color: white;
-    font-family: "Ubuntu", sans-serif;
+    font-family: "Oswald", sans-serif;
 }
 
 .alink {
