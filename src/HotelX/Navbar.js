@@ -29,9 +29,23 @@ function SignOut() {
 function NavBar() {
     const [user] = useAuthState(auth);
     const [show, setShow] = useState(false);
+    const [show2, setShow2] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const handleClose2 = () => setShow2(false);
+    const handleShow2 = () => setShow2(true);
+
+    const dualEvent = () => {
+        handleClose();
+        handleShow2();
+    };
+
+    const dualEvent2 = () => {
+        handleClose2();
+        handleShow();
+    };
 
     let instinct2;
 
@@ -168,6 +182,7 @@ function NavBar() {
                         <div>
                             Don't have an account?{" "}
                             <span
+                                onClick={dualEvent}
                                 style={{ color: `#3483ff`, cursor: `pointer` }}
                             >
                                 Sign up
@@ -177,7 +192,10 @@ function NavBar() {
                     <div className="container-google">
                         <a
                             href="#"
-                            onClick={(e) => signup(e)}
+                            onClick={(e) => {
+                                signup(e);
+                                handleClose();
+                            }}
                             className="btn btn-outline-secondary google-button"
                         >
                             <Google_svg />
@@ -211,6 +229,79 @@ function NavBar() {
                         onClick={handleClose}
                     >
                         Log In
+                    </Button>
+                    <div className="divider"></div>
+                    <div className="terms">
+                        * By logging in, you agree to our{" "}
+                        <span style={{ color: `#3483ff` }}>Terms of Use</span>{" "}
+                        and to receive HotelX emails & updates and acknowledge
+                        that you read our{" "}
+                        <span style={{ color: `#3483ff` }}>Privacy Policy</span>
+                        .
+                    </div>
+                </Modal.Body>
+            </Modal>
+            <Modal show={show2} onHide={handleClose2}>
+                <Modal.Header closeButton></Modal.Header>
+                <Modal.Body>
+                    <div className="login-prompt">
+                        <h1
+                            style={{ color: `#20303c` }}
+                            className="header-login"
+                        >
+                            Sign Up
+                        </h1>
+                        <br />
+                        <div>
+                            Already have an account?{" "}
+                            <span
+                                onClick={dualEvent2}
+                                style={{ color: `#3483ff`, cursor: `pointer` }}
+                            >
+                                Log In
+                            </span>
+                        </div>
+                    </div>
+                    <div className="container-google">
+                        <a
+                            href="#"
+                            onClick={(e) => {
+                                signup(e);
+                                handleClose2();
+                            }}
+                            className="btn btn-outline-secondary google-button"
+                        >
+                            <Google_svg />
+                            <div className="login-with-google">
+                                Continue with Google
+                            </div>
+                        </a>
+                    </div>
+                    <div className="input-container">
+                        <input
+                            className="input-field"
+                            type="text"
+                            placeholder="Email"
+                            name="email"
+                            style={{ color: `black` }}
+                        />
+                    </div>
+
+                    <div className="input-container">
+                        <input
+                            className="input-field"
+                            type="password"
+                            placeholder="Password"
+                            name="psw"
+                            style={{ color: `black` }}
+                        />
+                    </div>
+                    <Button
+                        variant="outline-primary"
+                        className="login-btn-submit"
+                        onClick={handleClose2}
+                    >
+                        Sign Up
                     </Button>
                     <div className="divider"></div>
                     <div className="terms">
