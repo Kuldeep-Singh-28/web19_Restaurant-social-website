@@ -92,7 +92,7 @@
     color: rgba(0, 0, 0);
     font-size: 18px;
     padding-bottom: 0.4rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     transition: border-color 0.5s linear;
 }
 
@@ -138,7 +138,8 @@ button.close {
 }
 
 .login-btn-submit {
-    margin-left: 15%;
+    margin-left: 36%;
+    min-width: 26%;
     border-radius: 17px;
     margin-top: 0.5rem;
     padding-top: 2px;
@@ -186,10 +187,21 @@ button.close {
     padding-right: 0.7rem;
 }
 
+.modal-dialog {
+    display: flex;
+    justify-content: center;
+}
+
 @media (min-width: 992px) {
     .n {
         position: absolute;
         right: 0;
+    }
+}
+
+@media (min-width: 479px) {
+    .modal-content {
+        width: 86%;
     }
 }
 
