@@ -68,6 +68,20 @@ function NavBar() {
             });
     };
 
+    const credentialSignIn = (e) => {
+        const email = document.getElementById("email").value;
+        const pass = document.getElementById("password").value;
+        console.log(email, pass);
+        handleClose();
+    };
+
+    const credentialSignUp = (e) => {
+        const email = document.getElementById("email2").value;
+        const pass = document.getElementById("password2").value;
+        console.log(email, pass);
+        handleClose2();
+    };
+
     useEffect(() => {
         window.addEventListener("DOMContentLoaded", (e) => {
             let main_navbar = document.getElementById("main_navbar");
@@ -206,6 +220,7 @@ function NavBar() {
                     </div>
                     <div className="input-container">
                         <input
+                            id="email"
                             className="input-field"
                             type="text"
                             placeholder="Email"
@@ -216,6 +231,7 @@ function NavBar() {
 
                     <div className="input-container">
                         <input
+                            id="password"
                             className="input-field"
                             type="password"
                             placeholder="Password"
@@ -226,7 +242,7 @@ function NavBar() {
                     <Button
                         variant="outline-primary"
                         className="login-btn-submit"
-                        onClick={handleClose}
+                        onClick={credentialSignIn}
                     >
                         Log In
                     </Button>
@@ -279,6 +295,7 @@ function NavBar() {
                     </div>
                     <div className="input-container">
                         <input
+                            id="email2"
                             className="input-field"
                             type="text"
                             placeholder="Email"
@@ -289,6 +306,7 @@ function NavBar() {
 
                     <div className="input-container">
                         <input
+                            id="password2"
                             className="input-field"
                             type="password"
                             placeholder="Password"
@@ -299,7 +317,7 @@ function NavBar() {
                     <Button
                         variant="outline-primary"
                         className="login-btn-submit"
-                        onClick={handleClose2}
+                        onClick={credentialSignUp}
                     >
                         Sign Up
                     </Button>
