@@ -13,13 +13,18 @@ const auth = firebase.auth();
 
 //===================================
 function SignOut() {
-    const [user] = useAuthState(auth);
+    // const [user] = useAuthState(auth);
     return (
         auth.currentUser && (
             <div>
-                <span className="sign-out" onClick={() => auth.signOut()}>
+                <Nav.Link
+                    href="#"
+                    onClick={() => auth.signOut()}
+                    className="n2"
+                    id="left"
+                >
                     SIGN OUT
-                </span>
+                </Nav.Link>
             </div>
         )
     );
@@ -71,15 +76,28 @@ function NavBar() {
     const credentialSignIn = (e) => {
         const email = document.getElementById("email").value;
         const pass = document.getElementById("password").value;
-        console.log(email, pass);
-        handleClose();
+
+        auth.signInWithEmailAndPassword(email, pass).then((res) => {
+            handleClose();
+            document.getElementById("email").value = "";
+            document.getElementById("password").value = "";
+        });
     };
 
     const credentialSignUp = (e) => {
         const email = document.getElementById("email2").value;
         const pass = document.getElementById("password2").value;
-        console.log(email, pass);
-        handleClose2();
+
+        auth.createUserWithEmailAndPassword(email, pass).then((cred) => {
+            console.log(
+                "the user with email ",
+                cred.user.email,
+                " has been authenticated"
+            );
+            handleClose2();
+            document.getElementById("email2").value = "";
+            document.getElementById("password2").value = "";
+        });
     };
 
     useEffect(() => {
@@ -147,16 +165,6 @@ function NavBar() {
                             </Nav.Link>
                         ) : (
                             <SignOut />
-                        )}
-                        {user ? (
-                            <Nav.Link href="#" className="n2" id="right">
-                                <div>
-                                    {" "}
-                                    WELCOME {user.displayName.toUpperCase()}
-                                </div>
-                            </Nav.Link>
-                        ) : (
-                            ""
                         )}
                         <div className="_navIcon">
                             <span className="_navIcons">
