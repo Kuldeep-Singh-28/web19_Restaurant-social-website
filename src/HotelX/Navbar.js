@@ -13,7 +13,6 @@ const auth = firebase.auth();
 
 //===================================
 function SignOut() {
-    // const [user] = useAuthState(auth);
     return (
         auth.currentUser && (
             <div>
@@ -32,10 +31,27 @@ function SignOut() {
 //=====================================
 
 function NavBar() {
-    const [user] = useAuthState(auth);
+    
+    
+
+  
+    const[user] = useAuthState(auth);
     const [show, setShow] = useState(false);
     const [show2, setShow2] = useState(false);
+    const[isAdmin,setisAdmin] = useState(false)
+useEffect(() => {
+    if(user) {
+       const x = db.collection("users").doc(user.uid).get().then(ad => {
+        return ad.data().isAdmin;
+     })
+        if(x) setisAdmin(true);
+    }
+    else{
+    setisAdmin(false);
+    }
+},[user])
 
+  
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -64,6 +80,7 @@ function NavBar() {
                 var token = credential.accessToken;
                 var user = result.user;
                 console.log(user);
+              
             })
             .catch((error) => {
                 var errorCode = error.code;
@@ -71,6 +88,7 @@ function NavBar() {
                 var email = error.email;
                 var credential = error.credential;
             });
+           
     };
 
     const credentialSignIn = (e) => {
@@ -96,7 +114,8 @@ function NavBar() {
             );
             db.collection("users").doc(cred.user.uid).set({
                 email: email,
-                password: pass
+                password: pass,
+                isAdmin:false
             })
             handleClose2();
             document.getElementById("email2").value = "";
@@ -172,6 +191,9 @@ function NavBar() {
                         ) : (
                             <SignOut />
                         )}
+                        {
+                            isAdmin && <Nav.Link> ++</Nav.Link>
+                        }
                         <div className="_navIcon">
                             <span className="_navIcons">
                                 <a

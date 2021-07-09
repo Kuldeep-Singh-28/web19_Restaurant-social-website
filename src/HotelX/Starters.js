@@ -23,17 +23,15 @@ function Starters() {
         
         const loadImages = async () => {
             const urls = await fetchImages();
-            
-         
             setFiles(urls)
         }
         loadImages();
         }, []);
-        
-        const addToCart= e=>{
-                console.log(e)
+        const addToCart= (e,index)=>{
+                console.log(index)
                 db.collection("users").doc(user.uid).collection("My-cart").add({
-                    
+                    photo:files[index],
+
                 })
 
         }
@@ -46,7 +44,7 @@ function Starters() {
             How are you ?
             
           </Typography>
-          <AddShoppingCartIcon style={{ color: "#7b877c", size: 0.5 }} className="_cart" onClick={(e)=>addToCart(e)}/>
+          <AddShoppingCartIcon style={{ color: "#7b877c", size: 0.5 }} className="_cart" onClick={(e)=>addToCart(e,index)}/>
    </Card>
 ))}
             
