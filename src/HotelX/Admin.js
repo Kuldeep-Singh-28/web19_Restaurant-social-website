@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import db, { storage } from "./firebase";
 import firebase from "firebase";
-import "./styles/admin.css";
+import Style from "./styles/admin.module.css";
 import { Form, Button, Container, Row, Col, Modal } from "react-bootstrap";
 function Admin() {
     const [name, setName] = useState("");
@@ -44,19 +44,13 @@ function Admin() {
 
     // ========================================================
     const uploadToFirebase = async () => {
-        //1.
         if (image) {
-            //2.
             const storageRef = storage.ref(`images/${type}`);
-            //3.
             const imageRef = storageRef.child(name);
-            //4.
-            imageRef
-                .put(image)
-                //5.
-                .then(() => {
-                    alert("Image uploaded successfully to Firebase.");
-                });
+
+            imageRef.put(image).then(() => {
+                alert("Image uploaded successfully to Firebase.");
+            });
             await imageRef.getDownloadURL().then((url) => {
                 setUrl(url);
             });
@@ -96,7 +90,7 @@ function Admin() {
         <div className="_admin">
             <Container fluid>
                 <Row>
-                    <Col>
+                    <Col className={Style.sidebar}>
                         <Button variant="outline-primary" onClick={handleShow3}>
                             Click3
                         </Button>
@@ -104,6 +98,16 @@ function Admin() {
                         <Button variant="outline-primary" onClick={handleShow4}>
                             Click4
                         </Button>
+                    </Col>
+                    <Col className={Style.orders}>
+                        <Container fluid>
+                            <Row id="main-row">
+                                <p>
+                                    Lorem ipsum dolor sit, amet consectetur
+                                    adipisicing elit. Repellat, tenetur!
+                                </p>
+                            </Row>
+                        </Container>
                     </Col>
                 </Row>
             </Container>
