@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { provider } from "./firebase";
+import db, { provider } from "./firebase";
 import firebase from "firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, Redirect, useHistory } from "react-router-dom";
@@ -94,6 +94,10 @@ function NavBar() {
                 cred.user.email,
                 " has been authenticated"
             );
+            db.collection("users").doc(cred.user.id).set({
+                email: email,
+                password: pass,
+            });
             handleClose2();
             document.getElementById("email2").value = "";
             document.getElementById("password2").value = "";
