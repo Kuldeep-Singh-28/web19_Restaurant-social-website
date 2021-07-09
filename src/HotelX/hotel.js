@@ -12,6 +12,7 @@ import Menu from "./Menu";
 import Auth from "./Auth";
 import Footer from "./Footer";
 import Starters from "./Starters";
+import Admin from "./Admin";
 function Hotel() {
   return (
     <div>
@@ -27,6 +28,7 @@ function Hotel() {
               <Route exact path="/" component={Homepage} />
               <Route path="/login" component={Auth} />
               <Route path="/starters" component={Starters} />
+              <Route path="/admin" component={Admin}/>
             </Router>
           </Container>
         </Container>

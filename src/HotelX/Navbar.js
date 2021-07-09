@@ -39,16 +39,17 @@ function NavBar() {
     const [show, setShow] = useState(false);
     const [show2, setShow2] = useState(false);
     const[isAdmin,setisAdmin] = useState(false)
-useEffect(() => {
+useEffect(async () => {
     if(user) {
-       const x = db.collection("users").doc(user.uid).get().then(ad => {
-        return ad.data().isAdmin;
-     })
-        if(x) setisAdmin(true);
-    }
-    else{
-    setisAdmin(false);
-    }
+        db.collection("Admin").get().then((snap)=>{
+            snap.docs.forEach(doc=>{
+                //console.log(user.id)
+                if(doc.data().id==user.uid) {setisAdmin(true)}
+            })
+        })}
+   else{
+       setisAdmin(false)
+   }
 },[user])
 
   
@@ -80,7 +81,11 @@ useEffect(() => {
                 var token = credential.accessToken;
                 var user = result.user;
                 console.log(user);
-              
+                db.collection("users").doc(user.uid).set({
+                    name:user.displayName,
+                    email:user.email,
+                    photo:user.photoURL
+                })
             })
             .catch((error) => {
                 var errorCode = error.code;
@@ -112,10 +117,10 @@ useEffect(() => {
                 cred.user.email,
                 " has been authenticated"
             );
+
             db.collection("users").doc(cred.user.uid).set({
                 email: email,
-                password: pass,
-                isAdmin:false
+                password: pass
             })
             handleClose2();
             document.getElementById("email2").value = "";
@@ -192,7 +197,7 @@ useEffect(() => {
                             <SignOut />
                         )}
                         {
-                            isAdmin && <Nav.Link> ++</Nav.Link>
+                            isAdmin && <Nav.Link href="/admin"> ++</Nav.Link>
                         }
                         <div className="_navIcon">
                             <span className="_navIcons">

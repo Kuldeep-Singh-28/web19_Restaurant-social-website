@@ -7,6 +7,7 @@ import {Card,Typography} from "@material-ui/core"
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 const auth = firebase.auth();
 function Starters() {
+    
     const [user] = useAuthState(auth);
     const[files,setFiles]= useState([]);
     const starter = db.collection("dishes").doc("dish").collection("starters");
