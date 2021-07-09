@@ -1,9 +1,13 @@
 import React,{ useState,useEffect} from 'react'
 import db ,{storage} from './firebase'
 import "./styles/starters.css"
+import firebase from "firebase"
+import { useAuthState } from "react-firebase-hooks/auth";
 import {Card,Typography} from "@material-ui/core"
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+const auth = firebase.auth();
 function Starters() {
+    const [user] = useAuthState(auth);
     const[files,setFiles]= useState([]);
     const starter = db.collection("dishes").doc("dish").collection("starters");
     useEffect(() => {
@@ -26,8 +30,12 @@ function Starters() {
         loadImages();
         }, []);
         
-        const addToCart=e=>{
-                console.log("hello")
+        const addToCart= e=>{
+                console.log(e)
+                db.collection("users").doc(user.uid).collection("My-cart").add({
+                    
+                })
+
         }
     return (
         <div className="_starters">
@@ -38,7 +46,7 @@ function Starters() {
             How are you ?
             
           </Typography>
-          <AddShoppingCartIcon style={{ color: "#7b877c", size: 0.5 }} className="_cart" onClick={addToCart}/>
+          <AddShoppingCartIcon style={{ color: "#7b877c", size: 0.5 }} className="_cart" onClick={(e)=>addToCart(e)}/>
    </Card>
 ))}
             
