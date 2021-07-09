@@ -1,8 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import db, { storage } from "./firebase";
 import firebase from "firebase";
-import Style from "./styles/admin.module.css";
-import { Form, Button, Container, Row, Col, Modal } from "react-bootstrap";
+import Style from "./styles/Admin.module.css";
+import {
+    Form,
+    Button,
+    Container,
+    Row,
+    Col,
+    Modal,
+    Accordion,
+    Card,
+} from "react-bootstrap";
 function Admin() {
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
@@ -11,6 +20,7 @@ function Admin() {
     const [email, setEmail] = useState("");
     const [id, setId] = useState("");
     const [url, setUrl] = useState("");
+    const [res_orders, setOrders] = useState([]);
 
     const [show3, setShow3] = useState(false);
     const [show4, setShow4] = useState(false);
@@ -86,30 +96,79 @@ function Admin() {
     };
     // ========================================================
 
+    //=========================================================
+
+    useEffect(() => {
+        const navbar_admin = document.querySelector(".navbar2");
+        navbar_admin.style.backgroundColor = `rgba(0,0,0,0.48)`;
+
+        db.collection("orders").onSnapshot(
+            (snapshot) => {
+                setOrders(snapshot.docs);
+            },
+            (err) => console.log(err.message)
+        );
+    }, []);
+
+    console.log("here are the restaurant orders", res_orders);
+    let instinct = 0;
+
+    //=========================================================
+
     return (
-        <div className="_admin">
-            <Container fluid>
-                <Row>
-                    <Col className={Style.sidebar}>
-                        <Button variant="outline-primary" onClick={handleShow3}>
-                            Click3
+        <div className={Style.admin}>
+            <div className={Style.background_image_admin}></div>
+            <Container fluid className={Style.parent_container}>
+                <div className={Style.parent_row}>
+                    <div sm={3} className={Style.sidebar}>
+                        <Button
+                            variant="primary"
+                            className={Style.btn1}
+                            onClick={handleShow3}
+                        >
+                            New Item
                         </Button>
                         <br />
-                        <Button variant="outline-primary" onClick={handleShow4}>
-                            Click4
+                        <Button
+                            variant="primary"
+                            className={Style.btn2}
+                            onClick={handleShow4}
+                        >
+                            New Admin
                         </Button>
-                    </Col>
-                    <Col className={Style.orders}>
+                    </div>
+                    <div sm={9} className={Style.orders}>
                         <Container fluid>
-                            <Row id="main-row">
-                                <p>
-                                    Lorem ipsum dolor sit, amet consectetur
-                                    adipisicing elit. Repellat, tenetur!
-                                </p>
+                            <Row id="main-row" className={Style.main_row}>
+                                <h1 className={Style.order_header}>Orders</h1>
+                                <Accordion className={Style.accordion}>
+                                    {res_orders.map((order, index) => {
+                                        return (
+                                            <Card>
+                                                <Accordion.Toggle
+                                                    as={Card.Header}
+                                                    eventKey={index + 1}
+                                                >
+                                                    Order {index + 1}
+                                                </Accordion.Toggle>
+                                                <Accordion.Collapse
+                                                    eventKey={index + 1}
+                                                >
+                                                    <Card.Body>
+                                                        {
+                                                            order.data()
+                                                                .order[0].name
+                                                        }
+                                                    </Card.Body>
+                                                </Accordion.Collapse>
+                                            </Card>
+                                        );
+                                    })}
+                                </Accordion>
                             </Row>
                         </Container>
-                    </Col>
-                </Row>
+                    </div>
+                </div>
             </Container>
             <Modal show={show3} onHide={handleClose3}>
                 <Modal.Header closeButton></Modal.Header>
