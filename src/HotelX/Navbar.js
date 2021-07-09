@@ -31,28 +31,27 @@ function SignOut() {
 //=====================================
 
 function NavBar() {
-    
-    
-
-  
-    const[user] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     const [show, setShow] = useState(false);
     const [show2, setShow2] = useState(false);
-    const[isAdmin,setisAdmin] = useState(false)
-useEffect(async () => {
-    if(user) {
-        db.collection("Admin").get().then((snap)=>{
-            snap.docs.forEach(doc=>{
-                //console.log(user.id)
-                if(doc.data().id==user.uid) {setisAdmin(true)}
-            })
-        })}
-   else{
-       setisAdmin(false)
-   }
-},[user])
+    const [isAdmin, setisAdmin] = useState(false);
+    useEffect(async () => {
+        if (user) {
+            db.collection("Admin")
+                .get()
+                .then((snap) => {
+                    snap.docs.forEach((doc) => {
+                        //console.log(user.id)
+                        if (doc.data().id == user.uid) {
+                            setisAdmin(true);
+                        }
+                    });
+                });
+        } else {
+            setisAdmin(false);
+        }
+    }, [user]);
 
-  
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -82,10 +81,10 @@ useEffect(async () => {
                 var user = result.user;
                 console.log(user);
                 db.collection("users").doc(user.uid).set({
-                    name:user.displayName,
-                    email:user.email,
-                    photo:user.photoURL
-                })
+                    name: user.displayName,
+                    email: user.email,
+                    photo: user.photoURL,
+                });
             })
             .catch((error) => {
                 var errorCode = error.code;
@@ -93,23 +92,26 @@ useEffect(async () => {
                 var email = error.email;
                 var credential = error.credential;
             });
-           
     };
 
     const credentialSignIn = (e) => {
         const email = document.getElementById("email").value;
         const pass = document.getElementById("password").value;
+        document.getElementById("email").value = "";
+        document.getElementById("password").value = "";
 
         auth.signInWithEmailAndPassword(email, pass).then((res) => {
-            handleClose();
             document.getElementById("email").value = "";
             document.getElementById("password").value = "";
+            handleClose();
         });
     };
 
     const credentialSignUp = (e) => {
         const email = document.getElementById("email2").value;
         const pass = document.getElementById("password2").value;
+        document.getElementById("email2").value = "";
+        document.getElementById("password2").value = "";
 
         auth.createUserWithEmailAndPassword(email, pass).then((cred) => {
             console.log(
@@ -120,15 +122,13 @@ useEffect(async () => {
 
             db.collection("users").doc(cred.user.uid).set({
                 email: email,
-                password: pass
-            })
-            handleClose2();
+                password: pass,
+            });
             document.getElementById("email2").value = "";
             document.getElementById("password2").value = "";
+            handleClose2();
         });
-        
     };
- 
 
     useEffect(() => {
         window.addEventListener("DOMContentLoaded", (e) => {
@@ -196,9 +196,7 @@ useEffect(async () => {
                         ) : (
                             <SignOut />
                         )}
-                        {
-                            isAdmin && <Nav.Link href="/admin"> ++</Nav.Link>
-                        }
+                        {isAdmin && <Nav.Link href="/admin"> ++</Nav.Link>}
                         <div className="_navIcon">
                             <span className="_navIcons">
                                 <a
