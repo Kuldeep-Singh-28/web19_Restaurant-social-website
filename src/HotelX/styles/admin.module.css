@@ -1,3 +1,157 @@
-._admin{
-    margin-top:120px;
-} 
+.admin {
+	margin-top: 15vh;
+}
+
+.background_image_admin {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100%;
+	z-index: -1;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+		url(../images/admin.jpg);
+	background-size: cover;
+	/*opacity: 0.92;*/
+}
+
+.main_row {
+	font-family: "Noto Sans TC", sans-serif;
+	color: #162d3d !important;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.parent_row {
+	display: flex;
+	justify-content: space-around;
+	width: 80%;
+	padding-top: 2vh;
+	max-width: 1055.2px;
+	/*border: 1px solid #484848;*/
+	/*backdrop-filter: blur(8px);*/
+}
+
+.parent_container {
+	display: flex;
+	justify-content: center;
+}
+
+.sidebar {
+	height: 45vh;
+	width: min(25vw, 216px);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.order_header {
+	color: rgba(255, 255, 255, 0.79);
+	font-weight: 700 !important;
+	font-size: 80px;
+}
+
+.btn1,
+.btn2 {
+	width: 67%;
+}
+
+.btn1 {
+	margin-bottom: 2rem;
+}
+
+.orders {
+	min-height: 80vh;
+	margin-bottom: 2rem;
+	width: min(53vw, 724px);
+	border: 1px solid #484848;
+	backdrop-filter: blur(8px);
+}
+
+.accordion {
+	width: 70%;
+}
+
+@media (max-width: 1097px) {
+	.parent_row {
+		width: 89vw;
+	}
+
+	.orders {
+		width: min(59vw, 724px);
+	}
+}
+
+@media (max-width: 860px) {
+	.sidebar {
+		height: 33vh;
+	}
+}
+
+@media (max-width: 720px) {
+	.parent_row {
+		width: 94vw;
+	}
+}
+
+@media (max-width: 630px) {
+	.admin {
+		margin-top: 13vh;
+	}
+	.sidebar {
+		height: 32vw;
+	}
+
+	.parent_row {
+		width: 100vw;
+	}
+
+	.parent_container {
+		padding: 0;
+	}
+	.accordion {
+		width: 78%;
+	}
+	.orders {
+		width: min(65vw, 724px);
+	}
+}
+
+@media (max-width: 571px) {
+	.btn1,
+	.btn2 {
+		padding: 0.25rem 0.35rem;
+		font-size: 0.875rem;
+		line-height: 1.4;
+		width: 81%;
+	}
+}
+
+@media (max-width: 560px) {
+	.order_header {
+		font-size: 4.5rem;
+	}
+}
+
+@media (max-width: 401px) {
+	.accordion {
+		width: 93%;
+	}
+	.orders {
+		width: min(72vw, 724px);
+	}
+	.order_header {
+		font-size: 3.5rem;
+	}
+	.btn1,
+	.btn2 {
+		font-size: small;
+	}
+
+	.btn1 {
+		margin-bottom: 9%;
+	}
+}
