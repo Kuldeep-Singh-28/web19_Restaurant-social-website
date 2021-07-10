@@ -8,10 +8,8 @@ import "./styles/Navbar.css";
 import Google_svg from "./Google_svg";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import FacebookIcon from "@material-ui/icons/Facebook";
-// import { user } from "./Auth";
 const auth = firebase.auth();
 
-//===================================
 function SignOut() {
     return (
         auth.currentUser && (
@@ -28,7 +26,6 @@ function SignOut() {
         )
     );
 }
-//=====================================
 
 function NavBar() {
     const [user] = useAuthState(auth);

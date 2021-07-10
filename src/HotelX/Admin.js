@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import db, { storage } from "./firebase";
 import firebase from "firebase";
-import Style from "./styles/Admin.module.css";
+import Style from "./styles/admin.module.css";
 import {
     Form,
     Button,
@@ -15,11 +15,11 @@ import {
 function Admin() {
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
-    const [price, setPrice] = useState("");
+    const [price,setPrice] = useState("");
     const [type, setType] = useState("");
     const [email, setEmail] = useState("");
     const [id, setId] = useState("");
-    const [url, setUrl] = useState("");
+    //const [url, setUrl] = useState("");
     const [res_orders, setOrders] = useState([]);
 
     const [show3, setShow3] = useState(false);
@@ -37,7 +37,7 @@ function Admin() {
     // =======================================================
     const onImageChange = (e) => {
         const reader = new FileReader();
-        let file = e.target.files[0]; // get the supplied file,if there is a file, set image to that file
+        let file = e.target.files[0]; 
         if (file) {
             reader.onload = () => {
                 if (reader.readyState === 2) {
@@ -62,7 +62,12 @@ function Admin() {
                 alert("Image uploaded successfully to Firebase.");
             });
             await imageRef.getDownloadURL().then((url) => {
-                setUrl(url);
+                if(type)
+        {db.collection("dishes").doc("dish").collection(type).add({
+            name: name,
+            price: price,
+            url: url,
+        })}
             });
         } else {
             alert("Please upload an image first.");
@@ -75,11 +80,8 @@ function Admin() {
     const submit = async (e) => {
         e.preventDefault();
         await uploadToFirebase();
-        db.collection("dishes").doc("dish").collection(type).add({
-            name: name,
-            price: price,
-            url: url,
-        });
+        
+        console.log("xx");
     };
     // ========================================================
 
