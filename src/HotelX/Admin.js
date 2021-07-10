@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import db, { storage } from "./firebase";
 import firebase from "firebase";
-import Style from "./styles/admin.module.css";
+import Style from "./styles/Admin.module.css";
 import {
     Form,
     Button,
@@ -11,11 +11,14 @@ import {
     Modal,
     Accordion,
     Card,
+    CardColumns,
+    ListGroup,
+    ListGroupItem,
 } from "react-bootstrap";
 function Admin() {
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
-    const [price,setPrice] = useState("");
+    const [price, setPrice] = useState("");
     const [type, setType] = useState("");
     const [email, setEmail] = useState("");
     const [id, setId] = useState("");
@@ -37,7 +40,7 @@ function Admin() {
     // =======================================================
     const onImageChange = (e) => {
         const reader = new FileReader();
-        let file = e.target.files[0]; 
+        let file = e.target.files[0];
         if (file) {
             reader.onload = () => {
                 if (reader.readyState === 2) {
@@ -62,12 +65,13 @@ function Admin() {
                 alert("Image uploaded successfully to Firebase.");
             });
             await imageRef.getDownloadURL().then((url) => {
-                if(type)
-        {db.collection("dishes").doc("dish").collection(type).add({
-            name: name,
-            price: price,
-            url: url,
-        })}
+                if (type) {
+                    db.collection("dishes").doc("dish").collection(type).add({
+                        name: name,
+                        price: price,
+                        url: url,
+                    });
+                }
             });
         } else {
             alert("Please upload an image first.");
@@ -80,7 +84,7 @@ function Admin() {
     const submit = async (e) => {
         e.preventDefault();
         await uploadToFirebase();
-        
+
         console.log("xx");
     };
     // ========================================================
@@ -100,9 +104,25 @@ function Admin() {
 
     //=========================================================
 
+    const deleteOrder = (e, id) => {
+        e.preventDefault();
+        db.collection("orders")
+            .doc(id)
+            .delete()
+            .then(() => {
+                console.log("the orders has been successfully deleted");
+            })
+            .catch((err) => console.log(err.message));
+    };
+
+    //=========================================================
+
+    //=========================================================
+
     useEffect(() => {
         const navbar_admin = document.querySelector(".navbar2");
-        navbar_admin.style.backgroundColor = `rgba(0,0,0,0.48)`;
+        navbar_admin.style.color = `rgba(255,255,255,0.89)`;
+        navbar_admin.style.backgroundColor = `transparent`;
 
         db.collection("orders").onSnapshot(
             (snapshot) => {
@@ -112,14 +132,15 @@ function Admin() {
         );
     }, []);
 
-    console.log("here are the restaurant orders", res_orders);
     let instinct = 0;
 
     //=========================================================
 
     return (
         <div className={Style.admin}>
-            <div className={Style.background_image_admin}></div>
+            <div className={Style.background_image_admin}>
+                <h1 className={Style.order_header}>Orders</h1>
+            </div>
             <Container fluid className={Style.parent_container}>
                 <div className={Style.parent_row}>
                     <div sm={3} className={Style.sidebar}>
@@ -142,31 +163,72 @@ function Admin() {
                     <div sm={9} className={Style.orders}>
                         <Container fluid>
                             <Row id="main-row" className={Style.main_row}>
-                                <h1 className={Style.order_header}>Orders</h1>
-                                <Accordion className={Style.accordion}>
+                                <CardColumns className={Style.accordion}>
                                     {res_orders.map((order, index) => {
+                                        let price_tot = 0;
+                                        for (let i of order.data().order) {
+                                            price_tot += i.price;
+                                        }
                                         return (
-                                            <Card>
-                                                <Accordion.Toggle
-                                                    as={Card.Header}
-                                                    eventKey={index + 1}
+                                            <Card className={Style.card}>
+                                                <Card.Body
+                                                    className={Style.card_body}
                                                 >
-                                                    Order {index + 1}
-                                                </Accordion.Toggle>
-                                                <Accordion.Collapse
-                                                    eventKey={index + 1}
-                                                >
-                                                    <Card.Body>
-                                                        {
-                                                            order.data()
-                                                                .order[0].name
+                                                    <Card.Title
+                                                        className={Style.title}
+                                                    >
+                                                        <span>
+                                                            Order {index + 1}
+                                                        </span>
+                                                        <span className="text-muted">
+                                                            &#8377;{price_tot}
+                                                        </span>
+                                                    </Card.Title>
+                                                </Card.Body>
+                                                <ListGroup variant="flush">
+                                                    {order
+                                                        .data()
+                                                        .order.map((item) => {
+                                                            return (
+                                                                <ListGroupItem>
+                                                                    <small className="text-muted">
+                                                                        {
+                                                                            item.name
+                                                                        }
+                                                                    </small>
+                                                                    {" x "}
+                                                                    <small className="text-muted">
+                                                                        {
+                                                                            item.quantity
+                                                                        }
+                                                                    </small>
+                                                                </ListGroupItem>
+                                                            );
+                                                        })}
+                                                </ListGroup>
+                                                <Card.Body>
+                                                    <Button
+                                                        variant="primary"
+                                                        style={{
+                                                            backgroundColor: `orangered`,
+                                                            borderColor: `orangered`,
+                                                        }}
+                                                        onClick={(e) =>
+                                                            deleteOrder(
+                                                                e,
+                                                                order.id
+                                                            )
                                                         }
-                                                    </Card.Body>
-                                                </Accordion.Collapse>
+                                                    >
+                                                        <small>
+                                                            Ready For Delivery
+                                                        </small>
+                                                    </Button>
+                                                </Card.Body>
                                             </Card>
                                         );
                                     })}
-                                </Accordion>
+                                </CardColumns>
                             </Row>
                         </Container>
                     </div>
@@ -175,46 +237,63 @@ function Admin() {
             <Modal show={show3} onHide={handleClose3}>
                 <Modal.Header closeButton></Modal.Header>
                 <Modal.Body>
+                    <div className={Style.login_prompt}>
+                        <h1
+                            style={{ color: `#20303c` }}
+                            className={Style.header_login}
+                        >
+                            Add Recipe
+                        </h1>
+                    </div>
                     <Form className="mb-3">
                         <Form.Group controlId="formBasicPassword">
-                            <Form.Label>Type</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Type"
-                                onChange={(e) => setType(e.target.value)}
-                            />
+                            <div className={Style.input_container}>
+                                <Form.Control
+                                    className={Style.input_field}
+                                    type="text"
+                                    placeholder="Type"
+                                    onChange={(e) => setType(e.target.value)}
+                                />
+                            </div>
                         </Form.Group>
                         <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Name</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Enter name"
-                                onChange={(e) => setName(e.target.value)}
-                            />
+                            <div className={Style.input_container}>
+                                <Form.Control
+                                    className={Style.input_field}
+                                    type="text"
+                                    placeholder="Enter name"
+                                    onChange={(e) => setName(e.target.value)}
+                                />
+                            </div>
                         </Form.Group>
 
                         <Form.Group controlId="formBasicPassword">
-                            <Form.Label>Price</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Price"
-                                onChange={(e) => setPrice(e.target.value)}
-                            />
+                            <div className={Style.input_container}>
+                                <Form.Control
+                                    className={Style.input_field}
+                                    type="text"
+                                    placeholder="Price"
+                                    onChange={(e) => setPrice(e.target.value)}
+                                />
+                            </div>
                         </Form.Group>
                         <Form.Group controlId="formBasicPassword">
-                            <Form.Label>PhotoUrl</Form.Label>
-                            <input
-                                type="file"
-                                accept="image/x-png,image/jpeg"
-                                onChange={(e) => {
-                                    onImageChange(e);
-                                }}
-                            />
+                            <div className={Style.input_container}>
+                                <input
+                                    className={Style.input_field}
+                                    type="file"
+                                    accept="image/x-png,image/jpeg"
+                                    onChange={(e) => {
+                                        onImageChange(e);
+                                    }}
+                                />
+                            </div>
                         </Form.Group>
                         <Form.Group controlId="formBasicCheckbox"></Form.Group>
                         <Button
                             variant="outline-primary"
                             type="submit"
+                            className={Style.btn3}
                             onClick={(e) => {
                                 submit(e);
                                 handleClose3();
@@ -230,8 +309,8 @@ function Admin() {
                 <Modal.Body>
                     <Form>
                         <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Email</Form.Label>
                             <Form.Control
+                                className={Style.input_field}
                                 type="email"
                                 placeholder="Enter email"
                                 onChange={(e) => setEmail(e.target.value)}
@@ -240,8 +319,8 @@ function Admin() {
                                 give permission to make admin
                             </Form.Text>
                             <Form.Group controlId="formBasicPassword">
-                                <Form.Label>Id</Form.Label>
                                 <Form.Control
+                                    className={Style.input_field}
                                     type="text"
                                     placeholder="Id"
                                     onChange={(e) => setId(e.target.value)}
