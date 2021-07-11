@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import db, { storage } from "./firebase";
 import firebase from "firebase";
 import Style from "./styles/Admin.module.css";
+import "./styles/Admin.css";
 import {
     Form,
     Button,
@@ -15,6 +16,7 @@ import {
     ListGroup,
     ListGroupItem,
 } from "react-bootstrap";
+
 function Admin() {
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
@@ -121,8 +123,15 @@ function Admin() {
 
     useEffect(() => {
         const navbar_admin = document.querySelector(".navbar2");
-        navbar_admin.style.color = `rgba(255,255,255,0.89)`;
+        const navbar_links = document.querySelectorAll(".n2");
+        navbar_admin.style.backdropFilter = `blur(0px)`;
         navbar_admin.style.backgroundColor = `transparent`;
+
+        navbar_links.forEach((link) => {
+            console.log(link);
+            link.classList.add("admin_links");
+            // link.style.color = `rgba(255,255,255,0.9) !important`;
+        });
 
         db.collection("orders").onSnapshot(
             (snapshot) => {
@@ -139,7 +148,58 @@ function Admin() {
     return (
         <div className={Style.admin}>
             <div className={Style.background_image_admin}>
-                <h1 className={Style.order_header}>Orders</h1>
+                <div className={Style.header_container}>
+                    <h2 className={Style.welcome_admin}>Welcome to</h2>
+                    <h1 className={Style.order_header}>ORDERS PAGE</h1>
+                    <small style={{ color: `white`, fontSize: `12px` }}>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </small>
+                    <a
+                        href="/"
+                        style={{ zIndex: `100` }}
+                        class="btn btn-light btn-rounded mt-5"
+                    >
+                        Back to home
+                    </a>
+                </div>
+                <div className={Style.admin_svg}>
+                    <svg
+                        id="wave"
+                        // style="transform:rotate(0deg); transition: 0.3s"
+                        style={{
+                            transform: `rotate(0deg)`,
+                            transition: `0.3s`,
+                        }}
+                        viewBox="0 0 1440 140"
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <defs>
+                            <linearGradient
+                                id="sw-gradient-0"
+                                x1="0"
+                                x2="0"
+                                y1="1"
+                                y2="0"
+                            >
+                                <stop stop-color="seashell" offset="0%"></stop>
+                                <stop
+                                    stop-color="seashell"
+                                    offset="100%"
+                                ></stop>
+                            </linearGradient>
+                        </defs>
+                        <path
+                            // style="transform:translate(0, 0px); opacity:1"
+                            style={{
+                                transform: `translate(0, 0px)`,
+                                opacity: `1`,
+                            }}
+                            fill="url(#sw-gradient-0)"
+                            d="M0,56L120,63C240,70,480,84,720,86.3C960,89,1200,79,1440,63C1680,47,1920,23,2160,30.3C2400,37,2640,75,2880,77C3120,79,3360,47,3600,39.7C3840,33,4080,51,4320,51.3C4560,51,4800,33,5040,35C5280,37,5520,61,5760,72.3C6000,84,6240,84,6480,84C6720,84,6960,84,7200,81.7C7440,79,7680,75,7920,81.7C8160,89,8400,107,8640,109.7C8880,112,9120,98,9360,93.3C9600,89,9840,93,10080,95.7C10320,98,10560,98,10800,88.7C11040,79,11280,61,11520,65.3C11760,70,12000,98,12240,91C12480,84,12720,42,12960,28C13200,14,13440,28,13680,30.3C13920,33,14160,23,14400,18.7C14640,14,14880,14,15120,18.7C15360,23,15600,33,15840,30.3C16080,28,16320,14,16560,28C16800,42,17040,84,17160,105L17280,126L17280,140L17160,140C17040,140,16800,140,16560,140C16320,140,16080,140,15840,140C15600,140,15360,140,15120,140C14880,140,14640,140,14400,140C14160,140,13920,140,13680,140C13440,140,13200,140,12960,140C12720,140,12480,140,12240,140C12000,140,11760,140,11520,140C11280,140,11040,140,10800,140C10560,140,10320,140,10080,140C9840,140,9600,140,9360,140C9120,140,8880,140,8640,140C8400,140,8160,140,7920,140C7680,140,7440,140,7200,140C6960,140,6720,140,6480,140C6240,140,6000,140,5760,140C5520,140,5280,140,5040,140C4800,140,4560,140,4320,140C4080,140,3840,140,3600,140C3360,140,3120,140,2880,140C2640,140,2400,140,2160,140C1920,140,1680,140,1440,140C1200,140,960,140,720,140C480,140,240,140,120,140L0,140Z"
+                        ></path>
+                    </svg>
+                </div>
             </div>
             <Container fluid className={Style.parent_container}>
                 <div className={Style.parent_row}>
@@ -234,7 +294,11 @@ function Admin() {
                     </div>
                 </div>
             </Container>
-            <Modal show={show3} onHide={handleClose3}>
+            <Modal
+                className={Style.model_dialog}
+                show={show3}
+                onHide={handleClose3}
+            >
                 <Modal.Header closeButton></Modal.Header>
                 <Modal.Body>
                     <div className={Style.login_prompt}>
@@ -245,102 +309,133 @@ function Admin() {
                             Add Recipe
                         </h1>
                     </div>
-                    <Form className="mb-3">
-                        <Form.Group controlId="formBasicPassword">
-                            <div className={Style.input_container}>
-                                <Form.Control
-                                    className={Style.input_field}
-                                    type="text"
-                                    placeholder="Type"
-                                    onChange={(e) => setType(e.target.value)}
-                                />
+                    <form>
+                        <div class="row mb-4">
+                            <div class="col">
+                                <div class="form-outline">
+                                    <input
+                                        type="text"
+                                        id="form3Example1"
+                                        className={`form-control ${Style.input_field}`}
+                                        onChange={(e) =>
+                                            setType(e.target.value)
+                                        }
+                                    />
+                                    <label
+                                        class="form-label"
+                                        for="form3Example1"
+                                    >
+                                        Type
+                                    </label>
+                                </div>
                             </div>
-                        </Form.Group>
-                        <Form.Group controlId="formBasicEmail">
-                            <div className={Style.input_container}>
-                                <Form.Control
-                                    className={Style.input_field}
-                                    type="text"
-                                    placeholder="Enter name"
-                                    onChange={(e) => setName(e.target.value)}
-                                />
+                            <div class="col">
+                                <div class="form-outline">
+                                    <input
+                                        type="text"
+                                        id="form3Example2"
+                                        className={`form-control ${Style.input_field}`}
+                                        onChange={(e) =>
+                                            setPrice(e.target.value)
+                                        }
+                                    />
+                                    <label
+                                        class="form-label"
+                                        for="form3Example2"
+                                    >
+                                        Price
+                                    </label>
+                                </div>
                             </div>
-                        </Form.Group>
+                        </div>
 
-                        <Form.Group controlId="formBasicPassword">
-                            <div className={Style.input_container}>
-                                <Form.Control
-                                    className={Style.input_field}
-                                    type="text"
-                                    placeholder="Price"
-                                    onChange={(e) => setPrice(e.target.value)}
-                                />
-                            </div>
-                        </Form.Group>
-                        <Form.Group controlId="formBasicPassword">
-                            <div className={Style.input_container}>
-                                <input
-                                    className={Style.input_field}
-                                    type="file"
-                                    accept="image/x-png,image/jpeg"
-                                    onChange={(e) => {
-                                        onImageChange(e);
-                                    }}
-                                />
-                            </div>
-                        </Form.Group>
-                        <Form.Group controlId="formBasicCheckbox"></Form.Group>
-                        <Button
-                            variant="outline-primary"
+                        <div class="form-outline mb-4">
+                            <input
+                                type="text"
+                                id="form3Example3"
+                                className={`form-control ${Style.input_field}`}
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                            <label class="form-label" for="form3Example3">
+                                Enter Name
+                            </label>
+                        </div>
+
+                        <div className={Style.input_container}>
+                            <input
+                                type="file"
+                                id="customFile"
+                                className={`form-control ${Style.form_control}`}
+                                accept="image/x-png,image/jpeg"
+                                onChange={(e) => {
+                                    onImageChange(e);
+                                }}
+                            />
+                        </div>
+
+                        <button
                             type="submit"
-                            className={Style.btn3}
+                            class="btn btn-primary btn-block mb-4"
                             onClick={(e) => {
                                 submit(e);
                                 handleClose3();
                             }}
                         >
                             Submit
-                        </Button>
-                    </Form>
+                        </button>
+                    </form>
                 </Modal.Body>
             </Modal>
-            <Modal show={show4} onHide={handleClose4}>
+            <Modal
+                className={Style.model_dialog}
+                show={show4}
+                onHide={handleClose4}
+            >
                 <Modal.Header closeButton></Modal.Header>
                 <Modal.Body>
-                    <Form>
-                        <Form.Group controlId="formBasicEmail">
-                            <Form.Control
-                                className={Style.input_field}
+                    <div className={Style.login_prompt}>
+                        <h1
+                            className={Style.header_login}
+                            style={{ color: `#20303c`, marginBottom: `45px` }}
+                        >
+                            New Admin
+                        </h1>
+                    </div>
+                    <form>
+                        <div class="form-outline mb-4">
+                            <input
+                                id="form3Example4"
+                                className={`form-control ${Style.input_field}`}
                                 type="email"
-                                placeholder="Enter email"
                                 onChange={(e) => setEmail(e.target.value)}
                             />
-                            <Form.Text className="text-muted">
-                                give permission to make admin
-                            </Form.Text>
-                            <Form.Group controlId="formBasicPassword">
-                                <Form.Control
-                                    className={Style.input_field}
-                                    type="text"
-                                    placeholder="Id"
-                                    onChange={(e) => setId(e.target.value)}
-                                />
-                            </Form.Group>
-                        </Form.Group>
+                            <label class="form-label" for="form3Example4">
+                                Enter email
+                            </label>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <input
+                                type="text"
+                                onChange={(e) => setId(e.target.value)}
+                                id="form3Example5"
+                                className={`form-control ${Style.input_field}`}
+                            />
+                            <label class="form-label" for="form3Example5">
+                                Enter ID
+                            </label>
+                        </div>
 
-                        <Form.Check type="checkbox" label="Check me out" />
-
-                        <Button
-                            variant="outline-primary"
+                        <button
                             type="submit"
+                            class="btn btn-primary btn-block mb-4"
                             onClick={(e) => {
-                                submit1(e);
+                                submit(e);
                                 handleClose4();
                             }}
                         >
                             Submit
-                        </Button>
-                    </Form>
+                        </button>
+                    </form>
                 </Modal.Body>
             </Modal>
         </div>
