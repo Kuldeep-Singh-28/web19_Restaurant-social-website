@@ -12,9 +12,6 @@ import {
     Modal,
     Accordion,
     Card,
-    CardColumns,
-    ListGroup,
-    ListGroupItem,
 } from "react-bootstrap";
 
 function Admin() {
@@ -24,7 +21,7 @@ function Admin() {
     const [type, setType] = useState("");
     const [email, setEmail] = useState("");
     const [id, setId] = useState("");
-    //const [url, setUrl] = useState("");
+    const [url, setUrl] = useState("");
     const [res_orders, setOrders] = useState([]);
 
     const [show3, setShow3] = useState(false);
@@ -61,22 +58,48 @@ function Admin() {
     const uploadToFirebase = async () => {
         if (image) {
             const storageRef = storage.ref(`images/${type}`);
-            const imageRef = storageRef.child(name);
+            const uploadTask = storageRef.child(name).put(image);
 
-            imageRef.put(image).then(() => {
-                alert("Image uploaded successfully to Firebase.");
-            });
-            await imageRef.getDownloadURL().then((url) => {
-                if (type) {
-                    db.collection("dishes").doc("dish").collection(type).add({
-                        name: name,
-                        price: price,
-                        url: url,
-                    });
+            uploadTask.on(
+                "state_changed",
+                (snapshot) => {
+                    const progress =
+                        (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    console.log("Upload is " + progress + "% done");
+                },
+                (error) => {
+                    // Handle unsuccessful uploads
+                    console.log("error:-", error);
+                },
+                () => {
+                    uploadTask.snapshot.ref
+                        .getDownloadURL()
+                        .then((downloadURL) => {
+                            console.log("File available at", downloadURL);
+                            if (type) {
+                                db.collection("dishes")
+                                    .doc("dish")
+                                    .collection(type)
+                                    .add({
+                                        name: name,
+                                        price: price,
+                                        url: downloadURL.toString(),
+                                    })
+                                    .then(() => {
+                                        console.log(
+                                            "Document successfully written!"
+                                        );
+                                    })
+                                    .catch((error) => {
+                                        console.error(
+                                            "Error writing document: ",
+                                            error
+                                        );
+                                    });
+                            }
+                        });
                 }
-            });
-        } else {
-            alert("Please upload an image first.");
+            );
         }
     };
 
@@ -85,9 +108,7 @@ function Admin() {
     // ========================================================
     const submit = async (e) => {
         e.preventDefault();
-        await uploadToFirebase();
-
-        console.log("xx");
+        uploadToFirebase();
     };
     // ========================================================
 
@@ -103,21 +124,6 @@ function Admin() {
         setImage("");
     };
     // ========================================================
-
-    //=========================================================
-
-    const deleteOrder = (e, id) => {
-        e.preventDefault();
-        db.collection("orders")
-            .doc(id)
-            .delete()
-            .then(() => {
-                console.log("the orders has been successfully deleted");
-            })
-            .catch((err) => console.log(err.message));
-    };
-
-    //=========================================================
 
     //=========================================================
 
@@ -223,72 +229,31 @@ function Admin() {
                     <div sm={9} className={Style.orders}>
                         <Container fluid>
                             <Row id="main-row" className={Style.main_row}>
-                                <CardColumns className={Style.accordion}>
+                                <h1 className={Style.order_header}>Orders</h1>
+                                <Accordion className={Style.accordion}>
                                     {res_orders.map((order, index) => {
-                                        let price_tot = 0;
-                                        for (let i of order.data().order) {
-                                            price_tot += i.price;
-                                        }
                                         return (
-                                            <Card className={Style.card}>
-                                                <Card.Body
-                                                    className={Style.card_body}
+                                            <Card>
+                                                <Accordion.Toggle
+                                                    as={Card.Header}
+                                                    eventKey={index + 1}
                                                 >
-                                                    <Card.Title
-                                                        className={Style.title}
-                                                    >
-                                                        <span>
-                                                            Order {index + 1}
-                                                        </span>
-                                                        <span className="text-muted">
-                                                            &#8377;{price_tot}
-                                                        </span>
-                                                    </Card.Title>
-                                                </Card.Body>
-                                                <ListGroup variant="flush">
-                                                    {order
-                                                        .data()
-                                                        .order.map((item) => {
-                                                            return (
-                                                                <ListGroupItem>
-                                                                    <small className="text-muted">
-                                                                        {
-                                                                            item.name
-                                                                        }
-                                                                    </small>
-                                                                    {" x "}
-                                                                    <small className="text-muted">
-                                                                        {
-                                                                            item.quantity
-                                                                        }
-                                                                    </small>
-                                                                </ListGroupItem>
-                                                            );
-                                                        })}
-                                                </ListGroup>
-                                                <Card.Body>
-                                                    <Button
-                                                        variant="primary"
-                                                        style={{
-                                                            backgroundColor: `orangered`,
-                                                            borderColor: `orangered`,
-                                                        }}
-                                                        onClick={(e) =>
-                                                            deleteOrder(
-                                                                e,
-                                                                order.id
-                                                            )
+                                                    Order {index + 1}
+                                                </Accordion.Toggle>
+                                                <Accordion.Collapse
+                                                    eventKey={index + 1}
+                                                >
+                                                    <Card.Body>
+                                                        {
+                                                            order.data()
+                                                                .order[0].name
                                                         }
-                                                    >
-                                                        <small>
-                                                            Ready For Delivery
-                                                        </small>
-                                                    </Button>
-                                                </Card.Body>
+                                                    </Card.Body>
+                                                </Accordion.Collapse>
                                             </Card>
                                         );
                                     })}
-                                </CardColumns>
+                                </Accordion>
                             </Row>
                         </Container>
                     </div>
@@ -405,7 +370,6 @@ function Admin() {
                         <div class="form-outline mb-4">
                             <input
                                 id="form3Example4"
-                                className={`form-control ${Style.input_field}`}
                                 type="email"
                                 onChange={(e) => setEmail(e.target.value)}
                             />
@@ -424,7 +388,6 @@ function Admin() {
                                 Enter ID
                             </label>
                         </div>
-
                         <button
                             type="submit"
                             class="btn btn-primary btn-block mb-4"
