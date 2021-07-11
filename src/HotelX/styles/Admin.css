@@ -1,0 +1,13 @@
+.admin_links {
+	color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.admin_links:hover {
+	color: white !important;
+}
+
+@media (min-width: 479px) {
+	.modal-content {
+		width: 74%;
+	}
+}
