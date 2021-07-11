@@ -193,6 +193,7 @@ function NavBar() {
                         ) : (
                             <SignOut />
                         )}
+                        {user && <Nav.Link href="my-cart">Cart</Nav.Link>}
                         {isAdmin && <Nav.Link href="/admin"> ++</Nav.Link>}
                         <div className="_navIcon">
                             <span className="_navIcons">

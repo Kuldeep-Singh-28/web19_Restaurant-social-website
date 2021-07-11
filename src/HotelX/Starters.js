@@ -18,10 +18,11 @@ function Starters() {
             }
         )
         }, []);
-        const addToCart= (e,index)=>{
+        const addToCart= (e,index,item)=>{
                 console.log(index)
                 db.collection("users").doc(user.uid).collection("My-cart").add({
-                    photo:photos[index]
+                    price:item.price,
+                    name:item.name
 
                 })
 
@@ -37,7 +38,7 @@ function Starters() {
             {item.name}
             {item.price}
           </Typography>
-          <AddShoppingCartIcon style={{ color: "#7b877c", size: 0.5 }} className="_cart" onClick={(e)=>addToCart(e,index)}/>
+          <AddShoppingCartIcon style={{ color: "#7b877c", size: 0.5 }} className="_cart" onClick={(e)=>addToCart(e,index,item)}/>
    </Card>
 ))}
             
