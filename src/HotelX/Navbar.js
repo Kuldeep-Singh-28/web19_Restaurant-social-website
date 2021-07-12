@@ -9,6 +9,7 @@ import "./styles/Navbar.css";
 import Google_svg from "./Google_svg";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import FacebookIcon from "@material-ui/icons/Facebook";
+import Cart from "./Cart";
 const auth = firebase.auth();
 
 function SignOut() {
@@ -198,6 +199,7 @@ function NavBar() {
                         <Nav.Link href="/menu" className="n2">
                             MENU
                         </Nav.Link>
+                        {user ? <Cart /> : ""}
                         {!user ? (
                             <Nav.Link
                                 href="#"
