@@ -1,0 +1,59 @@
+.page_top {
+	backdrop-filter: blur(0px);
+	background-color: transparent !important;
+	box-shadow: none !important;
+}
+
+.page_top:hover {
+	box-shadow: none !important;
+}
+
+.page_bottom {
+	backdrop-filter: blur(4px);
+	box-shadow: 0 1rem 7rem rgba(0, 0, 0, 0.15) !important;
+	background-color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.top_link {
+	color: rgba(255, 255, 255, 0.75) !important;
+}
+.top_link:hover {
+	border: 0;
+	color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.bottom_link {
+	color: rgb(36, 18, 7) !important;
+}
+.bottom_link:hover {
+	border-bottom: 2px solid black;
+	border-top: 2px solid black;
+	color: gray !important;
+}
+
+.add_recipe_button,
+.add_admin_button {
+	background-color: coral;
+	/*opacity: 0.8;*/
+}
+
+.add_recipe_button:hover,
+.add_recipe_button:focus,
+.add_recipe_button:active,
+.add_admin_button:hover,
+.add_admin_button:focus,
+.add_admin_button:active {
+	background-color: orangered !important;
+	opacity: 0.8;
+	border-color: (255, 102, 17, 0.9);
+}
+
+.admin_links:hover {
+	color: white !important;
+}
+
+@media (min-width: 479px) {
+	.modal-content {
+		width: 74%;
+	}
+}

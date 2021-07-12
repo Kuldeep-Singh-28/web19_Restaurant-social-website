@@ -32,9 +32,9 @@
     border: 2px solid transparent;
     transition: border 0.5s linear;
     transition: color 0.4s linear;
-    font-family: "Noto Sans TC", sans-serif;
-    font-size: large;
-    /*font-weight: bold;*/
+    /*font-family: "Noto Sans TC", sans-serif;*/
+    font-family: "Roboto", sans-serif;
+    font-size: 17px;
 }
 .n2:hover {
     border-bottom: 2px solid black;
@@ -142,15 +142,9 @@ button.close {
     min-width: 26%;
     border-radius: 17px;
     margin-top: 0.5rem;
-    padding-top: 2px;
     padding-bottom: 8px;
-    color: #3483ff !important;
-    border-color: #3483ff !important;
-}
-
-.login-btn-submit:hover {
-    color: white !important;
-    background-color: #3483ff !important;
+    /*color: #3483ff !important;*/
+    /*border-color: #3483ff !important;*/
 }
 
 ::placeholder {
@@ -183,7 +177,7 @@ button.close {
 .login-with-google {
     display: inline-block;
     height: 100% !important;
-    padding-top: 0.4rem;
+    padding-top: 0.7rem;
     padding-right: 0.7rem;
 }
 

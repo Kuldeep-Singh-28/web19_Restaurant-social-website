@@ -16,7 +16,7 @@ const Middle3 = () => {
 						</h1>
 						<a
 							href="/menu"
-							className="btn btn-lg btn-outline-secondary"
+							className="btn btn-lg btn-outline-dark"
 							style={{
 								color: `white`,
 								marginLeft: `15px`,

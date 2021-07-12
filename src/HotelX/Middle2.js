@@ -71,7 +71,7 @@ function Middle2() {
                             </a>
                             <a
                                 id="btn2"
-                                className="btn btn-outline-secondary mx-3 my-4 "
+                                className="btn btn-outline-dark mx-3 my-4 "
                                 href="/menu"
                                 style={{
                                     color: `white`,

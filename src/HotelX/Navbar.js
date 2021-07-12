@@ -3,6 +3,7 @@ import db, { provider } from "./firebase";
 import firebase from "firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, Redirect, useHistory } from "react-router-dom";
+import { MDBBtn } from "mdb-react-ui-kit";
 import { Navbar, Nav, Form, FormControl, Button, Modal } from "react-bootstrap";
 import "./styles/Navbar.css";
 import Google_svg from "./Google_svg";
@@ -127,6 +128,18 @@ function NavBar() {
         });
     };
 
+    function check() {
+        if (isAdmin) {
+            const k = document.getElementById("left");
+            k.style.marginRight = `0px`;
+            return (
+                <Nav.Link href="/admin" className="n2" id="right">
+                    ADMIN
+                </Nav.Link>
+            );
+        }
+    }
+
     useEffect(() => {
         window.addEventListener("DOMContentLoaded", (e) => {
             let main_navbar = document.getElementById("main_navbar");
@@ -174,7 +187,11 @@ function NavBar() {
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="n" style={{ alignItems: `center` }}>
+                    <Nav
+                        className="n"
+                        style={{ alignItems: `center` }}
+                        id="nav-cont"
+                    >
                         <Nav.Link href="/" className="n2">
                             HOME
                         </Nav.Link>
@@ -193,8 +210,7 @@ function NavBar() {
                         ) : (
                             <SignOut />
                         )}
-                        {user && <Nav.Link href="my-cart">Cart</Nav.Link>}
-                        {isAdmin && <Nav.Link href="/admin"> ++</Nav.Link>}
+                        {check()}
                         <div className="_navIcon">
                             <span className="_navIcons">
                                 <a
@@ -247,7 +263,7 @@ function NavBar() {
                                 signup(e);
                                 handleClose();
                             }}
-                            className="btn btn-outline-secondary google-button"
+                            className="btn btn-outline-dark google-button"
                         >
                             <Google_svg />
                             <div className="login-with-google">
@@ -276,13 +292,10 @@ function NavBar() {
                             style={{ color: `black` }}
                         />
                     </div>
-                    <Button
-                        variant="outline-primary"
-                        className="login-btn-submit"
-                        onClick={credentialSignIn}
-                    >
+
+                    <MDBBtn outline rounded className="login-btn-submit">
                         Log In
-                    </Button>
+                    </MDBBtn>
                     <div className="divider"></div>
                     <div className="terms">
                         * By logging in, you agree to our{" "}
@@ -322,7 +335,7 @@ function NavBar() {
                                 signup(e);
                                 handleClose2();
                             }}
-                            className="btn btn-outline-secondary google-button"
+                            className="btn btn-outline-dark google-button"
                         >
                             <Google_svg />
                             <div className="login-with-google">
