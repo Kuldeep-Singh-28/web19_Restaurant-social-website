@@ -128,6 +128,18 @@ function NavBar() {
         });
     };
 
+    function check() {
+        if (isAdmin) {
+            const k = document.getElementById("left");
+            k.style.marginRight = `0px`;
+            return (
+                <Nav.Link href="/admin" className="n2" id="right">
+                    ADMIN
+                </Nav.Link>
+            );
+        }
+    }
+
     useEffect(() => {
         window.addEventListener("DOMContentLoaded", (e) => {
             let main_navbar = document.getElementById("main_navbar");
@@ -175,7 +187,11 @@ function NavBar() {
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="n" style={{ alignItems: `center` }}>
+                    <Nav
+                        className="n"
+                        style={{ alignItems: `center` }}
+                        id="nav-cont"
+                    >
                         <Nav.Link href="/" className="n2">
                             HOME
                         </Nav.Link>
@@ -194,11 +210,7 @@ function NavBar() {
                         ) : (
                             <SignOut />
                         )}
-                        {isAdmin && (
-                            <Nav.Link href="/admin" className="n2" id="right">
-                                ADMIN
-                            </Nav.Link>
-                        )}
+                        {check()}
                         <div className="_navIcon">
                             <span className="_navIcons">
                                 <a
