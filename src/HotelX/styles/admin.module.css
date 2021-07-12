@@ -130,7 +130,9 @@ textarea {
 }
 
 .header_login {
-	font-weight: 700 !important;
+	font-weight: 500 !important;
+	color: orangered !important;
+	opacity: 0.5;
 	font-size: 56px;
 	margin-bottom: 30px;
 }
