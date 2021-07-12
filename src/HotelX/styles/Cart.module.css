@@ -1,3 +1,25 @@
 ._cart{
     margin-top:120px;
 }
+
+.model_dialog {
+	display: flex;
+	justify-content: center;
+}
+
+.login_prompt {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: "Noto Sans TC", sans-serif;
+	color: #162d3d !important;
+}
+
+.header_login {
+	font-weight: 500 !important;
+	color: orangered !important;
+	opacity: 0.5;
+	font-size: 56px;
+	margin-bottom: 30px;
+}
