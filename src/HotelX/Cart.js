@@ -10,31 +10,42 @@ function Cart() {
     const[user] =useAuthState(auth);
     const[item,setItem]=useState([])
     
-
-    
     useEffect(() => {
         if(user){
             console.log(user)
         const cart =  db.collection("users").doc(user.uid).collection("My-cart");
-
         cart.onSnapshot(
             snapshot => {
-                console.log(snapshot.docs.map(doc => doc.data().name))
-                setItem(snapshot.docs.map(doc => doc.data()))
+                setItem(snapshot.docs)
             }
         )}
     },[user])
-    console.log(item)
+
+    const remove=(e,id)=>{
+        console.log(id)
+        const cart = db.collection("users").doc(user.uid).collection("My-cart");
+        cart.doc(id).delete();
+    }
+
+    const placeorder=(e)=>{
+         db.collection("orders").add({
+            order:item.data()
+        })
+    }
+
     return (
         <div className="_cart">
-            he
-            {item && item.map((i,index) =>{
+            
+            {item && item.map((i,index) =>(
                 <div key={index} variant="h5" component="h2" className="_typo">
-                    hello
-                {i.name}
-                {i.price}
+                  
+                {i.data().name}---
+                {i.data().price}---
+                {i.data().quantity}
+                <button onClick={(e) =>remove(e,i.id)}>delete</button>
               </div>
-            }) }
+            )) }
+            <input type="submit" onClick={e=>placeorder(e)}/>
         </div>
     )
 }

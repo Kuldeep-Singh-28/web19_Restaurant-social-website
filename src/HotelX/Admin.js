@@ -80,6 +80,7 @@ function Admin() {
                                     .add({
                                         name: name,
                                         price: price,
+                                        quantity: 1,
                                         url: downloadURL.toString(),
                                     })
                                     .then(() => {
