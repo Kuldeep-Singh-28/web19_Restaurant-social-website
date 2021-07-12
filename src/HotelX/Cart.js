@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import firebase from "firebase";
 import db from "./firebase";
-import { Modal, ListGroup, ListGroupItem } from "react-bootstrap";
+import { Modal, ListGroup, ListGroupItem, Nav } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Typography } from "@material-ui/core";
 import Style from "./styles/Cart.module.css";
@@ -68,10 +68,10 @@ function Cart() {
     };
     let price_tot = 0;
     return (
-        <div className={Style.demo}>
-            <button className="btn btn-primary" onClick={handleShow5}>
-                click
-            </button>
+        <div>
+            <Nav.Link href="#" onClick={handleShow5} className="n2">
+                CART
+            </Nav.Link>
             <Modal
                 className={Style.model_dialog}
                 show={show5}
