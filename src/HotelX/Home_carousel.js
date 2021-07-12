@@ -7,55 +7,64 @@ const Home_carousel = () => {
         {
             name: "Dal Khichdi",
             price: 23,
-            desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
+            desc:
+                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./food2.jpg",
         },
         {
             name: "Dal Khichdi",
             price: 34,
-            desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
+            desc:
+                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./food3.jpg",
         },
         {
             name: "Dal Khichdi",
             price: 34,
-            desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
+            desc:
+                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./s.jpg",
         },
         {
             name: "Dal Khichdi",
             price: 30,
-            desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
+            desc:
+                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./images/shaun_meintjes.jpg",
         },
         {
             name: "Dal Khichdi",
             price: 98,
-            desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
+            desc:
+                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./judith-girard-marczak-26Tp__tUAWc-unsplash.jpg",
         },
         {
             name: "Dal Khichdi",
             price: 25,
-            desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
+            desc:
+                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./food3.jpg",
         },
         {
             name: "Dal Khichdi",
             price: 45,
-            desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
+            desc:
+                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./food2.jpg",
         },
         {
             name: "Dal Khichdi",
             price: 63,
-            desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
+            desc:
+                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./statement.jpg",
         },
         {
             name: "Dal Khichdi",
             price: 71,
-            desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
+            desc:
+                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./s.jpg",
         },
     ];
