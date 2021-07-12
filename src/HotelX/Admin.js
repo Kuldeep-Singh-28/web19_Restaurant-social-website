@@ -61,37 +61,49 @@ function Admin() {
     const uploadToFirebase = async () => {
         if (image) {
             const storageRef = storage.ref(`images/${type}`);
-            const imageRef = storageRef.child(name);
+            const uploadTask = storageRef.child(name).put(image);
 
-            uploadTask.on('state_changed',
-            (snapshot) => {
-                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                console.log('Upload is ' + progress + '% done');
-            },
-            (error) => {
-                // Handle unsuccessful uploads
-                console.log("error:-", error)
-            },
-            () => {
-                uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-                    console.log('File available at', downloadURL);
-                    if(type)
-                        {db.collection("dishes").doc("dish").collection(type).add({
-                            name: name,
-                            price: price,
-                            url: downloadURL.toString(),
-                        })
-                        .then(() => {
-                            console.log("Document successfully written!");
-                        })
-                        .catch((error) => {
-                               console.error("Error writing document: ", error);
-                        });}
-                       
-                });
-            }
-        );
-        
+            uploadTask.on(
+                "state_changed",
+                (snapshot) => {
+                    const progress =
+                        (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    console.log("Upload is " + progress + "% done");
+                },
+                (error) => {
+                    // Handle unsuccessful uploads
+                    console.log("error:-", error);
+                },
+                () => {
+                    uploadTask.snapshot.ref
+                        .getDownloadURL()
+                        .then((downloadURL) => {
+                            console.log("File available at", downloadURL);
+                            if (type) {
+                                db.collection("dishes")
+                                    .doc("dish")
+                                    .collection(type)
+                                    .add({
+                                        name: name,
+                                        price: price,
+                                        url: downloadURL.toString(),
+                                    })
+                                    .then(() => {
+                                        console.log(
+                                            "Document successfully written!"
+                                        );
+                                    })
+                                    .catch((error) => {
+                                        console.error(
+                                            "Error writing document: ",
+                                            error
+                                        );
+                                    });
+                            }
+                        });
+                }
+            );
+        }
     };
 
     // ========================================================
@@ -289,7 +301,8 @@ function Admin() {
                                                             Order {index + 1}
                                                         </span>
                                                         <span className="text-muted">
-                                                            &#8377;{price_tot}
+                                                            &#8377;
+                                                            {price_tot}
                                                         </span>
                                                     </Card.Title>
                                                 </Card.Body>
@@ -444,7 +457,10 @@ function Admin() {
                     <div className={Style.login_prompt}>
                         <h1
                             className={Style.header_login}
-                            style={{ color: `#20303c`, marginBottom: `45px` }}
+                            style={{
+                                color: `#20303c`,
+                                marginBottom: `45px`,
+                            }}
                         >
                             New Admin
                         </h1>
@@ -488,6 +504,5 @@ function Admin() {
             </Modal>
         </div>
     );
-}
 }
 export default Admin;
