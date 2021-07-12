@@ -9,35 +9,52 @@ const auth = firebase.auth();
 function Starters() {
     const [user] = useAuthState(auth);
     const [photos, setPhotos] = useState([]);
-    const [quantity,setQuantity] = useState([]);
+    const [quantity, setQuantity] = useState([]);
 
+    // ==========================================
     useEffect(() => {
         db.collection("dishes")
             .doc("dish")
             .collection("Starters")
             .onSnapshot((snapshot) => {
                 setPhotos(snapshot.docs.map((doc) => doc.data()));
-                setQuantity(snapshot.docs.map((doc)=> doc.data().quantity));
+                setQuantity(snapshot.docs.map((doc) => doc.data().quantity));
             });
     }, []);
-    const addToCart = (e, index, item,quantity) => {
+    // ===========================================
+
+    const addToCart = (e, index, item, quantity) => {
         console.log(index);
-        
-         db.collection("users").doc(user.uid).collection("My-cart").add({
-             price: item.price,
-             name: item.name,
-             quantity: quantity
-        });
+
+        db.collection("users")
+            .doc(user.uid)
+            .collection("My-cart")
+            .add({
+                price: Number(item.price),
+                name: item.name,
+                quantity: quantity,
+            });
     };
 
-    const handleQuantityDecrease=(index) =>{
-        console.log(index)
-        const newQ =[...quantity]; if(newQ[index]>0){newQ[index] --} ; setQuantity(newQ)
-    }
-    const handleQuantityIncrease=(index) =>{
-        const newQ =[...quantity]; if(newQ[index]<10){newQ[index] ++} ; setQuantity(newQ)
-    }
+    // ============================================
+    const handleQuantityDecrease = (index) => {
+        console.log(index);
+        const newQ = [...quantity];
+        if (newQ[index] > 0) {
+            newQ[index]--;
+        }
+        setQuantity(newQ);
+    };
+    const handleQuantityIncrease = (index) => {
+        const newQ = [...quantity];
+        if (newQ[index] < 10) {
+            newQ[index]++;
+        }
+        setQuantity(newQ);
+    };
     console.log(quantity[0]);
+    //=============================================
+
     return (
         <div className="_starters">
             {photos.map((item, index) => (
@@ -54,14 +71,20 @@ function Starters() {
                     <Typography variant="h5" component="h2" className="_typo">
                         How are you ?{item.name}
                         {item.price}
-                        <button onClick={() => handleQuantityDecrease(index)}>-</button>
+                        <button onClick={() => handleQuantityDecrease(index)}>
+                            -
+                        </button>
                         {quantity[index]}
-                        <button  onClick={() => handleQuantityIncrease(index)}>+</button>
+                        <button onClick={() => handleQuantityIncrease(index)}>
+                            +
+                        </button>
                     </Typography>
                     <AddShoppingCartIcon
                         style={{ color: "#7b877c", size: 0.5 }}
                         className="_cart"
-                        onClick={(e) => addToCart(e, index, item,quantity[index])}
+                        onClick={(e) =>
+                            addToCart(e, index, item, quantity[index])
+                        }
                     />
                 </Card>
             ))}
