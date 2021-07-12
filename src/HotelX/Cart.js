@@ -87,7 +87,11 @@ function Cart() {
                             SHOPPING CART
                         </h1>
                     </div>
-                    <ListGroup variant="flush" className="mb-4 d-flex">
+                    <ListGroup
+                        variant="flush"
+                        className="mb-4 d-flex"
+                        style={{ marginTop: `6px` }}
+                    >
                         {item.length !== 0 &&
                             item.map((i, index) => {
                                 price_tot += i.data().price;
