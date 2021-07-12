@@ -121,16 +121,52 @@ function Admin() {
 
     //=========================================================
 
+    let instinct4 = 0;
+
     useEffect(() => {
         const navbar_admin = document.querySelector(".navbar2");
         const navbar_links = document.querySelectorAll(".n2");
         navbar_admin.style.backdropFilter = `blur(0px)`;
         navbar_admin.style.backgroundColor = `transparent`;
 
-        navbar_links.forEach((link) => {
-            console.log(link);
-            link.classList.add("admin_links");
-            // link.style.color = `rgba(255,255,255,0.9) !important`;
+        window.addEventListener("DOMContentLoaded", (e) => {
+            const navbar_admin = document.querySelector(".navbar2");
+            let link_list = Array.from(document.querySelectorAll(".n2"));
+            if (window.scrollY < 80) {
+                navbar_admin.classList.add("page_top");
+                link_list.forEach((link) => {
+                    link.classList.add("top_link");
+                });
+                instinct4 = 0;
+            } else {
+                navbar_admin.classList.add("page_bottom");
+                link_list.forEach((link) => {
+                    link.classList.add("bottom_link");
+                });
+                instinct4 = 1;
+            }
+        });
+
+        window.addEventListener("scroll", (e) => {
+            const navbar_admin = document.querySelector(".navbar2");
+            let link_list = Array.from(document.querySelectorAll(".n2"));
+            if (window.scrollY < 80 && instinct4 !== 0) {
+                navbar_admin.classList.add("page_top");
+                navbar_admin.classList.remove("page_bottom");
+                link_list.forEach((link) => {
+                    link.classList.add("top_link");
+                    link.classList.remove("bottom_link");
+                });
+                instinct4 = 0;
+            } else if (window.scrollY >= 80 && instinct4 !== 1) {
+                navbar_admin.classList.remove("page_top");
+                navbar_admin.classList.add("page_bottom");
+                link_list.forEach((link) => {
+                    link.classList.remove("top_link");
+                    link.classList.add("bottom_link");
+                });
+                instinct4 = 1;
+            }
         });
 
         db.collection("orders").onSnapshot(
@@ -140,8 +176,6 @@ function Admin() {
             (err) => console.log(err.message)
         );
     }, []);
-
-    let instinct = 0;
 
     //=========================================================
 
@@ -375,7 +409,7 @@ function Admin() {
 
                         <button
                             type="submit"
-                            class="btn btn-primary btn-block mb-4"
+                            class="btn btn-primary btn-block mb-4 add_recipe_button"
                             onClick={(e) => {
                                 submit(e);
                                 handleClose3();
@@ -427,7 +461,7 @@ function Admin() {
 
                         <button
                             type="submit"
-                            class="btn btn-primary btn-block mb-4"
+                            class="btn btn-primary btn-block mb-4 add_admin_button"
                             onClick={(e) => {
                                 submit(e);
                                 handleClose4();
