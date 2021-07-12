@@ -57,6 +57,7 @@ function Admin() {
             const storageRef = storage.ref(`images/${type}`);
             const uploadTask = storageRef.child(name).put(image);
 
+<<<<<<< HEAD
             uploadTask.on('state_changed',
             (snapshot) => {
                 const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -86,6 +87,54 @@ function Admin() {
         );
         
     }}
+=======
+            uploadTask.on(
+                "state_changed",
+                (snapshot) => {
+                    const progress =
+                        (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    console.log("Upload is " + progress + "% done");
+                },
+                (error) => {
+                    // Handle unsuccessful uploads
+                    console.log("error:-", error);
+                },
+                () => {
+                    uploadTask.snapshot.ref
+                        .getDownloadURL()
+                        .then((downloadURL) => {
+                            console.log("File available at", downloadURL);
+                            if (type) {
+                                db.collection("dishes")
+                                    .doc("dish")
+                                    .collection(type)
+                                    .add({
+                                        name: name,
+                                        price: price,
+                                        url: downloadURL.toString(),
+                                    })
+                                    .then(() => {
+                                        console.log(
+                                            "Document successfully written!"
+                                        );
+                                    })
+                                    .catch((error) => {
+                                        console.error(
+                                            "Error writing document: ",
+                                            error
+                                        );
+                                    });
+                            }
+                        });
+                }
+            );
+        }
+    };
+
+    // ========================================================
+
+    // ========================================================
+>>>>>>> 275abdc4ccd8d697b4ec20b79a7f9207fcd3d6ec
     const submit = async (e) => {
         e.preventDefault();
         await uploadToFirebase();
@@ -268,7 +317,8 @@ function Admin() {
                                                             Order {index + 1}
                                                         </span>
                                                         <span className="text-muted">
-                                                            &#8377;{price_tot}
+                                                            &#8377;
+                                                            {price_tot}
                                                         </span>
                                                     </Card.Title>
                                                 </Card.Body>
@@ -423,7 +473,10 @@ function Admin() {
                     <div className={Style.login_prompt}>
                         <h1
                             className={Style.header_login}
-                            style={{ color: `#20303c`, marginBottom: `45px` }}
+                            style={{
+                                color: `#20303c`,
+                                marginBottom: `45px`,
+                            }}
                         >
                             New Admin
                         </h1>
@@ -468,5 +521,8 @@ function Admin() {
         </div>
     );
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 275abdc4ccd8d697b4ec20b79a7f9207fcd3d6ec
 export default Admin;
