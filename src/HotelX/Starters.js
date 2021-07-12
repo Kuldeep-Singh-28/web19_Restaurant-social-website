@@ -8,11 +8,7 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 const auth = firebase.auth();
 function Starters() {
     const [user] = useAuthState(auth);
-<<<<<<< HEAD
-    const[photos,setPhotos]= useState([]);
-=======
     const [photos, setPhotos] = useState([]);
->>>>>>> 275abdc4ccd8d697b4ec20b79a7f9207fcd3d6ec
 
     useEffect(() => {
         db.collection("dishes")
@@ -58,9 +54,5 @@ function Starters() {
         </div>
     );
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 275abdc4ccd8d697b4ec20b79a7f9207fcd3d6ec
 
 export default Starters;
