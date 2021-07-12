@@ -36,10 +36,6 @@ function Admin() {
 
     const handleClose4 = () => setShow4(false);
     const handleShow4 = () => setShow4(true);
-
-    // =======================================================
-
-    // =======================================================
     const onImageChange = (e) => {
         const reader = new FileReader();
         let file = e.target.files[0];
@@ -55,13 +51,11 @@ function Admin() {
             setImage(null); // if there is no file, set image back to null
         }
     };
-    // ========================================================
-
-    // ========================================================
-    const uploadToFirebase = async () => {
+    const uploadToFirebase = async () =>
+     {
         if (image) {
             const storageRef = storage.ref(`images/${type}`);
-            const imageRef = storageRef.child(name);
+            const uploadTask = storageRef.child(name).put(image);
 
             uploadTask.on('state_changed',
             (snapshot) => {
@@ -69,7 +63,6 @@ function Admin() {
                 console.log('Upload is ' + progress + '% done');
             },
             (error) => {
-                // Handle unsuccessful uploads
                 console.log("error:-", error)
             },
             () => {
@@ -92,20 +85,12 @@ function Admin() {
             }
         );
         
-    };
-
-    // ========================================================
-
-    // ========================================================
+    }}
     const submit = async (e) => {
         e.preventDefault();
         await uploadToFirebase();
-
-        console.log("xx");
     };
-    // ========================================================
 
-    // ========================================================
     const submit1 = (e) => {
         db.collection("Admin").add({
             email: email,
@@ -116,9 +101,7 @@ function Admin() {
         setPrice("");
         setImage("");
     };
-    // ========================================================
 
-    //=========================================================
 
     const deleteOrder = (e, id) => {
         e.preventDefault();
@@ -130,10 +113,6 @@ function Admin() {
             })
             .catch((err) => console.log(err.message));
     };
-
-    //=========================================================
-
-    //=========================================================
 
     let instinct4 = 0;
 
@@ -477,7 +456,7 @@ function Admin() {
                             type="submit"
                             class="btn btn-primary btn-block mb-4 add_admin_button"
                             onClick={(e) => {
-                                submit(e);
+                                submit1(e);
                                 handleClose4();
                             }}
                         >
@@ -489,5 +468,5 @@ function Admin() {
         </div>
     );
 }
-}
+
 export default Admin;

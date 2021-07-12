@@ -9,23 +9,6 @@ const auth = firebase.auth();
 function Starters() {
     const [user] = useAuthState(auth);
     const[photos,setPhotos]= useState([]);
-    
-    useEffect(() => {
-        db.collection("dishes").doc("dish").collection("Starters").onSnapshot(
-            snapshot => {
-                setPhotos(snapshot.docs.map(doc => doc.data()))
-            }
-        )
-        }, []);
-        const addToCart= (e,index,item)=>{
-                console.log(index)
-                db.collection("users").doc(user.uid).collection("My-cart").add({
-                    price:item.price,
-                    name:item.name
-
-                })
-
-    const [photos, setPhotos] = useState([]);
 
 
     useEffect(() => {
@@ -61,6 +44,6 @@ function Starters() {
         </div>
     );
 }
-}
+
 
 export default Starters;
