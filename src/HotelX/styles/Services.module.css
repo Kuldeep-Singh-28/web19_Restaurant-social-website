@@ -1,0 +1,130 @@
+.master_container {
+    min-height: 89vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    margin-top: 0.8rem;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.col1,
+.col2,
+.col3 {
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    /*font-weight: 600;*/
+    transition: all 0.5s linear;
+    color: white !important;
+    margin: 0 2rem;
+    margin-top: 0.5rem;
+    box-shadow: 0 11px 40px -11px rgba(0, 0, 0, 0.2);
+}
+
+.atag {
+    color: white !important;
+    text-decoration: none;
+}
+.atag:hover {
+    text-decoration: none !important;
+}
+
+.col1 {
+    margin-left: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url(../images/middle1.1.jpg);
+    background-size: cover;
+    height: min(381px, 71vw);
+    text-align: center;
+}
+
+.col1:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        url(../images/middle1.1.jpg);
+}
+
+.col2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url(../images/middle1.2.jpg);
+    background-size: cover;
+    height: min(381px, 71vw);
+    text-align: center;
+}
+
+.col2:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        url(../images/middle1.2.jpg);
+}
+
+.col3 {
+    margin-right: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url(../images/middle1.2.jpg);
+    background-size: cover;
+    height: min(381px, 71vw);
+    text-align: center;
+}
+
+.col3:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        url(../images/middle1.2.jpg);
+}
+
+.col1:hover,
+.col2:hover,
+.col3:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 1rem 7rem rgba(0, 0, 0, 0.15) !important;
+}
+
+@media (max-width: 1080px) {
+    .row {
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    .col1,
+    .col2,
+    .col3 {
+        margin: 0 1rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .master_container {
+        padding: 0;
+    }
+}
+
+@media (max-width: 752px) {
+    .col1,
+    .col2,
+    .col3 {
+        height: 48vw;
+    }
+}
+
+@media (max-width: 575px) {
+    .col1,
+    .col2,
+    .col3 {
+        min-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 1.5rem;
+    }
+    .col3 {
+        margin-bottom: 4rem;
+    }
+    .col1 {
+        margin-top: 2rem;
+    }
+}
