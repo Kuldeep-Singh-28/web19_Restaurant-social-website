@@ -5,7 +5,7 @@ import Style from "./styles/Middle1.module.css";
 function Middle1() {
     return (
         <div>
-            <Container fluid>
+            <Container fluid className={Style.master_container}>
                 <Row className={Style.row}>
                     <Col className={Style.col1}>
                         <a className={Style.atag} href="/menu">
