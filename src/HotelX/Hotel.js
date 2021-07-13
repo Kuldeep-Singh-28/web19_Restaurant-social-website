@@ -29,8 +29,7 @@ function Hotel() {
               <Route exact path="/" component={Homepage} />
               <Route path="/login" component={Auth} />
               <Route path="/starters" component={Starters} />
-              <Route path="/admin" component={Admin}/>
-              <Route path="/my-cart" component={Cart} />
+              <Route path="/admin" component={Admin} />
             </Router>
           </Container>
         </Container>
