@@ -10,6 +10,7 @@ import Middle1 from "./Middle1";
 import Middle2 from "./Middle2";
 import Middle3 from "./Middle3";
 import Comment from "./Comment";
+import Services from "./Services";
 
 function Homepage() {
     //IITISoC---Restaurant-social-website
@@ -17,6 +18,7 @@ function Homepage() {
         <div>
             <Home_carousel />
             <Container className="navbarx" fluid={true}>
+                <Services />
                 <Middle2 />
                 <Middle1 />
                 <Comment />
