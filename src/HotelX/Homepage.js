@@ -11,11 +11,13 @@ import Middle2 from "./Middle2";
 import Middle3 from "./Middle3";
 import Comment from "./Comment";
 import Services from "./Services";
+import Homepage_jumbotron from "./Homepage_jumbotron";
 
 function Homepage() {
     //IITISoC---Restaurant-social-website
     return (
         <div>
+            <Homepage_jumbotron />
             <Home_carousel />
             <Container className="navbarx" fluid={true}>
                 <Services />
