@@ -140,11 +140,21 @@ function NavBar() {
             );
         }
     }
-
+    let instinct6;
     useEffect(() => {
         window.addEventListener("DOMContentLoaded", (e) => {
             let main_navbar = document.getElementById("main_navbar");
             let link_list = Array.from(document.querySelectorAll(".n2"));
+
+            if (window.scrollY < 10) {
+                main_navbar.classList.add("jumbotron_home");
+                link_list.forEach((link) =>
+                    link.classList.add("jumbotron_links")
+                );
+                instinct6 = 0;
+            } else {
+                instinct6 = 1;
+            }
             if (window.scrollY < 600) {
                 instinct2 = 0;
             } else {
@@ -159,6 +169,20 @@ function NavBar() {
         window.addEventListener("scroll", (e) => {
             let main_navbar = document.getElementById("main_navbar");
             let link_list = Array.from(document.querySelectorAll(".n2"));
+
+            if (window.scrollY < 10 && instinct6 !== 0) {
+                main_navbar.classList.add("jumbotron_home");
+                link_list.forEach((link) =>
+                    link.classList.add("jumbotron_links")
+                );
+                instinct6 = 0;
+            } else if (window.scrollY >= 10 && instinct6 !== 1) {
+                main_navbar.classList.remove("jumbotron_home");
+                link_list.forEach((link) => {
+                    link.classList.remove("jumbotron_links");
+                });
+                instinct6 = 1;
+            }
             if (window.scrollY < 600 && instinct2 !== 0) {
                 main_navbar.classList.remove("dark");
                 link_list.forEach((link) => {
