@@ -6,7 +6,9 @@ const Middle3 = () => {
 	return (
 		<div>
 			<Container fluid>
-				<Row>
+				<Row
+					style={{ marginLeft: `-1.75rem`, marginRight: `-1.75rem` }}
+				>
 					<div className={Style.main_cont}>
 						<h1 className={Style.header}>
 							Order in a <br className={Style.small_middle3} />
