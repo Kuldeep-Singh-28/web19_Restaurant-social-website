@@ -24,7 +24,6 @@ function Homepage() {
                 <Middle2 />
                 <Middle1 />
                 <Comment />
-                <Middle3 />
             </Container>
         </div>
     );
