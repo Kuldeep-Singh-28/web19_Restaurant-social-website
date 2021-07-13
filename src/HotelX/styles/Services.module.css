@@ -39,6 +39,7 @@
 .col2,
 .col3,
 .col4 {
+    position: relative;
     font-family: "Roboto", sans-serif;
     display: flex;
     justify-content: center;
@@ -57,11 +58,14 @@
     min-height: 220px !important;
     min-width: 220px !important;
     border-radius: 50%;
+    transition: color 0.1s linear;
 }
 
 .atag {
-    color: white !important;
+    color: rgba(0, 0, 0) !important;
+    z-index: 789;
     text-decoration: none;
+    transition: color 0.1s linear;
 }
 .atag:hover {
     text-decoration: none !important;
@@ -75,11 +79,6 @@
     text-align: center;
 }
 
-.col1:hover {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url(../images/services1.jpg);
-}
-
 .col2 {
     background-image: url(../images/services2.jpg);
     background-size: cover;
@@ -87,21 +86,11 @@
     text-align: center;
 }
 
-.col2:hover {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url(../images/services2.jpg);
-}
-
 .col3 {
     background-image: url(../images/services3.jpg);
     background-size: cover;
     height: min(381px, 71vw);
     text-align: center;
-}
-
-.col3:hover {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url(../images/services3.jpg);
 }
 
 .col4 {
@@ -112,26 +101,44 @@
     text-align: center;
 }
 
-.col4::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    widows: 100%;
-    height: 100%;
-    background-color: magenta;
-}
-
-.col4:hover {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url(../images/services4.jpg);
-}
-
 .col1:hover,
 .col2:hover,
 .col3:hover,
 .col4:hover {
     transform: translateY(-2px);
     box-shadow: 0 1rem 7rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.col1::before,
+.col2::before,
+.col3::before,
+.col4::before {
+    position: absolute;
+    content: "read this";
+    color: transparent;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.4);
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: all 0.2s linear;
+    width: 100%;
+    height: 100%;
+}
+
+.col1:hover .atag,
+.col2:hover .atag,
+.col3:hover .atag,
+.col4:hover .atag {
+    color: white !important;
+}
+.col1:hover::before,
+.col2:hover::before,
+.col3:hover::before,
+.col4:hover::before {
+    opacity: 0.7;
+    transform: scale(1);
 }
 
 @media (max-width: 1240px) {
