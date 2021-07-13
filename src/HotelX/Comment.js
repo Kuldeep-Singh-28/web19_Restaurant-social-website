@@ -33,9 +33,9 @@ const Comment = () => {
 					const cname2 = document.querySelector(`#name2`);
 					const ctext3 = document.querySelector(`#index3`);
 					const cname3 = document.querySelector(`#name3`);
-					console.log(
-						"the event listener has been successfully initiated"
-					);
+					// console.log(
+					// 	"the event listener has been successfully initiated"
+					// );
 					if (button.id == 1) {
 						ctext1.style.opacity = "1";
 						ctext1.style.height = "auto";
