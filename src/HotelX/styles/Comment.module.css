@@ -4,17 +4,28 @@
 	margin-top: 1.5rem !important;
 }
 
+@keyframes fade {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
 .comment_text {
 	padding: 0 4.5rem;
 	line-height: 1.8;
 	font-size: 17px;
 	font-weight: normal;
+	transition: all 0.5s linear;
 }
 
 .nav_button {
 	width: 10px !important;
 	height: 10px !important;
-	background: #000;
+	background: none;
+	border: 1px solid #000;
 	border-radius: 50%;
 	position: inherit;
 	z-index: 9999;
@@ -29,8 +40,7 @@
 }
 
 .nav_button:hover {
-	border: 1px solid #000;
-	background: none;
+	background: #000;
 	width: 10px !important;
 	height: 10px !important;
 }
@@ -52,15 +62,18 @@
 	left: 24.5vw;
 	top: 26vh;
 	text-align: center;
+	width: 100%;
 }
 
 .owner_name {
 	font-size: 23px;
+	transition: all 0.5s linear;
 }
 
 .button_container {
+	width: 800px;
 	position: relative;
-	top: -10vh;
+	top: 36vh;
 }
 
 .comment {
@@ -86,9 +99,13 @@
 	/*font-family: "Oswald", sans-serif;*/
 }
 
+.name_class,
+.index_class {
+	transition: opacity 0.5s ease-out !important;
+}
+
 .comment:nth-child(1),
 .comment:nth-child(2) {
-	display: none;
 	position: absolute;
 }
 
@@ -99,6 +116,7 @@
 	align-items: center;
 	position: relative;
 	bottom: 8vh;
+	transition: all 0.5s linear;
 }
 
 @media (max-width: 1139px) {
@@ -108,7 +126,8 @@
 }
 
 @media (max-width: 1114px) {
-	.comment {
+	.comment,
+	.button_container {
 		width: 700px;
 	}
 	.comment_carousel {
@@ -124,6 +143,8 @@
 	}
 
 	.comment_carousel {
+		display: flex;
+		justify-content: center;
 		right: unset;
 		left: unset;
 		top: 24.5vh;
@@ -134,7 +155,8 @@
 	.comment_carousel_container {
 		background-position-x: 0vw;
 	}
-	.comment {
+	.comment,
+	.button_container {
 		width: 100vw !important;
 	}
 }
@@ -147,16 +169,13 @@
 		bottom: 7vh;
 	}
 	.button_container {
-		top: -9vh;
+		top: 37vh;
 	}
 }
 
 @media (max-width: 571px) {
 	.owner {
 		bottom: 5vh;
-	}
-	.button_container {
-		bottom: -7vh;
 	}
 }
 
@@ -173,10 +192,10 @@
 		min-height: 397.5px;
 	}
 	.owner {
-		bottom: 9vh;
+		bottom: 8vh;
 	}
 	.button_container {
-		bottom: -9vh;
+		top: 44vh;
 	}
 	.comment_text {
 		line-height: 1.5;
