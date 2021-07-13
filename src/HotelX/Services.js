@@ -6,20 +6,29 @@ const Services = () => {
 	return (
 		<div>
 			<Container fluid className={Style.master_container}>
+				<Row className={Style.row_top}>
+					<h2 className={Style.welcome_admin}>Discover</h2>
+					<h1 className={Style.order_header}>OUR SERVICES</h1>
+				</Row>
 				<Row className={Style.row}>
 					<Col className={Style.col1}>
 						<a className={Style.atag} href="/menu">
-							VIEW OUR MENU
+							CAKES
 						</a>
 					</Col>
 					<Col className={Style.col2}>
 						<a className={Style.atag} href="#">
-							LOCATE US
+							TEAM BUILDING
 						</a>
 					</Col>
-					<Col className={Style.col3} style={{ marginRight: `0` }}>
+					<Col className={Style.col3}>
 						<a className={Style.atag} href="/menu">
-							ORDER ONLINE
+							COFFEE
+						</a>
+					</Col>
+					<Col className={Style.col4} style={{ marginRight: `0` }}>
+						<a href="#" className={Style.atag}>
+							BIRTHDAY PARTY
 						</a>
 					</Col>
 				</Row>
