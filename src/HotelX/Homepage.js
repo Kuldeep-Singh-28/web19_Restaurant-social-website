@@ -156,40 +156,10 @@ function Homepage() {
         <div>
             <Home_carousel />
             <Container className="navbarx" fluid={true}>
-                <Row
-                    className="mb-2 mt-2"
-                    style={{
-                        minHeight: "41vh",
-                        backgroundColor: `blanchedalmond`,
-                    }}
-                >
-                    <Col
-                        sm={5}
-                        style={{
-                            minHeight: "41vh",
-                            marginTop: `2rem`,
-                            marginBottom: `2rem`,
-                        }}
-                    >
-                        <ReactPlayer
-                            className="react-player"
-                            url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
-                            width="100%"
-                            height="100%"
-                        />
-                    </Col>
-                    <Col
-                        id="temp2"
-                        sm={7}
-                        style={{ marginTop: `2rem`, marginBottom: `2rem` }}
-                    >
-                        <ControlledCarousel />
-                    </Col>
-                </Row>
                 <Middle2 />
                 <Middle1 />
-                <Middle3 />
                 <Comment />
+                <Middle3 />
             </Container>
         </div>
     );
