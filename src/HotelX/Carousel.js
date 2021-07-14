@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Carousel } from "react-bootstrap";
 import { storage } from "./firebase";
+import one from "./images/admin.jpg";
+import two from "./images/food3.jpg";
+import three from "./images/middle2.2.jpg";
 function ControlledCarousel() {
     const [index, setIndex] = useState(0);
     const [files, setFiles] = useState([]);
@@ -26,13 +29,16 @@ function ControlledCarousel() {
     };
 
     const w = {
-        height: "min(319px,71vw)",
+        height: `500px`,
         objectFit: "cover",
         filter: `none`,
     };
 
     return (
         <Carousel
+            fade
+            indicators={false}
+            controls={false}
             activeIndex={index}
             onSelect={handleSelect}
             style={{ height: `100%` }}
@@ -41,36 +47,25 @@ function ControlledCarousel() {
                 <img
                     className="d-block w-100"
                     style={w}
-                    src={files[0]}
+                    src={one}
                     alt="First slide"
                 />
-                <Carousel.Caption>
-                    <h3>First slide label</h3>
-                </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src={files[1]}
+                    src={two}
                     style={w}
                     alt="Second slide"
                 />
-
-                <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src={files[2]}
+                    src={three}
                     style={w}
                     alt="Third slide"
                 />
-
-                <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                </Carousel.Caption>
             </Carousel.Item>
         </Carousel>
     );
