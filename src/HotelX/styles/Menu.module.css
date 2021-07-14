@@ -1,50 +1,77 @@
-.Starters {
-    filter: none;
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
-    height: min(319px, 71vw);
+@import url("https://fonts.googleapis.com/css2?family=Allura&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.section {
+    background-color: black;
 }
 
-.Main_course {
-    filter: none;
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
-    height: min(319px, 71vw);
-}
-.Desserts {
-    filter: none;
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
-    height: min(319px, 71vw);
-}
-.bevrages {
-    filter: none;
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
-    height: min(319px, 71vw);
-}
 .content {
-    margin-top: 2rem;
+    color: #d0c194;
+    font-size: 64px;
+    font-family: "Playfair Display", serif;
+    display: flex;
+    flex-direction: column;
+    min-width: 315px;
+    text-align: center;
+    width: 23vw;
+    justify-content: center;
+    align-items: center;
 }
 
-.row {
-    border-radius: 1rem;
-    margin: 30px;
+.desc {
+    font-size: 17px;
+    text-align: center;
+    color: white;
+    font-family: "Roboto", sans-serif;
 }
 
-.row:hover {
-    box-shadow: 0rem 2rem 5rem rgba(0, 0, 0, 0.3);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+.pic_col {
+    background-color: turquoise;
 }
 
-.Dessert {
-    margin-bottom: 1.5rem;
-    height: min(319px, 71vw);
+.text_col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*font-family: "Allura", cursive;*/
 }
 
-.img_container {
-    top: 0;
-    left: 0;
-    z-index: -1;
-    background-size: cover;
+@media (max-width: 716px) {
+    .pic_col {
+        padding: 0;
+    }
+}
+
+@media (max-width: 657px) {
+    .row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        height: 100vh;
+    }
+    .pic_col {
+        height: 50vh;
+        width: 100%;
+    }
+    .main_text_col,
+    .main_pic_col,
+    .bev_text_col,
+    .bev_text_col {
+        position: absolute;
+    }
+    .main_text_col,
+    .bev_text_col {
+        bottom: 0;
+    }
+    .bev_text_col {
+        margin-bottom: 2rem;
+    }
+    .main_pic_col,
+    .bev_pic_col {
+        top: 0;
+    }
+    .content {
+        font-size: 58px;
+    }
 }
