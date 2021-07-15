@@ -116,7 +116,10 @@ function Cart() {
                                         </small>
                                         <small
                                             className="text-muted"
-                                            style={{ marginLeft: `auto` }}
+                                            style={{
+                                                marginLeft: `auto`,
+                                                marginRight: `0.2rem`,
+                                            }}
                                         >
                                             &#8377;
                                             {i.data().price * i.data().quantity}
