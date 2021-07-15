@@ -94,7 +94,7 @@ function Cart() {
                     >
                         {item.length !== 0 &&
                             item.map((i, index) => {
-                                price_tot += i.data().price;
+                                price_tot += Number(i.data().price);
                                 return (
                                     <ListGroupItem
                                         className={Style.list_group_item}

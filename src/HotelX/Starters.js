@@ -43,17 +43,30 @@ function Starters() {
     }, []);
     // ===========================================
 
-    const addToCart = (e, index, item, quantity) => {
+    const addToCart = async(e, index, item, quantity) => {
         console.log(index);
-
-        db.collection("users")
+        const itemRef = db.collection("users").doc(user.uid).collection("My-cart");
+        let doc =  await  itemRef.where("name","==" , item.data().name).get().then(docu => {
+        //   docu.docs.map(d => console.log(d.id))
+          if(docu.docs.length !== 0) return docu.docs[docu.docs.length - 1].id;
+          else return null;
+        });
+      
+        console.log(doc)
+        if(!doc)
+       { db.collection("users")
             .doc(user.uid)
             .collection("My-cart")
             .add({
-                price: Number(item.price),
-                name: item.name,
+                price: Number(item.data().price),
+                name: item.data().name,
                 quantity: quantity,
-            });
+            });}
+            else{
+                itemRef.doc(doc).update({
+                    quantity:quantity
+                })
+            }
     };
 
     const handleQuantityDecrease=(index) =>{
@@ -84,51 +97,17 @@ function Starters() {
 
     const edit = e=>{   
         const doc = db.collection("dishes").doc("dish").collection("Starters").doc(e.id)
-           if (image) {
-               const storageRef = storage.ref(`images/Starters`);
-               const uploadTask = storageRef.child(e.data().name).put(image);
-   
-               uploadTask.on(
-                   "state_changed",
-                   (snapshot) => {
-                       const progress =
-                           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                       console.log("Upload is " + progress + "% done");
-                   },
-                   (error) => {
-                       // Handle unsuccessful uploads
-                       console.log("error:-", error);
-                   },
-                   () => {
-                       uploadTask.snapshot.ref
-                           .getDownloadURL()
-                           .then((downloadURL) => {
-                               console.log("File available at", downloadURL);                                     
-                                    doc.update({
-                                        url: downloadURL.toString(),
-                                    })  
-                                       .then(() => {
-                                           console.log(
-                                               "Document successfully written!"
-                                           );
-                                       })
-                                       .catch((error) => {
-                                           console.error(
-                                               "Error writing document: ",
-                                               error
-                                           );
-                                       });
-                               
-                           });
-                   }
-               );
-           
-       };
-       doc.update({
-        price:newPrice,
-        name:newName,
-    })
-       
+
+        if(newName && newPrice){ doc.update({
+            price:newPrice,
+            name:newName,
+        })}
+        else if(newName){ doc.update({
+            name:newName,
+        })}
+        else if(newPrice){ doc.update({
+            price:newPrice,
+        })}
     }
     const edit1 = e=>{   
         const doc = db.collection("dishes").doc("dish").collection("Starters").doc(e.id)
@@ -153,7 +132,7 @@ function Starters() {
                            .then((downloadURL) => {
                                console.log("File available at", downloadURL);                                     
                                     doc.update({
-                                        url:newUrl
+                                        url:downloadURL,
                                     })  
                                        .then(() => {
                                            console.log(
@@ -204,8 +183,8 @@ function Starters() {
                     />
                     
                     {isAdmin &&   <div>
-                        <input type="text" onChange={(e)=> setNewName(e.target.value)} placeholder="NewName"  />
                         <input type="file" onChange={(e)=> onImageChange(e)} placeholder="NewPrice"  /><EditRoundedIcon onClick={() => edit1(item) }/>
+                        <input type="text" onChange={(e)=> setNewName(e.target.value)} placeholder="NewName"  />
                 <input type="number" onChange={(e)=> setNewPrice(e.target.value)} placeholder="NewPrice"  /><EditRoundedIcon onClick={() => edit(item) }/>
             </div>}
                 </Card>
