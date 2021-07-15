@@ -5,63 +5,63 @@ import style from "./styles/Home_carousel.module.css";
 const Home_carousel = () => {
     const array = [
         {
-            name: "Dal Khichdi",
+            name: "Focaccia Bread",
             price: 23,
             desc:
                 "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./food2.jpg",
         },
         {
-            name: "Dal Khichdi",
+            name: "Caprese Salad",
             price: 34,
             desc:
                 "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./food3.jpg",
         },
         {
-            name: "Dal Khichdi",
+            name: "Mushroom Risotto",
             price: 34,
             desc:
                 "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./s.jpg",
         },
         {
-            name: "Dal Khichdi",
+            name: "Cassoulet",
             price: 30,
             desc:
                 "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./images/shaun_meintjes.jpg",
         },
         {
-            name: "Dal Khichdi",
+            name: "Cherry Clafoutis",
             price: 98,
             desc:
                 "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./judith-girard-marczak-26Tp__tUAWc-unsplash.jpg",
         },
         {
-            name: "Dal Khichdi",
+            name: "Jambon Beurre",
             price: 25,
             desc:
                 "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./food3.jpg",
         },
         {
-            name: "Dal Khichdi",
+            name: "Croque Monsieur",
             price: 45,
             desc:
                 "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./food2.jpg",
         },
         {
-            name: "Dal Khichdi",
+            name: "Boeuf Bourguignon",
             price: 63,
             desc:
                 "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
             img: "./statement.jpg",
         },
         {
-            name: "Dal Khichdi",
+            name: "Blanquette de Veau",
             price: 71,
             desc:
                 "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium explicabo voluptates temporibus soluta.Ripit velit doloremque iste laborum laboriosam?",
