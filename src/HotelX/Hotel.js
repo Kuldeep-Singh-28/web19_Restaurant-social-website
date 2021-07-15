@@ -12,6 +12,9 @@ import Menu from "./Menu";
 import Auth from "./Auth";
 import Footer from "./Footer";
 import Starters from "./Starters";
+import Main_courses from "./Main_courses";
+import Beverages from "./Beverages";
+import Desserts from "./Desserts";
 import Admin from "./Admin";
 import Cart from "./Cart";
 function Hotel() {
@@ -29,6 +32,9 @@ function Hotel() {
               <Route exact path="/" component={Homepage} />
               <Route path="/login" component={Auth} />
               <Route path="/starters" component={Starters} />
+              <Route path="/main_course" component={Main_courses} />
+              <Route path="/beverages" component={Beverages} />
+              <Route path="/desserts" component={Desserts} />
               <Route path="/admin" component={Admin} />
             </Router>
           </Container>
