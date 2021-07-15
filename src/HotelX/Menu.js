@@ -17,26 +17,88 @@ const auth = firebase.auth();
 class Menu extends React.Component {
     onLeave(origin, destination, direction) {
         // console.log("i am here");
-        // const section = destination.item;
-        // const title = section.querySelector("h1");
-        // const tl = gsap.timeline({ delay: 0.5 });
-        // tl.fromTo(title, 0.5, { y: "50", opacity: 0 }, { y: "0", opacity: 1 });
-        // if (destination.index === 1) {
-        //     console.log("i am here");
-        //     const chairs = document.querySelectorAll(".chair");
-        //     const description = document.querySelector(".description");
-
-        //     tl.fromTo(chairs, 0.7, { x: "100%" }, { x: "-50%" })
-        //         .fromTo(
-        //             description,
-        //             0.5,
-        //             { y: "50", opacity: 0 },
-        //             { y: "0", opacity: 1 }
-        //         )
-        //         .fromTo(chairs[0], 1, { opacity: 1 }, { opacity: 1 })
-        //         .fromTo(chairs[1], 1, { opacity: 0 }, { opacity: 1 })
-        //         .fromTo(chairs[2], 1, { opacity: 0 }, { opacity: 1 });
-        // }
+        const section = destination.item;
+        const title = section.querySelector(".piccol");
+        const title4 = section.querySelector(".piccol_temp");
+        const title3 = section.querySelector(".carousel-inner");
+        const title2 = section.querySelector(".heading_new");
+        const desc = section.querySelector(".descc");
+        const btnn = section.querySelector(
+            ".btn.btn-outline-light.btn-rounded"
+        );
+        // console.log(title);
+        const tl = gsap.timeline({ delay: 0.5 });
+        if (title) {
+            tl.fromTo(
+                title,
+                0.5,
+                { x: "100%", opacity: 0 },
+                { x: "0%", opacity: 1 }
+            )
+                .fromTo(
+                    title2,
+                    0.5,
+                    { y: "50", opacity: 0 },
+                    { y: "0", opacity: 1 },
+                    "-=0.5"
+                )
+                .fromTo(
+                    desc,
+                    0.5,
+                    { y: "50", opacity: 0 },
+                    { y: "0", opacity: 1 },
+                    "-=0.4"
+                )
+                .fromTo(
+                    btnn,
+                    0.5,
+                    { y: "50", opacity: 0 },
+                    { y: "0", opacity: 1 },
+                    "-=0.3"
+                )
+                .fromTo(
+                    title3,
+                    0.5,
+                    { y: "50", opacity: 0 },
+                    { y: "0", opacity: 1 },
+                    "-=0.2"
+                );
+        } else {
+            tl.fromTo(
+                title4,
+                0.5,
+                { x: "-100%", opacity: 0 },
+                { x: "0%", opacity: 1 }
+            )
+                .fromTo(
+                    title2,
+                    0.5,
+                    { y: "50", opacity: 0 },
+                    { y: "0", opacity: 1 },
+                    "-=0.5"
+                )
+                .fromTo(
+                    desc,
+                    0.5,
+                    { y: "50", opacity: 0 },
+                    { y: "0", opacity: 1 },
+                    "-=0.4"
+                )
+                .fromTo(
+                    btnn,
+                    0.5,
+                    { y: "50", opacity: 0 },
+                    { y: "0", opacity: 1 },
+                    "-=0.3"
+                )
+                .fromTo(
+                    title3,
+                    0.5,
+                    { y: "50", opacity: 0 },
+                    { y: "0", opacity: 1 },
+                    "-=0.2"
+                );
+        }
         console.log("Leaving section " + origin.index);
     }
     afterLoad(origin, destination, direction) {
@@ -58,7 +120,10 @@ class Menu extends React.Component {
                         >
                             <div className={`section ${Style.section}`}>
                                 <Row className={Style.row}>
-                                    <Col sm={6} className={Style.pic_col}>
+                                    <Col
+                                        sm={6}
+                                        className={`piccol_temp ${Style.pic_col}`}
+                                    >
                                         <div className={Style.Starters}>
                                             <Link to="/starters">
                                                 <Carousel />
@@ -68,8 +133,12 @@ class Menu extends React.Component {
 
                                     <Col sm={6} className={Style.text_col}>
                                         <div className={Style.content}>
-                                            <div>Starters</div>
-                                            <div className={Style.desc}>
+                                            <div className="heading_new">
+                                                Starters
+                                            </div>
+                                            <div
+                                                className={`descc ${Style.desc}`}
+                                            >
                                                 Lorem ipsum dolor sit amet
                                                 consectetur adipisicing elit.
                                                 Quidem explicabo obcaecati
@@ -106,10 +175,13 @@ class Menu extends React.Component {
                                                     lineHeight: `1.2`,
                                                     marginBottom: `0.5rem`,
                                                 }}
+                                                className="heading_new"
                                             >
                                                 Main Course
                                             </div>
-                                            <div className={Style.desc}>
+                                            <div
+                                                className={`descc ${Style.desc}`}
+                                            >
                                                 Lorem ipsum dolor sit amet,
                                                 consectetur adipisicing elit.
                                                 In, perspiciatis excepturi odit
@@ -134,7 +206,7 @@ class Menu extends React.Component {
 
                                     <Col
                                         sm={6}
-                                        className={`${Style.main_pic_col} ${Style.pic_col}`}
+                                        className={`piccol ${Style.main_pic_col} ${Style.pic_col}`}
                                     >
                                         <div className={Style.Main_course}>
                                             <Link to="/main_course">
@@ -146,7 +218,10 @@ class Menu extends React.Component {
                             </div>
                             <div className={`section ${Style.section}`}>
                                 <Row className={Style.row}>
-                                    <Col sm={6} className={Style.pic_col}>
+                                    <Col
+                                        sm={6}
+                                        className={`piccol_temp ${Style.pic_col}`}
+                                    >
                                         <div className={Style.Desserts}>
                                             <Link to="/desserts">
                                                 <Carousel2 />
@@ -155,8 +230,12 @@ class Menu extends React.Component {
                                     </Col>
                                     <Col sm={6} className={Style.text_col}>
                                         <div className={Style.content}>
-                                            <div>Desserts</div>
-                                            <div className={Style.desc}>
+                                            <div className="heading_new">
+                                                Desserts
+                                            </div>
+                                            <div
+                                                className={`descc ${Style.desc}`}
+                                            >
                                                 Lorem ipsum, dolor sit amet
                                                 consectetur adipisicing elit.
                                                 Necessitatibus veniam magnam
@@ -188,8 +267,12 @@ class Menu extends React.Component {
                                         className={`${Style.bev_text_col} ${Style.text_col}`}
                                     >
                                         <div className={Style.content}>
-                                            <div>Beverages</div>
-                                            <div className={Style.desc}>
+                                            <div className="heading_new">
+                                                Beverages
+                                            </div>
+                                            <div
+                                                className={`descc ${Style.desc}`}
+                                            >
                                                 Lorem ipsum dolor sit amet
                                                 consectetur adipisicing elit.
                                                 Sit recusandae earum perferendis
@@ -213,7 +296,7 @@ class Menu extends React.Component {
 
                                     <Col
                                         sm={6}
-                                        className={`${Style.bev_pic_col} ${Style.pic_col}`}
+                                        className={`piccol ${Style.bev_pic_col} ${Style.pic_col}`}
                                     >
                                         <div className={Style.Beverages}>
                                             <Link to="/bevrages">
