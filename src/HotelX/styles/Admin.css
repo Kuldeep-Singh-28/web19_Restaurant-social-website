@@ -48,6 +48,21 @@
 	border-color: (255, 102, 17, 0.9);
 }
 
+.edit_button,
+.edit_button:hover,
+.edit_button:focus,
+.edit_button:active {
+	background-color: orangered !important;
+	border-color: rgba(255, 102, 17, 0.9);
+}
+
+.edit_button_border,
+.edit_button_border:hover,
+.edit_button_border:focus,
+.edit_button_border:active {
+	border-color: rgba(255, 102, 17, 0.9) !important;
+}
+
 .admin_links:hover {
 	color: white !important;
 }
