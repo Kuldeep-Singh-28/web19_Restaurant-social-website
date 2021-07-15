@@ -47,14 +47,14 @@ function ControlledCarousel() {
                 <img
                     className="d-block w-100"
                     style={w}
-                    src={one}
+                    src={files[0]}
                     alt="First slide"
                 />
             </Carousel.Item>
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src={two}
+                    src={files[1]}
                     style={w}
                     alt="Second slide"
                 />
@@ -62,7 +62,7 @@ function ControlledCarousel() {
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src={three}
+                    src={files[2]}
                     style={w}
                     alt="Third slide"
                 />
