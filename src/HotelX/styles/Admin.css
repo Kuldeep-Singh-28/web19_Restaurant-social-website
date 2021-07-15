@@ -60,6 +60,7 @@
 .edit_button_border:hover,
 .edit_button_border:focus,
 .edit_button_border:active {
+	color: rgba(255, 102, 17, 0.9) !important;
 	border-color: rgba(255, 102, 17, 0.9) !important;
 }
 
