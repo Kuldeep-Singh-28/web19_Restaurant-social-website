@@ -299,7 +299,7 @@ class Menu extends React.Component {
                                         className={`piccol ${Style.bev_pic_col} ${Style.pic_col}`}
                                     >
                                         <div className={Style.Beverages}>
-                                            <Link to="/bevrages">
+                                            <Link to="/beverages">
                                                 <Carousel3 />
                                             </Link>
                                         </div>
