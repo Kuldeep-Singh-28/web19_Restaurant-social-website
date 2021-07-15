@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Allura&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+*,
+::before,
+::after {
+	box-sizing: border-box;
+}
+
+.background_image_admin {
+	position: relative;
+	top: 0;
+	left: 0;
+	height: 95vh;
+	width: 100%;
+	z-index: 0;
+	background-image: url(../images/home_jumbotron1.jpg);
+	background-size: cover;
+	/*background-position: 0 -79px;*/
+	display: flex;
+	/*justify-content: flex-end;*/
+	align-items: center;
+}
+
+.admin_svg {
+	position: absolute;
+	bottom: -1px;
+	left: 0;
+}
+
+.header_container {
+	position: absolute;
+	left: 4vw;
+	bottom: 33vh;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.welcome_admin {
+	font-family: "Allura", cursive;
+	/*font-family: "Playfair Display", serif;*/
+	/*font-family: "Roboto", sans-serif;*/
+	font-size: 39px;
+	color: #d0c194;
+	margin-bottom: -10px;
+}
+
+.order_header {
+	color: white;
+	font-weight: 300 !important;
+	font-size: 49px;
+	/*font-family: "Roboto", sans-serif;*/
+	/*font-family: "Allura", cursive;*/
+	font-family: "Playfair Display", serif;
+}
+
+@media (max-width: 560px) {
+	.background_image_admin {
+		background-position: bottom;
+	}
+	.header_container {
+		bottom: 18vh;
+	}
+}

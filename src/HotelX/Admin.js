@@ -51,8 +51,7 @@ function Admin() {
             setImage(null); // if there is no file, set image back to null
         }
     };
-    const uploadToFirebase = async () =>
-     {
+    const uploadToFirebase = async () => {
         if (image) {
             const storageRef = storage.ref(`images/${type}`);
             const uploadTask = storageRef.child(name).put(image);
@@ -79,7 +78,7 @@ function Admin() {
                                     .collection(type)
                                     .add({
                                         name: name,
-                                        price: price,
+                                        price: Number(price),
                                         quantity: 1,
                                         url: downloadURL.toString(),
                                     })
@@ -119,7 +118,6 @@ function Admin() {
         setPrice("");
         setImage("");
     };
-
 
     const deleteOrder = (e, id) => {
         e.preventDefault();

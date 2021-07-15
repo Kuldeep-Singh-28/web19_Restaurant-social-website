@@ -41,14 +41,19 @@ function Starters() {
                 setQuantity(snapshot.docs.map((doc)=> doc.data().quantity));
             });
     }, []);
-    const addToCart = (e, index, item,quantity) => {
+    // ===========================================
+
+    const addToCart = (e, index, item, quantity) => {
         console.log(index);
-        
-         db.collection("users").doc(user.uid).collection("My-cart").add({
-             price: item.price,
-             name: item.name,
-             quantity: quantity
-        });
+
+        db.collection("users")
+            .doc(user.uid)
+            .collection("My-cart")
+            .add({
+                price: Number(item.price),
+                name: item.name,
+                quantity: quantity,
+            });
     };
 
     const handleQuantityDecrease=(index) =>{
@@ -100,7 +105,7 @@ function Starters() {
                            .then((downloadURL) => {
                                console.log("File available at", downloadURL);                                     
                                     doc.update({
-                                        url:newUrl
+                                        url: downloadURL.toString(),
                                     })  
                                        .then(() => {
                                            console.log(
@@ -186,12 +191,16 @@ function Starters() {
                         {item.data().price}
                         <button onClick={() => handleQuantityDecrease(index)}>-</button>
                         {quantity[index]}
-                        <button  onClick={() => handleQuantityIncrease(index)}>+</button>
+                        <button onClick={() => handleQuantityIncrease(index)}>
+                            +
+                        </button>
                     </Typography>
                     <AddShoppingCartIcon
                         style={{ color: "#7b877c", size: 0.5 }}
                         className="_cart"
-                        onClick={(e) => addToCart(e, index, item,quantity[index])}
+                        onClick={(e) =>
+                            addToCart(e, index, item, quantity[index])
+                        }
                     />
                     
                     {isAdmin &&   <div>

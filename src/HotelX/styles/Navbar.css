@@ -3,6 +3,11 @@
     text-align: center;
 }
 
+.jumbotron_home {
+    background-color: transparent !important;
+    backdrop-filter: blur(0px) !important;
+}
+
 .navbar2 {
     backdrop-filter: blur(4px);
     padding-top: 0;
@@ -61,6 +66,10 @@
 
 .dark {
     background-color: rgba(0, 0, 0, 0.75);
+    color: white !important;
+}
+
+.jumbotron_links {
     color: white !important;
 }
 
