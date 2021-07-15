@@ -4,6 +4,7 @@ import db from "./firebase";
 import { Modal, ListGroup, ListGroupItem, Nav } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Typography } from "@material-ui/core";
+import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
 import Style from "./styles/Cart.module.css";
 const auth = firebase.auth();
 
@@ -28,6 +29,12 @@ function Cart() {
             });
         }
     }, [user]);
+
+    const remove_item = (e, id) => {
+        console.log(id);
+        const cart = db.collection("users").doc(user.uid).collection("My-cart");
+        cart.doc(id).delete();
+    };
 
     const remove = async (e, id) => {
         // console.log(id);
@@ -94,7 +101,8 @@ function Cart() {
                     >
                         {item.length !== 0 &&
                             item.map((i, index) => {
-                                price_tot += Number(i.data().price);
+                                price_tot +=
+                                    Number(i.data().price) * i.data().quantity;
                                 return (
                                     <ListGroupItem
                                         className={Style.list_group_item}
@@ -110,7 +118,29 @@ function Cart() {
                                             className="text-muted"
                                             style={{ marginLeft: `auto` }}
                                         >
-                                            &#8377;{i.data().price}
+                                            &#8377;
+                                            {i.data().price * i.data().quantity}
+                                        </small>
+                                        <small
+                                            style={{
+                                                position: `absolute`,
+                                                right: `-15px`,
+                                            }}
+                                        >
+                                            <button
+                                                onClick={(e) =>
+                                                    remove_item(e, i.id)
+                                                }
+                                                type="submit"
+                                                class="btn btn-sm btn-danger px-1 mx-1"
+                                                style={{ textAlign: `center` }}
+                                            >
+                                                <DeleteForeverOutlinedIcon
+                                                    style={{
+                                                        color: `white`,
+                                                    }}
+                                                />
+                                            </button>
                                         </small>
                                     </ListGroupItem>
                                 );
