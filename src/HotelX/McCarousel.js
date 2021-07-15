@@ -7,7 +7,7 @@ function ControlledCarousel() {
     useEffect(() => {
         var storageRef = storage.ref("images");
         const fetchImages = async () => {
-            let result = await storageRef.child("Main-Course").listAll();
+            let result = await storageRef.child("Main-courses").listAll();
             let urlPromises = result.items.map((imageRef) =>
                 imageRef.getDownloadURL()
             );
