@@ -14,6 +14,7 @@ import Footer from "./Footer";
 import Starters from "./Starters";
 import Admin from "./Admin";
 import Cart from "./Cart";
+import Map1 from "./Map1";
 function Hotel() {
   return (
     <div>
@@ -30,6 +31,7 @@ function Hotel() {
               <Route path="/login" component={Auth} />
               <Route path="/starters" component={Starters} />
               <Route path="/admin" component={Admin} />
+              <Route path="/map" component={Map1} />
             </Router>
           </Container>
         </Container>
