@@ -43,6 +43,8 @@ function NavBar() {
     const [show, setShow] = useState(false);
     const [show2, setShow2] = useState(false);
     const [isAdmin, setisAdmin] = useState(false);
+    const[email,setEmail] = useState();
+    const[show3,setShow3] = useState(false);
     useEffect(async () => {
         if (user) {
             db.collection("Admin")
@@ -76,6 +78,20 @@ function NavBar() {
         handleShow();
     };
 
+    const forget = (e) =>{
+        e.preventDefault();
+        if(email!= "") {
+            firebase.auth().sendPasswordResetEmail(email)
+  .then(() => {
+    window.alert("email is sent")
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ..
+  });
+        }   
+    }
     const signup = async (e) => {
         e.preventDefault();
         firebase
@@ -296,6 +312,7 @@ function NavBar() {
                             Log In
                         </h1>
                         <br />
+                       
                         <div>
                             Don't have an account?{" "}
                             <span
@@ -347,6 +364,14 @@ function NavBar() {
                         Log In
                     </MDBBtn>
                     <div className="divider"></div>
+                    <div>
+                   
+                            
+                    <MDBBtn outline rounded className="login-btn-submit" >
+                        forget
+                    </MDBBtn>
+                            
+                        </div>
                     <div className="terms">
                         * By logging in, you agree to our{" "}
                         <span style={{ color: `#3483ff` }}>Terms of Use</span>{" "}
@@ -356,6 +381,12 @@ function NavBar() {
                         .
                     </div>
                 </Modal.Body>
+            </Modal>
+            <Modal show={show3}>
+            <input type="text" onChange={e=> setEmail(e.target.value)} />
+                            <span onClick={forget} style={{ color: `#3483ff`, cursor: `pointer` }}>
+                            Reset
+                            </span>
             </Modal>
             <Modal show={show2} onHide={handleClose2}>
                 <Modal.Header closeButton></Modal.Header>
