@@ -1,119 +1,126 @@
 {
     "type": "FeatureCollection",
     "crs": {
-      "type": "name",
-      "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+        "type": "name",
+        "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
     },
     "features": [
-      {
-        "type": "Feature",
-        "properties": {
-          "Hotel_ID": 960,
-          "NAME": "HotelX Indore",
-          "DESCRIPTIO": "Great View"
+        {
+            "type": "Feature",
+            "properties": {
+                "Hotel_ID": 960,
+                "NAME": "HotelX Indore",
+                "CITY_NAME": "Indore",
+                "DESCRIPTIO": "Great View"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [75.89909860594204, 22.753925670211377]
+            }
         },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [75.89909860594204, 22.753925670211377]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "Hotel_ID": 1219,
-          "NAME": "HotelX Delhi",
-         "DESCRIPTIO": "We the pride"
+        {
+            "type": "Feature",
+            "properties": {
+                "Hotel_ID": 1219,
+                "NAME": "HotelX Delhi",
+                "CITY_NAME": "Delhi",
+                "DESCRIPTIO": "We the pride"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [77.19982880626652, 28.64243787474796]
+            }
         },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [77.19982880626652, 28.64243787474796]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "Hotel_ID": 1157,
-          "NAME": "HotelX Mumbai",
-         "DESCRIPTIO": "Chill near sea"
+        {
+            "type": "Feature",
+            "properties": {
+                "Hotel_ID": 1157,
+                "NAME": "HotelX Mumbai",
+                "CITY_NAME": "Mumbai",
+                "DESCRIPTIO": "Chill near sea"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [72.82616906188102, 19.080013281010487]
+            }
         },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [72.82616906188102, 19.080013281010487]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "Hotel_ID": 9,
-          "NAME": "HotelX Chennai",
-          "DESCRIPTIO": "Spent your winters"
+        {
+            "type": "Feature",
+            "properties": {
+                "Hotel_ID": 9,
+                "NAME": "HotelX Chennai",
+                "CITY_NAME": "Chennai",
+                "DESCRIPTIO": "Spent your winters"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [80.270186, 13.0836939]
+            }
         },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [80.270186, 13.0836939]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "Hotel_ID": 1160,
-          "NAME": "HotelX Jaipur",
-          "DESCRIPTIO": "Jaipur"
+        {
+            "type": "Feature",
+            "properties": {
+                "Hotel_ID": 1160,
+                "NAME": "HotelX Jaipur",
+                "CITY_NAME": "Jaipur",
+                "DESCRIPTIO": "Jaipur"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [75.8189817, 26.9154576]
+            }
         },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [75.8189817, 26.9154576]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "Hotel_ID": 1693,
-          "NAME": "HotelX kolkata",
-         "DESCRIPTIO": "Fish and chilled"
+        {
+            "type": "Feature",
+            "properties": {
+                "Hotel_ID": 1693,
+                "NAME": "HotelX kolkata",
+                "CITY_NAME": "Kolkata",
+                "DESCRIPTIO": "Fish and chilled"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [88.3576912, 22.5414185]
+            }
         },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [88.3576912, 22.5414185]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "Hotel_ID": 1717,
-          "NAME": "HotelX bengaluru",
-          "DESCRIPTIO": "Great fun"
-          
+        {
+            "type": "Feature",
+            "properties": {
+                "Hotel_ID": 1717,
+                "NAME": "HotelX bengaluru",
+                "CITY_NAME": "Bengaluru",
+                "DESCRIPTIO": "Great fun"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [77.5912997, 12.9791198]
+            }
         },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [77.5912997, 12.9791198]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "Hotel_ID": 137,
-          "NAME": "HotelX Ahmedabad",
-          "DESCRIPTIO": "Gujrati Dhokla"
+        {
+            "type": "Feature",
+            "properties": {
+                "Hotel_ID": 137,
+                "NAME": "HotelX Ahmedabad",
+                "CITY_NAME": "Ahmedabad",
+                "DESCRIPTIO": "Gujrati Dhokla"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [72.57678292897073, 23.02739806855956]
+            }
         },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [72.57678292897073,23.02739806855956]
+        {
+            "type": "Feature",
+            "properties": {
+                "Hotel_ID": 1133,
+                "NAME": "HotelX Agra",
+                "CITY_NAME": "Agra",
+                "DESCRIPTIO": "View od TajMahal"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [78.0098161, 27.1752554]
+            }
         }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "Hotel_ID": 1133,
-          "NAME": "HotelX Agra",
-          "DESCRIPTIO": "View od TajMahal"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [78.0098161, 27.1752554]
-        }
-      }
-      
     ]
-  }
+}
