@@ -13,7 +13,7 @@ function Middle1() {
                         </a>
                     </Col>
                     <Col className={Style.col2}>
-                        <a className={Style.atag} href="#">
+                        <a className={Style.atag} href="/locate">
                             LOCATE US
                         </a>
                     </Col>
