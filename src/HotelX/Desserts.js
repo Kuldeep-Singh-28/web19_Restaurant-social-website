@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import db, { storage } from "./firebase";
-import Style from "./styles/starters.module.css";
+import Style from "./styles/Desserts.module.css";
 import {
     Container,
     Row,
@@ -17,7 +17,7 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import EditRoundedIcon from "@material-ui/icons/EditRounded";
 import { MDBRipple } from "mdb-react-ui-kit";
 const auth = firebase.auth();
-function Starters() {
+function Desserts() {
     const [user] = useAuthState(auth);
     const [photos, setPhotos] = useState([]);
     const [quantity, setQuantity] = useState([]);
@@ -51,7 +51,7 @@ function Starters() {
     useEffect(() => {
         db.collection("dishes")
             .doc("dish")
-            .collection("Starters")
+            .collection("Desserts")
             .onSnapshot((snapshot) => {
                 setPhotos(snapshot.docs);
                 setQuantity(snapshot.docs.map((doc) => doc.data().quantity));
@@ -128,7 +128,7 @@ function Starters() {
         const doc = db
             .collection("dishes")
             .doc("dish")
-            .collection("Starters")
+            .collection("Desserts")
             .doc(Item.id);
 
         if (newName && newPrice) {
@@ -150,10 +150,10 @@ function Starters() {
         const doc = db
             .collection("dishes")
             .doc("dish")
-            .collection("Starters")
+            .collection("Desserts")
             .doc(Item.id);
         if (image) {
-            const storageRef = storage.ref(`images/Starters`);
+            const storageRef = storage.ref(`images/Desserts`);
             const uploadTask = storageRef.child(Item.data().name).put(image);
 
             uploadTask.on(
@@ -196,7 +196,7 @@ function Starters() {
             <div className={Style.background_image_admin}>
                 <div className={Style.header_container}>
                     <h2 className={Style.welcome_admin}>Welcome to</h2>
-                    <h1 className={Style.order_header}>STARTERS</h1>
+                    <h1 className={Style.order_header}>DESSERTS</h1>
                     <small style={{ color: `white`, fontSize: `12px` }}>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     </small>
@@ -451,4 +451,4 @@ function Starters() {
     );
 }
 
-export default Starters;
+export default Desserts;

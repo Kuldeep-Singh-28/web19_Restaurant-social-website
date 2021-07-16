@@ -270,7 +270,7 @@ function Admin() {
                                     {res_orders.map((order, index) => {
                                         let price_tot = 0;
                                         for (let i of order.data().order) {
-                                            price_tot += i.price;
+                                            price_tot += i.price * i.quantity;
                                         }
                                         return (
                                             <Card className={Style.card}>
