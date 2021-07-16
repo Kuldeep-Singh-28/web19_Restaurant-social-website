@@ -21,12 +21,12 @@ function Footer() {
                 </a>
               </li>
               <li className={Foo_style.bd}>
-                <a className={Foo_style.alink} href="#">
+                <a className={Foo_style.alink} href="/">
                   Home
                 </a>
               </li>
               <li className={Foo_style.bd}>
-                <a className={Foo_style.alink} href="#">
+                <a className={Foo_style.alink} href="/menu">
                   Menu
                 </a>
               </li>
@@ -41,7 +41,7 @@ function Footer() {
             <ul className={Foo_style.ul}>
               <li className={Foo_style.hd}>Our Company</li>
               <li className={Foo_style.bd}>
-                <a className={Foo_style.alink} href="#">
+                <a className={Foo_style.alink} href="/locate">
                   Locate us
                 </a>
               </li>
