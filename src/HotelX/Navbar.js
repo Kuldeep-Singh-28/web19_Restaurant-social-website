@@ -11,15 +11,24 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import Cart from "./Cart";
 const auth = firebase.auth();
+let instinct2;
+let instinct6;
 
 function SignOut() {
+    console.log(instinct2, instinct6);
     return (
         auth.currentUser && (
             <div>
                 <Nav.Link
                     href="#"
                     onClick={() => auth.signOut()}
-                    className="n2"
+                    className={`n2 ${
+                        !instinct2
+                            ? "dark_link"
+                            : !instinct6
+                            ? "jumbotron_links"
+                            : ""
+                    }`}
                     id="left"
                 >
                     SIGN OUT
@@ -67,8 +76,6 @@ function NavBar() {
         handleShow();
     };
 
-    let instinct2;
-
     const signup = async (e) => {
         e.preventDefault();
         firebase
@@ -107,10 +114,12 @@ function NavBar() {
     };
 
     const credentialSignUp = (e) => {
+        const name = document.getElementById("name2").value;
         const email = document.getElementById("email2").value;
         const pass = document.getElementById("password2").value;
         document.getElementById("email2").value = "";
         document.getElementById("password2").value = "";
+        document.getElementById("name2").value = "";
 
         auth.createUserWithEmailAndPassword(email, pass).then((cred) => {
             console.log(
@@ -120,6 +129,7 @@ function NavBar() {
             );
 
             db.collection("users").doc(cred.user.uid).set({
+                name: name,
                 email: email,
                 password: pass,
             });
@@ -134,13 +144,23 @@ function NavBar() {
             const k = document.getElementById("left");
             k.style.marginRight = `0px`;
             return (
-                <Nav.Link href="/admin" className="n2" id="right">
+                <Nav.Link
+                    href="/admin"
+                    className={`n2 ${
+                        !instinct2
+                            ? "dark_link"
+                            : !instinct6
+                            ? "jumbotron_links"
+                            : ""
+                    }`}
+                    id="right"
+                >
                     ADMIN
                 </Nav.Link>
             );
         }
     }
-    let instinct6;
+
     useEffect(() => {
         window.addEventListener("DOMContentLoaded", (e) => {
             let main_navbar = document.getElementById("main_navbar");
@@ -223,7 +243,11 @@ function NavBar() {
                         <Nav.Link href="/menu" className="n2">
                             MENU
                         </Nav.Link>
-                        {user ? <Cart /> : ""}
+                        {user ? (
+                            <Cart instinct2={instinct2} instinct6={instinct6} />
+                        ) : (
+                            ""
+                        )}
                         {!user ? (
                             <Nav.Link
                                 href="#"
@@ -368,6 +392,16 @@ function NavBar() {
                                 Continue with Google
                             </div>
                         </a>
+                    </div>
+                    <div className="input-container">
+                        <input
+                            id="name2"
+                            className="input-field"
+                            type="text"
+                            placeholder="Name"
+                            name="name"
+                            style={{ color: `black` }}
+                        />
                     </div>
                     <div className="input-container">
                         <input
