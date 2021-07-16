@@ -1,0 +1,9 @@
+.mapboxgl-ctrl-bottom-left,
+.mapboxgl-ctrl-bottom-right {
+	display: none;
+}
+
+.Map_master_map_cont__19Y_g > div:first-child {
+	height: 87vh !important;
+	width: 100vw !important;
+}
