@@ -146,6 +146,16 @@ function Starters() {
             });
         }
     };
+    const deleteItem = (e, Item) => {
+        db.collection("dishes")
+            .doc("dish")
+            .collection("Starters")
+            .doc(Item.id)
+            .delete()
+            .then(() => {
+                console.log("item has been successfully deleted");
+            });
+    };
     const edit1 = (e, Item) => {
         const doc = db
             .collection("dishes")
@@ -443,6 +453,16 @@ function Starters() {
                             }}
                         >
                             Submit
+                        </button>
+                        <button
+                            class="btn btn-primary btn-block mb-4 add_recipe_button"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                deleteItem(e, selectedItem);
+                                handleClose9();
+                            }}
+                        >
+                            DELETE ITEM
                         </button>
                     </form>
                 </Modal.Body>

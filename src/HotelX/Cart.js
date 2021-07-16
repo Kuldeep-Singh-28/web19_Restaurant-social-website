@@ -8,7 +8,7 @@ import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined"
 import Style from "./styles/Cart.module.css";
 const auth = firebase.auth();
 
-function Cart() {
+function Cart({ instinct2, instinct6 }) {
     const [user] = useAuthState(auth);
     const [item, setItem] = useState([]);
 
@@ -60,23 +60,41 @@ function Cart() {
     const placeorder = (e) => {
         const order = [];
         // console.log(item);
-        item.forEach((item) => {
-            // console.log(item.data());
-            order.push(item.data());
-        });
-        db.collection("orders")
-            .add({
-                order,
-            })
-            .then(async () => {
-                await remove();
-                handleClose5();
+        let name;
+        db.collection("users")
+            .doc(user.uid)
+            .get()
+            .then((doc) => {
+                name = doc.data().name;
+                item.forEach((item) => {
+                    // console.log(item.data());
+                    order.push(item.data());
+                });
+                db.collection("orders")
+                    .add({
+                        name,
+                        order,
+                    })
+                    .then(async () => {
+                        await remove();
+                        handleClose5();
+                    });
             });
     };
     let price_tot = 0;
     return (
         <div>
-            <Nav.Link href="#" onClick={handleShow5} className="n2">
+            <Nav.Link
+                href="#"
+                onClick={handleShow5}
+                className={`n2 ${
+                    !instinct2
+                        ? "dark_link"
+                        : !instinct6
+                        ? "jumbotron_links"
+                        : ""
+                }`}
+            >
                 CART
             </Nav.Link>
             <Modal

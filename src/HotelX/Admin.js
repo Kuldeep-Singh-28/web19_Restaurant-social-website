@@ -55,7 +55,7 @@ function Admin() {
         if (image) {
             const storageRef = storage.ref(`images/${type}`);
             const uploadTask = storageRef.child(name).put(image);
-
+            console.log(storageRef, "i am here");
             uploadTask.on(
                 "state_changed",
                 (snapshot) => {
@@ -73,6 +73,7 @@ function Admin() {
                         .then((downloadURL) => {
                             console.log("File available at", downloadURL);
                             if (type) {
+                                console.log("the type is available");
                                 db.collection("dishes")
                                     .doc("dish")
                                     .collection(type)
@@ -281,7 +282,7 @@ function Admin() {
                                                         className={Style.title}
                                                     >
                                                         <span>
-                                                            Order {index + 1}
+                                                            {order.data().name}
                                                         </span>
                                                         <span className="text-muted">
                                                             &#8377;

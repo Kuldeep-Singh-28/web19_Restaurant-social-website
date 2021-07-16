@@ -46,6 +46,10 @@
     border-top: 2px solid black;
     color: gray !important;
 }
+.n2:active,
+.n2:focus {
+    color: coral !important;
+}
 ._logo {
     margin: 0px;
     filter: none;

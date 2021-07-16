@@ -1,0 +1,6 @@
+.back_to_top {
+	position: fixed;
+	right: 3vw;
+	bottom: 10vh;
+	z-index: 1556;
+}
