@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Carousel } from "react-bootstrap";
 import { storage } from "./firebase";
 // import menu_test from "./images/menu_test.png";
-import one from "./images/admin.jpg";
-import two from "./images/food3.jpg";
-import three from "./images/middle2.2.jpg";
 function ControlledCarousel() {
     const [index, setIndex] = useState(0);
     const [files, setFiles] = useState([]);
