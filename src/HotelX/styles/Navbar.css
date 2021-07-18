@@ -96,7 +96,7 @@
 
 /* Style the input fields */
 .input-field {
-    width: 70%;
+    width: 77%;
     padding: 10px;
     outline: none;
     border-right: 0;
@@ -107,6 +107,16 @@
     padding-bottom: 0.4rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     transition: border-color 0.5s linear;
+}
+
+.login_forgot {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.forgot_pass {
+    cursor: pointer;
 }
 
 .input-field:hover {
