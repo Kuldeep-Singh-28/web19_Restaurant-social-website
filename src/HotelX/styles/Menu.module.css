@@ -51,7 +51,7 @@
         height: 100vh;
     }
     .pic_col {
-        height: 50vh;
+        height: 47vh;
         width: 100%;
     }
     .main_text_col,
@@ -62,7 +62,7 @@
     }
     .main_text_col,
     .bev_text_col {
-        bottom: 0;
+        bottom: 6vh;
     }
     .bev_text_col {
         margin-bottom: 2rem;
@@ -72,6 +72,6 @@
         top: 0;
     }
     .content {
-        font-size: 58px;
+        font-size: 54px;
     }
 }
