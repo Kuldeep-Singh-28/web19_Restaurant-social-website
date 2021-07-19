@@ -64,6 +64,9 @@
     .bev_text_col {
         bottom: 6vh;
     }
+    .main_text_col {
+        bottom: 9vh;
+    }
     .bev_text_col {
         margin-bottom: 2rem;
     }
