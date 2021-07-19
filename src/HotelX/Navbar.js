@@ -44,7 +44,7 @@ function NavBar() {
     const [show2, setShow2] = useState(false);
     const [isAdmin, setisAdmin] = useState(false);
     const[email,setEmail] = useState();
-    const[show3,setShow3] = useState(false);
+    const[showf,setShowf] = useState(false);
     useEffect(async () => {
         if (user) {
             db.collection("Admin")
@@ -367,9 +367,9 @@ function NavBar() {
                     <div>
                    
                             
-                    <MDBBtn outline rounded className="login-btn-submit" >
-                        forget
-                    </MDBBtn>
+                    <button  style={{ color: `#3483ff`, cursor: `pointer` }} >
+                        forgetpassword
+                    </button>
                             
                         </div>
                     <div className="terms">
@@ -382,7 +382,7 @@ function NavBar() {
                     </div>
                 </Modal.Body>
             </Modal>
-            <Modal show={show3}>
+            <Modal show={showf}>
             <input type="text" onChange={e=> setEmail(e.target.value)} />
                             <span onClick={forget} style={{ color: `#3483ff`, cursor: `pointer` }}>
                             Reset
