@@ -43,8 +43,8 @@ function NavBar() {
     const [show, setShow] = useState(false);
     const [show2, setShow2] = useState(false);
     const [isAdmin, setisAdmin] = useState(false);
-    const[email,setEmail] = useState();
-    const[showf,setShowf] = useState(false);
+    const [email, setEmail] = useState();
+    const [show3, setShow3] = useState(false);
     useEffect(async () => {
         if (user) {
             db.collection("Admin")
@@ -68,6 +68,9 @@ function NavBar() {
     const handleClose2 = () => setShow2(false);
     const handleShow2 = () => setShow2(true);
 
+    const handleClose3 = () => setShow3(false);
+    const handleShow3 = () => setShow3(true);
+
     const dualEvent = () => {
         handleClose();
         handleShow2();
@@ -78,20 +81,27 @@ function NavBar() {
         handleShow();
     };
 
-    const forget = (e) =>{
+    const dualEvent3 = () => {
+        handleClose();
+        handleShow3();
+    };
+
+    const forgot = (e) => {
         e.preventDefault();
-        if(email!= "") {
-            firebase.auth().sendPasswordResetEmail(email)
-  .then(() => {
-    window.alert("email is sent")
-  })
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ..
-  });
-        }   
-    }
+        if (email != "") {
+            firebase
+                .auth()
+                .sendPasswordResetEmail(email)
+                .then(() => {
+                    window.alert("email is sent");
+                })
+                .catch((error) => {
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    // ..
+                });
+        }
+    };
     const signup = async (e) => {
         e.preventDefault();
         firebase
@@ -312,7 +322,7 @@ function NavBar() {
                             Log In
                         </h1>
                         <br />
-                       
+
                         <div>
                             Don't have an account?{" "}
                             <span
@@ -360,18 +370,27 @@ function NavBar() {
                         />
                     </div>
 
-                    <MDBBtn outline rounded className="login-btn-submit">
-                        Log In
-                    </MDBBtn>
+                    <div className="login_forgot" style={{ marginTop: `1rem` }}>
+                        <MDBBtn
+                            outline
+                            rounded
+                            className="login-btn-submit"
+                            onClick={credentialSignIn}
+                            style={{ margin: `0` }}
+                        >
+                            Log In
+                        </MDBBtn>
+                        <span
+                            outline
+                            rounded
+                            className="forgot_pass"
+                            onClick={dualEvent3}
+                        >
+                            forgot password?
+                        </span>
+                    </div>
                     <div className="divider"></div>
-                    <div>
-                   
-                            
-                    <button  style={{ color: `#3483ff`, cursor: `pointer` }} >
-                        forgetpassword
-                    </button>
-                            
-                        </div>
+                    <div></div>
                     <div className="terms">
                         * By logging in, you agree to our{" "}
                         <span style={{ color: `#3483ff` }}>Terms of Use</span>{" "}
@@ -382,11 +401,40 @@ function NavBar() {
                     </div>
                 </Modal.Body>
             </Modal>
-            <Modal show={showf}>
-            <input type="text" onChange={e=> setEmail(e.target.value)} />
-                            <span onClick={forget} style={{ color: `#3483ff`, cursor: `pointer` }}>
-                            Reset
-                            </span>
+            <Modal show={show3} onHide={handleClose3}>
+                <Modal.Header closeButton></Modal.Header>
+                <Modal.Body>
+                    <div className="login-prompt">
+                        <h1
+                            style={{ color: `#20303c` }}
+                            className="header-login"
+                        >
+                            Reset Password
+                        </h1>
+                        <br />
+                    </div>
+                    <div className="input-container">
+                        <input
+                            id="email"
+                            className="input-field mb-4"
+                            type="text"
+                            placeholder="Enter Email"
+                            name="email"
+                            style={{ color: `black`, width: `92%` }}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </div>
+                    <button
+                        class="mb-3 btn btn-primary btn-block"
+                        onClick={(e) => {
+                            forgot(e);
+                            handleClose3();
+                        }}
+                        style={{ margin: `0` }}
+                    >
+                        Send recovery email
+                    </button>
+                </Modal.Body>
             </Modal>
             <Modal show={show2} onHide={handleClose2}>
                 <Modal.Header closeButton></Modal.Header>

@@ -1,7 +1,7 @@
 .fp-tableCell {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
 }
 
 .carousel-inner {
@@ -35,7 +35,7 @@
 
 @media (max-width: 657px) {
 	.fp-tableCell {
-		height: 50vh !important;
+		height: 47vh !important;
 	}
 	.carousel-item img {
 		height: 50vh;
