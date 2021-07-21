@@ -65,7 +65,7 @@ export default function PaymentForm() {
                     <CardElement options={cardStyle}/>
                 </div>
             </div>
-            <button>Pay</button>
+            <button className={Styles.button}>Pay</button>
         </form>
         :
        <div>
