@@ -7,8 +7,8 @@ import { Typography } from "@material-ui/core";
 import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
 import Style from "./styles/Cart.module.css";
 const auth = firebase.auth();
-
 function Cart({ instinct2, instinct6 }) {
+    let price_tot = 0;
     const [user] = useAuthState(auth);
     const [item, setItem] = useState([]);
 
@@ -70,6 +70,8 @@ function Cart({ instinct2, instinct6 }) {
                     // console.log(item.data());
                     order.push(item.data());
                 });
+
+                
                 db.collection("orders")
                     .add({
                         name,
@@ -81,7 +83,7 @@ function Cart({ instinct2, instinct6 }) {
                     });
             });
     };
-    let price_tot = 0;
+    // let price_tot = 0;
     return (
         <div>
             <Nav.Link
@@ -184,21 +186,21 @@ function Cart({ instinct2, instinct6 }) {
                         ""
                     )}
                     {item.length !== 0 ? (
-                        <button
+                                 <button
                             type="submit"
                             class="btn btn-primary btn-block mb-4 add_recipe_button"
                             // className={`btn btn-primary btn-block mb-4 add_recipe_button`}
-                            onClick={(e) => placeorder(e)}
                         >
-                            PROCEED TO CHECKOUT
+                            <a href="/payment" >PROCEED TO CHECKOUT</a>
                         </button>
+                   
                     ) : (
                         ""
                     )}
+                   
                 </Modal.Body>
             </Modal>
         </div>
     );
 }
-
 export default Cart;

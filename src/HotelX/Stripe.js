@@ -14,7 +14,7 @@ app.post("/payment", cors(), async (req, res) => {
 	try {
 		const payment = await stripe.paymentIntents.create({
 			amount,
-			currency: "USD",
+			currency: "INR",
 			description: "Spatula company",
 			shipping: {
 				name: 'Jenny Rosen',
