@@ -16,6 +16,16 @@ app.post("/payment", cors(), async (req, res) => {
 			amount,
 			currency: "USD",
 			description: "Spatula company",
+			shipping: {
+				name: 'Jenny Rosen',
+				address: {
+				  line1: '510 Townsend St',
+				  postal_code: '98140',
+				  city: 'San Francisco',
+				  state: 'CA',
+				  country: 'US',
+				},
+			  },
 			payment_method: id,
 			confirm: true
 		})

@@ -40,7 +40,7 @@ export default function PaymentForm() {
             const {id} = paymentMethod
             const response = await axios.post("http://localhost:4000/payment", {
                 amount: 1000,
-                id
+                id:id
             })
 
             if(response.data.success) {
@@ -59,14 +59,17 @@ export default function PaymentForm() {
     return (
         <div>
         {!success ? 
-        <form onSubmit={handleSubmit}>
-            <div className={Styles.FormGroup}>
-                <div className={Styles.FormRow}>
-                    <CardElement options={cardStyle}/>
-                </div>
-            </div>
-            <button className={Styles.button}>Pay</button>
-        </form>
+          <>
+          <h1>Card</h1>
+    
+          <form id="payment-form" onSubmit={handleSubmit}>
+            <label htmlFor="card">Card</label>
+            <CardElement id="card" />
+    
+            <button type="submit">Pay</button>
+          </form>
+          
+        </>
         :
        <div>
            <h2>You just bought a sweet spatula congrats this is the best decision of you're life</h2>
