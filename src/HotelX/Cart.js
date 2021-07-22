@@ -71,7 +71,6 @@ function Cart({ instinct2, instinct6 }) {
                     order.push(item.data());
                 });
 
-                
                 db.collection("orders")
                     .add({
                         name,
@@ -186,18 +185,17 @@ function Cart({ instinct2, instinct6 }) {
                         ""
                     )}
                     {item.length !== 0 ? (
-                                 <button
-                            type="submit"
+                        <a
+                            href="/payment"
+                            type="button"
                             class="btn btn-primary btn-block mb-4 add_recipe_button"
                             // className={`btn btn-primary btn-block mb-4 add_recipe_button`}
                         >
-                            <a href="/payment" >PROCEED TO CHECKOUT</a>
-                        </button>
-                   
+                            PROCEED TO CHECKOUT
+                        </a>
                     ) : (
                         ""
                     )}
-                   
                 </Modal.Body>
             </Modal>
         </div>
