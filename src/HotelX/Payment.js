@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Card, Container, Row, Col } from "react-bootstrap";
 import firebase from "firebase";
 import db from "./firebase";
+import Success_svg from "./Success_svg";
 import { useAuthState } from "react-firebase-hooks/auth";
 import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
 import { loadStripe } from "@stripe/stripe-js";
@@ -292,9 +293,52 @@ function PaymentForm() {
                     </Container>
                 </>
             ) : (
-                <div>
-                    <h2>PAYMENT SUCCESSFUL</h2>
-                </div>
+                <>
+                    <Container fluid className={Style.success_cont}>
+                        <div className={Style.svg_img}>
+                            <Success_svg />
+                        </div>
+                        <Row className={Style.success_row}>
+                            <Col className={Style.payment_succ_col}>
+                                <Card className={Style.success_card}>
+                                    <Card.Body className={Style.success_body}>
+                                        <Card.Title className="display-4 mb-4">
+                                            Order Confirmed
+                                        </Card.Title>
+                                        <Card.Subtitle>
+                                            <div
+                                                className={` mb-4 ${Style.list_item}`}
+                                                style={{ color: `#00bfa6` }}
+                                            >
+                                                Order placed
+                                            </div>
+                                            <div
+                                                className={`mb-4 ${Style.list_item} ${Style.link_item1}`}
+                                            >
+                                                Preparing order
+                                            </div>
+                                            <div
+                                                className={`text-muted mb-4 ${Style.list_item}`}
+                                            >
+                                                Successfully delivered
+                                            </div>
+                                        </Card.Subtitle>
+                                        <a
+                                            type="button"
+                                            href="/"
+                                            class="btn btn-dark btn-rounded my-5"
+                                            style={{
+                                                transform: `translateY(0px)`,
+                                            }}
+                                        >
+                                            back to home
+                                        </a>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        </Row>
+                    </Container>
+                </>
             )}
         </div>
     );
