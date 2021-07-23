@@ -132,7 +132,18 @@ function PaymentForm() {
                         name,
                         order,
                     })
-                    .then(async () => {
+                    .then(async (res) => {
+                        // console.log(res.id);
+                        db.collection("users")
+                            .doc(user.uid)
+                            .collection("history")
+                            .add({
+                                id: res.id,
+                                order,
+                            })
+                            .then(() => {
+                                console.log("added history Successfully");
+                            });
                         await remove();
                     });
             });
