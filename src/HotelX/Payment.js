@@ -149,7 +149,7 @@ function PaymentForm() {
             try {
                 const { id } = paymentMethod;
                 const response = await axios.post(
-                    "https://LeafyClimate.kirantirunagiri.repl.co:4000/payment",
+                    "https://leafyclimate.kirantirunagiri.repl.co/payment",
                     {
                         amount: Tprice,
                         id: id,
