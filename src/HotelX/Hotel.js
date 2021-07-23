@@ -20,6 +20,8 @@ import Cart from "./Cart";
 import Style from "./styles/Master_page.module.css";
 import Map from "./Map1";
 import Payment from "./Payment";
+import User from "./User";
+
 function Hotel() {
     const backToTop = (e) => {
         window.scrollTo(0, 0);
@@ -97,6 +99,7 @@ function Hotel() {
                             <Route path="/admin" component={Admin} />
                             <Route path="/locate" component={Map} />
                             <Route path="/payment" component={Payment} />
+                            <Route path="/user" component={User} />
                         </Router>
                     </Container>
                 </Container>
