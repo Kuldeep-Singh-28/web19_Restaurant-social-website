@@ -21,6 +21,13 @@
 	box-shadow: none;
 }
 
+.success_card {
+	box-shadow: none;
+	margin-left: 2rem;
+	min-height: 60vh;
+	background-color: transparent;
+}
+
 .total_price {
 	padding: 0.5rem 1.5rem;
 	font-family: "Roboto", sans-serif;
@@ -30,11 +37,50 @@
 	color: rgba(0, 0, 0, 0.5);
 }
 
-.payment_cont {
+.list_item {
+	display: block;
+	font-weight: 400;
+	/*align-items: center;*/
+}
+
+.payment_cont,
+.success_cont {
 	min-height: 80vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.success_cont {
+	position: relative;
+	justify-content: flex-start;
+}
+
+.svg_img {
+	position: absolute;
+	transform: scale(0.6);
+	right: 0;
+	/*right: 25vw;*/
+	/*top: 10vh;*/
+}
+
+.link_item1 {
+	animation-name: blink;
+	animation-duration: 0.8s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-out;
+}
+
+@keyframes blink {
+	0% {
+		color: #757575;
+	}
+	50% {
+		color: #00bfa6;
+	}
+	100% {
+		color: #757575;
+	}
 }
 
 .payment_row {
@@ -57,6 +103,31 @@
 	color: rgba(255, 255, 255, 0.8) !important;
 }
 
+@media (max-width: 1150px) {
+	.svg_img {
+		right: -11vh;
+	}
+}
+
+@media (max-width: 1000px) {
+	.svg_img {
+		right: -17vh;
+	}
+}
+
+@media (max-width: 931px) {
+	.success_card {
+		margin-left: unset;
+	}
+}
+
+@media (max-width: 888px) {
+	.svg_img {
+		transform: scale(0.5);
+		right: -23vh;
+	}
+}
+
 @media (max-width: 856px) {
 	.img_col {
 		display: none;
@@ -66,8 +137,62 @@
 	}
 }
 
+@media (max-width: 777px) {
+	.success_card {
+		width: 328px;
+	}
+}
+
+@media (max-width: 659px) {
+	.svg_img {
+		transform: scale(0.4);
+		right: -30vh;
+	}
+}
+
+@media (max-width: 542px) {
+	.svg_img {
+		transform: scale(0.34);
+		right: -33vh;
+		top: -5vh;
+	}
+}
+
+@media (max-width: 484px) {
+	.svg_img {
+		transform: scale(0.289);
+		right: -38vh;
+		top: -7vh;
+	}
+	.success_card {
+		width: 236px;
+	}
+}
+
+@media (max-width: 429px) {
+	.svg_img {
+		transform: scale(0.24);
+		right: -40vh;
+		top: -8vh;
+	}
+	.success_card {
+		width: 236px;
+	}
+	.success_body {
+		padding-right: 0;
+		padding-left: 0;
+	}
+}
+
 @media (max-width: 400px) {
 	.payment_row {
 		width: 287px;
+	}
+}
+
+@media (max-width: 390px) {
+	.svg_img {
+		right: -43vh;
+		transform: scale(0.2);
 	}
 }
