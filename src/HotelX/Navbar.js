@@ -270,6 +270,13 @@ function NavBar() {
                             MENU
                         </Nav.Link>
                         {user ? (
+                            <Nav.Link href="/user" className="n2">
+                                MY ACCOUNT
+                            </Nav.Link>
+                        ) : (
+                            ""
+                        )}
+                        {user ? (
                             <Cart instinct2={instinct2} instinct6={instinct6} />
                         ) : (
                             ""
