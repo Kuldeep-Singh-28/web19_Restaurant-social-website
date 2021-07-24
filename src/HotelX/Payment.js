@@ -134,10 +134,16 @@ function PaymentForm() {
                     })
                     .then(async (res) => {
                         // console.log(res.id);
+                        let newObj = new Date();
+                        let month = newObj.getUTCMonth() + 1;
+                        let day = newObj.getUTCDate();
+                        let year = newObj.getUTCFullYear();
+                        let date = `${day}/${month}/${year}`;
                         db.collection("users")
                             .doc(user.uid)
                             .collection("history")
                             .add({
+                                date,
                                 id: res.id,
                                 order,
                             })
