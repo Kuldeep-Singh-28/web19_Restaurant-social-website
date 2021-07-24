@@ -33,6 +33,21 @@ const key =
 
 const stripeTestPromise = loadStripe(key);
 
+const months = {
+    1: "Jan",
+    2: "Feb",
+    3: "Mar",
+    4: "Apr",
+    5: "May",
+    6: "Jun",
+    7: "Jul",
+    8: "Aug",
+    9: "Sep",
+    10: "Oct",
+    11: "Nov",
+    12: "Dec",
+};
+
 // =======================================
 function Stripe1() {
     return (
@@ -138,12 +153,23 @@ function PaymentForm() {
                         let month = newObj.getUTCMonth() + 1;
                         let day = newObj.getUTCDate();
                         let year = newObj.getUTCFullYear();
-                        let date = `${day}/${month}/${year}`;
+                        let date = `${day} ${months[month]} ${year}`;
+                        let am = true;
+                        let hours = newObj.getHours();
+                        if (hours > 12) {
+                            am = false;
+                            hours -= 12;
+                        }
+                        let min = newObj.getMinutes();
+                        let time = am
+                            ? `${hours}:${min} AM`
+                            : `${hours}:${min} PM`;
                         db.collection("users")
                             .doc(user.uid)
                             .collection("history")
                             .add({
                                 date,
+                                time,
                                 id: res.id,
                                 order,
                             })
