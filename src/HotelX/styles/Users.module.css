@@ -7,6 +7,12 @@
 	box-sizing: border-box;
 }
 
+.first_header {
+	font-family: "Roboto", sans-serif;
+	color: #4f4f4f;
+	margin-bottom: 2rem;
+}
+
 .background_image_admin {
 	position: relative;
 	top: 0;
@@ -145,6 +151,15 @@ textarea {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	margin-top: 1.5rem;
+}
+
+.already_ordered {
+	font-family: "Noto Sans TC", sans-serif;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .card_body {
@@ -174,6 +189,7 @@ textarea {
 	transition: all 1s linear;
 	border: 0;
 	box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
+	margin-bottom: 2rem !important;
 }
 
 .parent_row {
@@ -181,7 +197,7 @@ textarea {
 	justify-content: space-around;
 	width: 80%;
 	padding-top: 2vh;
-	max-width: 1055.2px;
+	max-width: 800px;
 	/*border: 1px solid #484848;*/
 	/*backdrop-filter: blur(8px);*/
 }
@@ -192,7 +208,6 @@ textarea {
 }
 
 .parent_container {
-	background-color: seashell;
 	display: flex;
 	justify-content: center;
 }
@@ -325,7 +340,9 @@ textarea {
 		line-height: 1.4;
 		width: 81%;
 	}
-
+	.first_header {
+		text-align: center;
+	}
 	.accordion {
 		column-count: 1;
 		width: 80%;
