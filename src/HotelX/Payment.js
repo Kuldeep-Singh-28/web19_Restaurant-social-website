@@ -9,6 +9,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import No_user from "./No_user";
 import Style from "./styles/stripe.module.css";
 const auth = firebase.auth();
 const cardStyle = {
@@ -214,171 +215,216 @@ function PaymentForm() {
     // console.log(item, "this is the value of the item");
     return (
         <div>
-            {!success ? (
-                <>
-                    <Container fluid className={Style.payment_cont}>
-                        <Row className={Style.payment_row}>
-                            <Col className={Style.img_col}></Col>
-                            <Col className={Style.card_col}>
-                                <Card className={Style.payment_card}>
-                                    <Card.Body>
-                                        <Card.Title className="display-5 mb-4">
-                                            Order Summary
-                                        </Card.Title>
-                                        {item.length !== 0 &&
-                                            item.map((i, index) => {
-                                                return (
-                                                    <Card.Subtitle
-                                                        className={
-                                                            Style.list_group_item
-                                                        }
-                                                    >
-                                                        <small className="text-muted">
-                                                            {i.data().name}
-                                                        </small>
-                                                        <small className="mx-1">
-                                                            x
-                                                        </small>
-                                                        <small className="text-muted">
-                                                            {i.data().quantity}
-                                                        </small>
-                                                        <small
-                                                            className="text-muted"
-                                                            style={{
-                                                                marginLeft: `auto`,
-                                                                marginRight: `0.2rem`,
-                                                            }}
+            {user ? (
+                !success ? (
+                    <>
+                        <Container fluid className={Style.payment_cont}>
+                            <Row className={Style.payment_row}>
+                                <Col className={Style.img_col}></Col>
+                                <Col className={Style.card_col}>
+                                    <Card className={Style.payment_card}>
+                                        <Card.Body>
+                                            <Card.Title className="display-5 mb-4">
+                                                Order Summary
+                                            </Card.Title>
+                                            {item.length !== 0 &&
+                                                item.map((i, index) => {
+                                                    return (
+                                                        <Card.Subtitle
+                                                            className={
+                                                                Style.list_group_item
+                                                            }
                                                         >
-                                                            &#8377;
-                                                            {i.data().price *
-                                                                i.data()
-                                                                    .quantity}
-                                                        </small>
-                                                        <small>
-                                                            <button
-                                                                onClick={(e) =>
-                                                                    remove_item(
-                                                                        e,
-                                                                        i.id
-                                                                    )
+                                                            <small className="text-muted">
+                                                                {i.data().name}
+                                                            </small>
+                                                            <small className="mx-1">
+                                                                x
+                                                            </small>
+                                                            <small className="text-muted">
+                                                                {
+                                                                    i.data()
+                                                                        .quantity
                                                                 }
-                                                                type="submit"
-                                                                class="btn btn-sm btn-danger px-1 mx-1"
+                                                            </small>
+                                                            <small
+                                                                className="text-muted"
                                                                 style={{
-                                                                    textAlign: `center`,
+                                                                    marginLeft: `auto`,
+                                                                    marginRight: `0.2rem`,
                                                                 }}
                                                             >
-                                                                <DeleteForeverOutlinedIcon
+                                                                &#8377;
+                                                                {i.data()
+                                                                    .price *
+                                                                    i.data()
+                                                                        .quantity}
+                                                            </small>
+                                                            <small>
+                                                                <button
+                                                                    onClick={(
+                                                                        e
+                                                                    ) =>
+                                                                        remove_item(
+                                                                            e,
+                                                                            i.id
+                                                                        )
+                                                                    }
+                                                                    type="submit"
+                                                                    class="btn btn-sm btn-danger px-1 mx-1"
                                                                     style={{
-                                                                        color: `white`,
+                                                                        textAlign: `center`,
                                                                     }}
-                                                                />
-                                                            </button>
-                                                        </small>
-                                                    </Card.Subtitle>
-                                                );
-                                            })}
-                                        {item.length === 0 && (
-                                            <div>Shopping cart empty</div>
-                                        )}
-                                        {item.length !== 0 ? (
-                                            <div className={Style.total_price}>
-                                                <h3
-                                                    style={{
-                                                        display: `inline-block`,
-                                                    }}
+                                                                >
+                                                                    <DeleteForeverOutlinedIcon
+                                                                        style={{
+                                                                            color: `white`,
+                                                                        }}
+                                                                    />
+                                                                </button>
+                                                            </small>
+                                                        </Card.Subtitle>
+                                                    );
+                                                })}
+                                            {item.length === 0 && (
+                                                <div>Shopping cart empty</div>
+                                            )}
+                                            {item.length !== 0 ? (
+                                                <div
+                                                    className={
+                                                        Style.total_price
+                                                    }
                                                 >
-                                                    Total
-                                                </h3>
-                                                <h3
-                                                    style={{
-                                                        marginLeft: `auto`,
-                                                        display: `inline`,
-                                                    }}
-                                                >
-                                                    &#8377;{Tprice}
-                                                </h3>
-                                            </div>
-                                        ) : (
-                                            ""
-                                        )}
-                                        {item.length !== 0 ? (
-                                            <>
-                                                <Card.Title className="display-6 mb-3">
-                                                    Card Details
-                                                </Card.Title>
-                                                <form
-                                                    id="payment-form"
-                                                    onSubmit={handleSubmit}
-                                                >
-                                                    <CardElement
-                                                        id="card"
+                                                    <h3
                                                         style={{
-                                                            borderBottom: `1px solid rgba(0,0,0,0.4)`,
+                                                            display: `inline-block`,
                                                         }}
-                                                    />
-
-                                                    <button
-                                                        class="btn btn-dark btn-block mt-4"
-                                                        type="submit"
                                                     >
-                                                        Pay
-                                                    </button>
-                                                </form>
-                                            </>
-                                        ) : (
-                                            ""
-                                        )}
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                        </Row>
-                    </Container>
-                </>
+                                                        Total
+                                                    </h3>
+                                                    <h3
+                                                        style={{
+                                                            marginLeft: `auto`,
+                                                            display: `inline`,
+                                                        }}
+                                                    >
+                                                        &#8377;{Tprice}
+                                                    </h3>
+                                                </div>
+                                            ) : (
+                                                ""
+                                            )}
+                                            {item.length !== 0 ? (
+                                                <>
+                                                    <Card.Title className="display-6 mb-3">
+                                                        Card Details
+                                                    </Card.Title>
+                                                    <form
+                                                        id="payment-form"
+                                                        onSubmit={handleSubmit}
+                                                    >
+                                                        <CardElement
+                                                            id="card"
+                                                            style={{
+                                                                borderBottom: `1px solid rgba(0,0,0,0.4)`,
+                                                            }}
+                                                        />
+
+                                                        <button
+                                                            class="btn btn-dark btn-block mt-4"
+                                                            type="submit"
+                                                        >
+                                                            Pay
+                                                        </button>
+                                                    </form>
+                                                </>
+                                            ) : (
+                                                ""
+                                            )}
+                                        </Card.Body>
+                                    </Card>
+                                </Col>
+                            </Row>
+                        </Container>
+                    </>
+                ) : (
+                    <>
+                        <Container fluid className={Style.success_cont}>
+                            <div className={Style.svg_img}>
+                                <Success_svg />
+                            </div>
+                            <Row className={Style.success_row}>
+                                <Col className={Style.payment_succ_col}>
+                                    <Card className={Style.success_card}>
+                                        <Card.Body
+                                            className={Style.success_body}
+                                        >
+                                            <Card.Title className="display-4 mb-4">
+                                                Order Confirmed
+                                            </Card.Title>
+                                            <Card.Subtitle>
+                                                <div
+                                                    className={` mb-4 ${Style.list_item}`}
+                                                    style={{ color: `#00bfa6` }}
+                                                >
+                                                    Order placed
+                                                </div>
+                                                <div
+                                                    className={`mb-4 ${Style.list_item} ${Style.link_item1}`}
+                                                >
+                                                    Preparing order
+                                                </div>
+                                                <div
+                                                    className={`text-muted mb-4 ${Style.list_item}`}
+                                                >
+                                                    Successfully delivered
+                                                </div>
+                                            </Card.Subtitle>
+                                            <a
+                                                type="button"
+                                                href="/"
+                                                class="btn btn-dark btn-rounded my-5"
+                                                style={{
+                                                    transform: `translateY(0px)`,
+                                                }}
+                                            >
+                                                back to home
+                                            </a>
+                                        </Card.Body>
+                                    </Card>
+                                </Col>
+                            </Row>
+                        </Container>
+                    </>
+                )
             ) : (
                 <>
-                    <Container fluid className={Style.success_cont}>
-                        <div className={Style.svg_img}>
-                            <Success_svg />
+                    <Container
+                        fluid
+                        className={Style.no_user_cont}
+                        style={{ marginTop: `19vh` }}
+                    >
+                        <div className={Style.svg_img2}>
+                            <No_user />
                         </div>
-                        <Row className={Style.success_row}>
-                            <Col className={Style.payment_succ_col}>
-                                <Card className={Style.success_card}>
-                                    <Card.Body className={Style.success_body}>
-                                        <Card.Title className="display-4 mb-4">
-                                            Order Confirmed
-                                        </Card.Title>
-                                        <Card.Subtitle>
-                                            <div
-                                                className={` mb-4 ${Style.list_item}`}
-                                                style={{ color: `#00bfa6` }}
-                                            >
-                                                Order placed
-                                            </div>
-                                            <div
-                                                className={`mb-4 ${Style.list_item} ${Style.link_item1}`}
-                                            >
-                                                Preparing order
-                                            </div>
-                                            <div
-                                                className={`text-muted mb-4 ${Style.list_item}`}
-                                            >
-                                                Successfully delivered
-                                            </div>
-                                        </Card.Subtitle>
-                                        <a
-                                            type="button"
-                                            href="/"
-                                            class="btn btn-dark btn-rounded my-5"
-                                            style={{
-                                                transform: `translateY(0px)`,
-                                            }}
-                                        >
-                                            back to home
-                                        </a>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
+                        <Row className={Style.no_user_row}>
+                            <div className={Style.no_user_div}>
+                                <h4 className="display-5 mb-4">
+                                    No User Is
+                                    <br /> Currently{" "}
+                                    <span style={{ color: `coral` }}>
+                                        Logged
+                                    </span>{" "}
+                                    In
+                                </h4>
+                                <a
+                                    href="/"
+                                    type="button"
+                                    class="btn btn-dark btn-rounded mb-4"
+                                >
+                                    Back to Home
+                                </a>
+                            </div>
                         </Row>
                     </Container>
                 </>
