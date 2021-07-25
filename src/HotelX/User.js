@@ -141,6 +141,51 @@ function User() {
 				(err) => console.log(err.message)
 			);
 		}
+
+		const tl = gsap.timeline({ delay: 0.5 });
+		tl.fromTo(
+			bk_admin.current,
+			1,
+			{ x: "-100%", opacity: 0 },
+			{ x: "0%", opacity: 1 }
+		)
+
+			.fromTo(
+				bk_admin.current,
+				0.5,
+				{ height: "100vh" },
+				{ height: "60vh" },
+				"-=0.2"
+			)
+			.fromTo(
+				bk_admin.current,
+				0.5,
+				{ width: "110%" },
+				{ width: "100%" },
+				"-=0.5"
+			)
+			.fromTo(
+				scroller.current,
+				0.55,
+				{ x: "-100%", backgroundColor: "white" },
+				{ x: "0%", backgroundColor: "black" },
+				"-=0.5"
+			)
+			.fromTo(scroller.current, 0.35, { x: "0%" }, { x: "100%" })
+			.fromTo(
+				user_name.current,
+				0.5,
+				{ y: "50", opacity: 0 },
+				{ y: "0", opacity: 1 },
+				"-=0.3"
+			)
+			.fromTo(
+				main_content.current,
+				0.5,
+				{ x: "-50", opacity: 0 },
+				{ x: "0", opacity: 1 },
+				"-=0.3"
+			);
 	}, [user_present]);
 
 	// console.log(cur_orders, "these are the current orders");
@@ -193,51 +238,6 @@ function User() {
 				instinct4 = 1;
 			}
 		});
-
-		const tl = gsap.timeline({ delay: 0.5 });
-		tl.fromTo(
-			bk_admin.current,
-			1,
-			{ x: "-100%", opacity: 0 },
-			{ x: "0%", opacity: 1 }
-		)
-
-			.fromTo(
-				bk_admin.current,
-				0.5,
-				{ height: "100vh" },
-				{ height: "60vh" },
-				"-=0.2"
-			)
-			.fromTo(
-				bk_admin.current,
-				0.5,
-				{ width: "110%" },
-				{ width: "100%" },
-				"-=0.5"
-			)
-			.fromTo(
-				scroller.current,
-				0.55,
-				{ x: "-100%", backgroundColor: "white" },
-				{ x: "0%", backgroundColor: "black" },
-				"-=0.5"
-			)
-			.fromTo(scroller.current, 0.35, { x: "0%" }, { x: "100%" })
-			.fromTo(
-				user_name.current,
-				0.5,
-				{ y: "50", opacity: 0 },
-				{ y: "0", opacity: 1 },
-				"-=0.3"
-			)
-			.fromTo(
-				main_content.current,
-				0.5,
-				{ x: "-50", opacity: 0 },
-				{ x: "0", opacity: 1 },
-				"-=0.3"
-			);
 	}, []);
 
 	//=========================================================
