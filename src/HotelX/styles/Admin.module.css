@@ -146,6 +146,26 @@ textarea {
 	align-items: center;
 }
 
+.no_user_cont {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	min-height: 65vh;
+	margin-bottom: 5rem;
+}
+
+.svg_img2 {
+	position: absolute;
+	transform: scale(0.6);
+	right: -10vh;
+	/*right: 25vw;*/
+	/*top: 10vh;*/
+}
+
+.no_user_row {
+	margin-left: 4rem;
+}
+
 .card_body {
 	background-color: coral;
 	color: white;
@@ -354,5 +374,81 @@ textarea {
 
 	.btn1 {
 		margin-bottom: 9%;
+	}
+}
+
+@media (max-width: 1227px) {
+	.no_user_row {
+		margin-left: 1rem;
+	}
+}
+
+@media (max-width: 1150px) {
+	.svg_img2 {
+		right: -18vh;
+	}
+}
+
+@media (max-width: 1097px) {
+	.svg_img2 {
+		right: -24vh;
+	}
+}
+
+@media (max-width: 1027px) {
+	.no_user_row {
+		margin-left: 0px;
+	}
+}
+
+@media (max-width: 987px) {
+	.svg_img2 {
+		transform: scale(0.5);
+		right: -29vh;
+	}
+}
+
+@media (max-width: 888px) {
+	.svg_img2 {
+		transform: scale(0.45);
+		right: -33vh;
+	}
+}
+
+@media (max-width: 818px) {
+	.svg_img2 {
+		top: -17vh;
+	}
+	.no_user_cont {
+		align-items: flex-end;
+	}
+}
+
+@media (max-width: 645px) {
+	.svg_img2 {
+		transform: scale(0.4);
+		right: -36vh;
+	}
+}
+
+@media (max-width: 549px) {
+	.no_user_cont {
+		min-height: 61vh;
+	}
+	.svg_img2 {
+		transform: scale(0.34);
+		right: -41vh;
+		top: -21vh;
+	}
+}
+
+@media (max-width: 401px) {
+	.svg_img2 {
+		transform: scale(0.3);
+		right: -45vh;
+		top: -24vh;
+	}
+	.no_user_cont {
+		min-height: 55vh;
 	}
 }
