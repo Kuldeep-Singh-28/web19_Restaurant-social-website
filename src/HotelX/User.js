@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import { gsap } from "gsap";
 import Style from "./styles/Users.module.css";
 import "./styles/Admin.css";
+import No_user from "./No_user";
 import { useAuthState } from "react-firebase-hooks/auth";
 import {
 	Form,
@@ -243,238 +244,317 @@ function User() {
 
 	return (
 		<div className={Style.admin}>
-			<div className={Style.background_image_admin} ref={bk_admin}>
-				<div className={Style.header_container} ref={user_name}>
-					<h2 className={Style.welcome_admin}>Welcome</h2>
-					<h1 className={Style.order_header}>{name}</h1>
-					<small style={{ color: `white`, fontSize: `12px` }}>
-						{email}
-					</small>
-					<a
-						href="/"
-						style={{ zIndex: `100` }}
-						class="btn btn-light btn-rounded mt-5"
+			{user_present ? (
+				<>
+					<div
+						className={Style.background_image_admin}
+						ref={bk_admin}
 					>
-						Back to home
-					</a>
-				</div>
-			</div>
-			<Container fluid className={Style.parent_container}>
-				<div className={Style.scroller} ref={scroller}></div>
-				<div className={Style.parent_row} ref={main_content}>
-					<Container fluid>
-						<Row id="main-row" className={Style.main_row}>
-							<h4 className={`display-5 ${Style.first_header}`}>
-								Current Orders
-							</h4>
-							{cur_orders.length !== 0 ? (
-								<>
-									<CardColumns className={Style.accordion}>
-										{cur_orders.map((order, index) => {
-											let price_tot = 0;
-											for (let i of order.data().order) {
-												price_tot +=
-													i.price * i.quantity;
-											}
-											return (
-												<Card className={Style.card}>
-													<Card.Body
-														className={
-															Style.card_body
+						<div className={Style.header_container} ref={user_name}>
+							<h2 className={Style.welcome_admin}>Welcome</h2>
+							<h1 className={Style.order_header}>{name}</h1>
+							<small style={{ color: `white`, fontSize: `12px` }}>
+								{email}
+							</small>
+							<a
+								href="/"
+								style={{ zIndex: `100` }}
+								class="btn btn-light btn-rounded mt-5"
+							>
+								Back to home
+							</a>
+						</div>
+					</div>
+					<Container fluid className={Style.parent_container}>
+						<div className={Style.scroller} ref={scroller}></div>
+						<div className={Style.parent_row} ref={main_content}>
+							<Container fluid>
+								<Row id="main-row" className={Style.main_row}>
+									<h4
+										className={`display-5 ${Style.first_header}`}
+									>
+										Current Orders
+									</h4>
+									{cur_orders.length !== 0 ? (
+										<>
+											<CardColumns
+												className={Style.accordion}
+											>
+												{cur_orders.map(
+													(order, index) => {
+														let price_tot = 0;
+														for (let i of order.data()
+															.order) {
+															price_tot +=
+																i.price *
+																i.quantity;
 														}
-													>
-														<Card.Title
-															className={
-																Style.title
-															}
-														>
-															<span>
-																Order
-																{` ${
-																	index + 1
-																}`}
-															</span>
-															<span className="text-muted">
-																&#8377;
-																{price_tot}
-															</span>
-														</Card.Title>
-														<Card.Subtitle>
-															<small className="text-muted">
-																{`${
-																	order.data()
-																		.date
-																}  ${
-																	order.data()
-																		.time
-																}`}
-															</small>
-														</Card.Subtitle>
-													</Card.Body>
-													<ListGroup variant="flush">
-														{order
-															.data()
-															.order.map(
-																(item) => {
-																	return (
-																		<ListGroupItem>
-																			<small className="text-muted">
-																				{
-																					item.name
-																				}
-																			</small>
-																			{
-																				" x "
-																			}
-																			<small className="text-muted">
-																				{
-																					item.quantity
-																				}
-																			</small>
-																		</ListGroupItem>
-																	);
+														return (
+															<Card
+																className={
+																	Style.card
 																}
-															)}
-													</ListGroup>
-													<Card.Body>
-														<button
-															className="btn btn-primary"
-															style={{
-																backgroundColor: `orangered`,
-																borderColor: `orangered`,
-															}}
-															onClick={(e) =>
-																reOrder(
-																	e,
-																	order.id
-																)
-															}
-														>
-															Reorder
-														</button>
-													</Card.Body>
-												</Card>
-											);
-										})}
-									</CardColumns>
-								</>
-							) : (
-								<small
-									className="text-muted"
-									style={{
-										textAlign: `center`,
-									}}
+															>
+																<Card.Body
+																	className={
+																		Style.card_body
+																	}
+																>
+																	<Card.Title
+																		className={
+																			Style.title
+																		}
+																	>
+																		<span>
+																			Order
+																			{` ${
+																				index +
+																				1
+																			}`}
+																		</span>
+																		<span className="text-muted">
+																			&#8377;
+																			{
+																				price_tot
+																			}
+																		</span>
+																	</Card.Title>
+																	<Card.Subtitle>
+																		<small className="text-muted">
+																			{`${
+																				order.data()
+																					.date
+																			}  ${
+																				order.data()
+																					.time
+																			}`}
+																		</small>
+																	</Card.Subtitle>
+																</Card.Body>
+																<ListGroup variant="flush">
+																	{order
+																		.data()
+																		.order.map(
+																			(
+																				item
+																			) => {
+																				return (
+																					<ListGroupItem>
+																						<small className="text-muted">
+																							{
+																								item.name
+																							}
+																						</small>
+																						{
+																							" x "
+																						}
+																						<small className="text-muted">
+																							{
+																								item.quantity
+																							}
+																						</small>
+																					</ListGroupItem>
+																				);
+																			}
+																		)}
+																</ListGroup>
+																<Card.Body>
+																	<button
+																		className="btn btn-primary"
+																		style={{
+																			backgroundColor: `orangered`,
+																			borderColor: `orangered`,
+																		}}
+																		onClick={(
+																			e
+																		) =>
+																			reOrder(
+																				e,
+																				order.id
+																			)
+																		}
+																	>
+																		Reorder
+																	</button>
+																</Card.Body>
+															</Card>
+														);
+													}
+												)}
+											</CardColumns>
+										</>
+									) : (
+										<small
+											className="text-muted"
+											style={{
+												textAlign: `center`,
+											}}
+										>
+											You don't have any live orders at
+											present
+										</small>
+									)}
+								</Row>
+								<Row
+									className={`mt-4 ${Style.already_ordered}`}
 								>
-									You don't have any live orders at present
-								</small>
-							)}
-						</Row>
-						<Row className={`mt-4 ${Style.already_ordered}`}>
-							<h4 className={`display-5 ${Style.first_header}`}>
-								Previous Orders
-							</h4>
-							{prev_orders.length !== 0 ? (
-								<>
-									<CardColumns className={Style.accordion}>
-										{prev_orders.map((order, index) => {
-											let price_tot = 0;
-											for (let i of order.data().order) {
-												price_tot +=
-													i.price * i.quantity;
-											}
-											return (
-												<Card className={Style.card}>
-													<Card.Body
-														className={
-															Style.card_body
+									<h4
+										className={`display-5 ${Style.first_header}`}
+									>
+										Previous Orders
+									</h4>
+									{prev_orders.length !== 0 ? (
+										<>
+											<CardColumns
+												className={Style.accordion}
+											>
+												{prev_orders.map(
+													(order, index) => {
+														let price_tot = 0;
+														for (let i of order.data()
+															.order) {
+															price_tot +=
+																i.price *
+																i.quantity;
 														}
-														style={{
-															backgroundColor: `aquamarine`,
-														}}
-													>
-														<Card.Title
-															className={
-																Style.title
-															}
-														>
-															<span>
-																Order{" "}
-																{index + 1}
-															</span>
-															<span className="text-muted">
-																&#8377;
-																{price_tot}
-															</span>
-														</Card.Title>
-														<Card.Subtitle>
-															<small className="text-muted">
-																{`${
-																	order.data()
-																		.date
-																}  ${
-																	order.data()
-																		.time
-																}`}
-															</small>
-														</Card.Subtitle>
-													</Card.Body>
-													<ListGroup variant="flush">
-														{order
-															.data()
-															.order.map(
-																(item) => {
-																	return (
-																		<ListGroupItem>
-																			<small className="text-muted">
-																				{
-																					item.name
-																				}
-																			</small>
-																			{
-																				" x "
-																			}
-																			<small className="text-muted">
-																				{
-																					item.quantity
-																				}
-																			</small>
-																		</ListGroupItem>
-																	);
+														return (
+															<Card
+																className={
+																	Style.card
 																}
-															)}
-													</ListGroup>
-													<Card.Body>
-														<button
-															className="btn btn-dark"
-															onClick={(e) =>
-																reOrder(
-																	e,
-																	order.id
-																)
-															}
-														>
-															Reorder
-														</button>
-													</Card.Body>
-												</Card>
-											);
-										})}
-									</CardColumns>
-								</>
-							) : (
-								<small
-									className="text-muted"
-									style={{
-										textAlign: `center`,
-									}}
+															>
+																<Card.Body
+																	className={
+																		Style.card_body
+																	}
+																	style={{
+																		backgroundColor: `aquamarine`,
+																	}}
+																>
+																	<Card.Title
+																		className={
+																			Style.title
+																		}
+																	>
+																		<span>
+																			Order{" "}
+																			{index +
+																				1}
+																		</span>
+																		<span className="text-muted">
+																			&#8377;
+																			{
+																				price_tot
+																			}
+																		</span>
+																	</Card.Title>
+																	<Card.Subtitle>
+																		<small className="text-muted">
+																			{`${
+																				order.data()
+																					.date
+																			}  ${
+																				order.data()
+																					.time
+																			}`}
+																		</small>
+																	</Card.Subtitle>
+																</Card.Body>
+																<ListGroup variant="flush">
+																	{order
+																		.data()
+																		.order.map(
+																			(
+																				item
+																			) => {
+																				return (
+																					<ListGroupItem>
+																						<small className="text-muted">
+																							{
+																								item.name
+																							}
+																						</small>
+																						{
+																							" x "
+																						}
+																						<small className="text-muted">
+																							{
+																								item.quantity
+																							}
+																						</small>
+																					</ListGroupItem>
+																				);
+																			}
+																		)}
+																</ListGroup>
+																<Card.Body>
+																	<button
+																		className="btn btn-dark"
+																		onClick={(
+																			e
+																		) =>
+																			reOrder(
+																				e,
+																				order.id
+																			)
+																		}
+																	>
+																		Reorder
+																	</button>
+																</Card.Body>
+															</Card>
+														);
+													}
+												)}
+											</CardColumns>
+										</>
+									) : (
+										<small
+											className="text-muted"
+											style={{
+												textAlign: `center`,
+											}}
+										>
+											No purchase history
+										</small>
+									)}
+								</Row>
+							</Container>
+						</div>
+					</Container>
+				</>
+			) : (
+				<>
+					<Container
+						fluid
+						className={Style.no_user_cont}
+						style={{ marginTop: `13vh` }}
+					>
+						<div className={Style.svg_img}>
+							<No_user />
+						</div>
+						<Row className={Style.no_user_row}>
+							<div className={Style.no_user_div}>
+								<h4 className="display-5 mb-4">
+									No User Is
+									<br /> Currently{" "}
+									<span style={{ color: `coral` }}>
+										Logged
+									</span>{" "}
+									In
+								</h4>
+								<a
+									href="/"
+									type="button"
+									class="btn btn-dark btn-rounded mb-4"
 								>
-									No purchase history
-								</small>
-							)}
+									Back to Home
+								</a>
+							</div>
 						</Row>
 					</Container>
-				</div>
-			</Container>
+				</>
+			)}
 		</div>
 	);
 }
