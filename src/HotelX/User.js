@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import firebase from "firebase";
 import db, { storage } from "./firebase";
 import { useHistory } from "react-router-dom";
+import { gsap } from "gsap";
 import Style from "./styles/Users.module.css";
 import "./styles/Admin.css";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -21,6 +22,10 @@ import {
 
 const auth = firebase.auth();
 function User() {
+	const bk_admin = React.createRef();
+	const user_name = React.createRef();
+	const scroller = React.createRef();
+	const main_content = React.createRef();
 	const [user_present] = useAuthState(auth);
 	const [image, setImage] = useState("");
 	const [id, setId] = useState("");
@@ -37,71 +42,6 @@ function User() {
 		let path = `/payment`;
 		histori.push(path);
 	};
-
-	const onImageChange = (e) => {
-		const reader = new FileReader();
-		let file = e.target.files[0];
-		if (file) {
-			reader.onload = () => {
-				if (reader.readyState === 2) {
-					console.log(file);
-					setImage(file);
-				}
-			};
-			reader.readAsDataURL(e.target.files[0]);
-		} else {
-			setImage(null); // if there is no file, set image back to null
-		}
-	};
-	// const uploadToFirebase = async () => {
-	// 	if (image) {
-	// 		const storageRef = storage.ref(`images/${type}`);
-	// 		const uploadTask = storageRef.child(name).put(image);
-	// 		console.log(storageRef, "i am here");
-	// 		uploadTask.on(
-	// 			"state_changed",
-	// 			(snapshot) => {
-	// 				const progress =
-	// 					(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-	// 				console.log("Upload is " + progress + "% done");
-	// 			},
-	// 			(error) => {
-	// 				// Handle unsuccessful uploads
-	// 				console.log("error:-", error);
-	// 			},
-	// 			() => {
-	// 				uploadTask.snapshot.ref
-	// 					.getDownloadURL()
-	// 					.then((downloadURL) => {
-	// 						console.log("File available at", downloadURL);
-	// 						if (type) {
-	// 							console.log("the type is available");
-	// 							db.collection("dishes")
-	// 								.doc("dish")
-	// 								.collection(type)
-	// 								.add({
-	// 									name: name,
-	// 									price: Number(price),
-	// 									quantity: 1,
-	// 									url: downloadURL.toString(),
-	// 								})
-	// 								.then(() => {
-	// 									console.log(
-	// 										"Document successfully written!"
-	// 									);
-	// 								})
-	// 								.catch((error) => {
-	// 									console.error(
-	// 										"Error writing document: ",
-	// 										error
-	// 									);
-	// 								});
-	// 						}
-	// 					});
-	// 			}
-	// 		);
-	// 	}
-	// };
 
 	// ========================================================
 
@@ -252,14 +192,59 @@ function User() {
 				instinct4 = 1;
 			}
 		});
+
+		const tl = gsap.timeline({ delay: 0.5 });
+		tl.fromTo(
+			bk_admin.current,
+			1,
+			{ x: "-100%", opacity: 0 },
+			{ x: "0%", opacity: 1 }
+		)
+
+			.fromTo(
+				bk_admin.current,
+				0.5,
+				{ height: "100vh" },
+				{ height: "60vh" },
+				"-=0.2"
+			)
+			.fromTo(
+				bk_admin.current,
+				0.5,
+				{ width: "110%" },
+				{ width: "100%" },
+				"-=0.5"
+			)
+			.fromTo(
+				scroller.current,
+				0.55,
+				{ x: "-100%", backgroundColor: "white" },
+				{ x: "0%", backgroundColor: "black" },
+				"-=0.5"
+			)
+			.fromTo(scroller.current, 0.35, { x: "0%" }, { x: "100%" })
+			.fromTo(
+				user_name.current,
+				0.5,
+				{ y: "50", opacity: 0 },
+				{ y: "0", opacity: 1 },
+				"-=0.3"
+			)
+			.fromTo(
+				main_content.current,
+				0.5,
+				{ x: "-50", opacity: 0 },
+				{ x: "0", opacity: 1 },
+				"-=0.3"
+			);
 	}, []);
 
 	//=========================================================
 
 	return (
 		<div className={Style.admin}>
-			<div className={Style.background_image_admin}>
-				<div className={Style.header_container}>
+			<div className={Style.background_image_admin} ref={bk_admin}>
+				<div className={Style.header_container} ref={user_name}>
 					<h2 className={Style.welcome_admin}>Welcome</h2>
 					<h1 className={Style.order_header}>{name}</h1>
 					<small style={{ color: `white`, fontSize: `12px` }}>
@@ -275,7 +260,8 @@ function User() {
 				</div>
 			</div>
 			<Container fluid className={Style.parent_container}>
-				<div className={Style.parent_row}>
+				<div className={Style.scroller} ref={scroller}></div>
+				<div className={Style.parent_row} ref={main_content}>
 					<Container fluid>
 						<Row id="main-row" className={Style.main_row}>
 							<h4 className={`display-5 ${Style.first_header}`}>
