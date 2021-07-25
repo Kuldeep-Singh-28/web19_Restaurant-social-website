@@ -22,10 +22,11 @@ import {
 const auth = firebase.auth();
 function User() {
 	const [user_present] = useAuthState(auth);
-	const [name, setName] = useState("");
 	const [image, setImage] = useState("");
 	const [id, setId] = useState("");
 	const histori = useHistory();
+	const [name, setName] = useState("Guest");
+	const [email, setEmail] = useState("guest@gmail.com");
 	//const [url, setUrl] = useState("");
 	const [res_orders, setOrders] = useState([]);
 	const [cur_orders, setCurrent] = useState([]);
@@ -156,6 +157,13 @@ function User() {
 	useEffect(() => {
 		if (user_present) {
 			let order_ids = [];
+			db.collection("users")
+				.doc(user_present.uid)
+				.get()
+				.then((doc) => {
+					setName(doc.data().name);
+					setEmail(doc.data().email);
+				});
 			db.collection("orders").onSnapshot(
 				async (snapshot) => {
 					setOrders(snapshot.docs);
@@ -252,10 +260,10 @@ function User() {
 		<div className={Style.admin}>
 			<div className={Style.background_image_admin}>
 				<div className={Style.header_container}>
-					<h2 className={Style.welcome_admin}>Welcome to</h2>
-					<h1 className={Style.order_header}>ORDERS PAGE</h1>
+					<h2 className={Style.welcome_admin}>Welcome</h2>
+					<h1 className={Style.order_header}>{name}</h1>
 					<small style={{ color: `white`, fontSize: `12px` }}>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						{email}
 					</small>
 					<a
 						href="/"
