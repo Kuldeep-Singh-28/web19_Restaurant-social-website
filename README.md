@@ -34,14 +34,6 @@ The website is filled with dummy text wherever necessary.
 <br />
 To see website in action, open a browser tab for <a href="https://hotelwebx.web.app/">Restaurant landing page</a>.
 <br />
-<br /><br />
-Cafeteriaa Employee
-<br /><br />
-![Orderspagelightmode](https://user-images.githubusercontent.com/65676476/105623890-53ff6b80-5e43-11eb-9785-0c5f53d148ea.png)
-<br /><br />
-Cafeteriaa Admin
-<br /><br />
-![adminorderslightmode](https://user-images.githubusercontent.com/65676476/105623832-ebb08a00-5e42-11eb-8130-18295865d748.png)
 
 ## Features
 
