@@ -2,7 +2,7 @@
   <img src="https://img.shields.io/badge/Nodejs-10.16.+-green.svg">
   <img src="https://img.shields.io/badge/Ex<press-4.17.+-purple.svg">
 </p>
-<img src="public/img/logo.png" />
+<img src="public/newLogo.png" />
 
 # Restaurant-Social-App
 
@@ -31,6 +31,7 @@ Project Developers -
 The website is filled with dummy text wherever necessary.
 
 <hr />
+
 To see website in action, visit [https://hotelwebx.web.app/] (https://hotelwebx.web.app/)
 <br />
 
