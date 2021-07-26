@@ -72,13 +72,38 @@ Admin-Features:
 
 ## Snapshots
 
-![homelightmode1](https://user-images.githubusercontent.com/65676476/105623717-cb340000-5e41-11eb-87a0-877734ee79b5.png)
-![homedarkmode1](https://user-images.githubusercontent.com/65676476/105623707-bfe0d480-5e41-11eb-93a9-8a8b1e8c854d.png)
-![menudarkmode1](https://user-images.githubusercontent.com/65676476/105623713-c4a58880-5e41-11eb-8f65-3271a652cb97.png)
-![OrderSummarypage](https://user-images.githubusercontent.com/65676476/105623938-c1ab9780-5e43-11eb-8ed8-1ea30f56ac6b.png)
-![image](https://user-images.githubusercontent.com/65676476/105624001-34b50e00-5e44-11eb-94d0-70dc0848906e.png)
-![image](https://user-images.githubusercontent.com/65676476/105624019-51514600-5e44-11eb-804b-920c13c387bd.png)
+### Landing Page
 
+![homelightmode1](/assets/landing_page.png)
+<hr />
+<br /><br />
+
+### Menu Page
+![menudarkmode1](/assets/menu.png)
+<hr />
+<br /><br />
+
+### Admin Page
+![image](/assets/admin.png)
+<hr />
+
+![image](/assets/admin2.png)
+<br /><br />
+
+### User Profile Page
+![image](/assets/user1.png)
+<br /><br />
+
+### User Cart
+![Alt text](/assets/cart.png)
+<br /><br />
+
+### Payments Page
+![image](/assets/payments.png)
+<br /><br />
+
+### Location Page
+![image](/assets/map1.png)
 <br /><br />
 
 ## Installation Requirements
