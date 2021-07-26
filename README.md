@@ -1,6 +1,9 @@
 <p>
-  <img src="https://img.shields.io/badge/Nodejs-10.16.+-green.svg">
-  <img src="https://img.shields.io/badge/Ex<press-4.17.+-purple.svg">
+  <img src="https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase" >
+  <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB">
+  <img src="https://img.shields.io/badge/node.js-%2343853D.svg?style=for-the-badge&logo=node.js&logoColor=white">
+  <img src="https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white">
+  <img src="https://img.shields.io/badge/materialui-%230081CB.svg?style=for-the-badge&logo=material-ui&logoColor=white" >
 </p>
 <img src="public/newLogo.png" />
 
@@ -32,7 +35,7 @@ The website is filled with dummy text wherever necessary.
 
 <hr />
 
-To see website in action, visit [https://hotelwebx.web.app/] (https://hotelwebx.web.app/)
+To see website in action, visit [https://hotelwebx.web.app/](https://hotelwebx.web.app/)
 <br />
 
 ## Description
