@@ -31,57 +31,44 @@ Project Developers -
 The website is filled with dummy text wherever necessary.
 
 <hr />
+To see website in action, visit [https://hotelwebx.web.app/](https://hotelwebx.web.app/)
 <br />
-To see website in action, open a browser tab for <a href="https://hotelwebx.web.app/">Restaurant landing page</a>.
-<br />
 
-## Features
+## Description
 
-User:
+### App Features
 
-1. Server-side rendering
-2. Login & register
-3. Responsive design
-4. Add to cart
-5. filter items using search
-6. Delete from cart
-7. Checkout
-8. Session based on localStorage and tokens
-9. Get a list of orders.
-10. Fetch a specific order.
-11. Real-time order status using socket.io
-12. Contact page
+-   Uses Google Firebase authentication.
+-   Realtime database using Firebase Firestore.
+-   Payments using stripe.
+-   Modern UI using react, material-bootstrap, gsap & fullpage animations.
+-   The app is deployed using firebase hosting.
 
-Admin:
+User-Features:
+
+1. Login & register
+2. Responsive design
+3. Add to cart
+4. Delete from cart
+5. Checkout
+6. Authentication and session using firebase auth.
+7. Get a list of orders.
+8. Ability to check order status.
+9. Real-time order status using firebase firestore.
+10. Access previous order history
+
+Admin-Features:
 
 1. Login
-2. Responsive design
-3. Orders lists based on status
-4. Change order status
-5. View order
-6. Products list
-7. View product
-
--   Authentication system guarding the app core.
--   Customers can browse the menu, Add/remove items to cart, track the order and can make payment online.
--   admin can control orders and can change the order status.
--   Data stored in a MongoDB database
--   Friendly user interface with ejs
+2. Orders lists.
+3. Ability to Change order status
+4. View any order
+5. Ability to add or edit any product.
+6. Ability to add or edit other admins.
 
 ## Technical
 
-• The front end of the app is built using SASS, tailwind CSS as a CSS extension language, and webpack as a module bundler.<br />
-• The back end is built in Node.js with Express, and uses MongoDB with Mongoose as a database.<br />
-• The app uses passport.js for authenticate the user.<br />
-
-1.  Once the user opens the app, see loader and redirect to the home page.<br />
-2.  As soon as a user click on their menu, and add items to cart.<br />
-3.  As soon as a user clicks on cart, user can placed order with COD & Payment with card. After successful order placed then redirest to order status.<br />
-4.  As finally, Cafeteria get realtime order update from admins, who can control order status using Socket.io.
-
-• Submitted orders are sent to the database along with the user's username, to allow the display of previous and favorited orders and for Cafeteriaa-Admin to fetch the orders.<br />
-• Cafeteriaa-Admin uses Ajax to fetch orders from the database every second & using socket.io to get real-time order updates. <br />
-<br /><br />
+Created a seperate server for stripe payments.
 
 ## Snapshots
 
@@ -94,49 +81,66 @@ Admin:
 
 <br /><br />
 
-## Setup
-
-### Prerequisites
+## Installation Requirements
 
 -   Install Node.js >= 10
--   Install MongoDB
 -   Install npm/yarn
+-   Stripe account
+-   Firebase account
+-   Install lastest firebase-tools package as a global.
 
-### Run Locally on Your Machine
+## Steps To Install
 
-You need Node, NPM and MongoDB properly installed.
+### STEP 1 ( CREATING A FIREBASE APP )
 
-Setup the environment variables replacing <MONGODB-PORT> with your mongodb port, usually is 27017.
+      1. Visit the firebase official website logged in with your google account then follow their simple guide to create a new firebase app.
 
-```shell
-    export MONGO_CONNECTION_URL=mongodb://localhost:<MONGODB-PORT>/food
-    Add menus collection manually and import menu.json file.
-```
+      2. Remember your app secret key by visiting your app's setting page for further use.
 
-Install dependencies
+### STEP 2 (CLONING AND SETTING ENVIRONMENT VARIABLES)
+
+      1. Clone this project into your preffered directory
+
+      2. Create a .env file and populate it with your stripe and firebase account secret keys using STRIPE_SEC_KEY and FIREBASE_SEC_KEY fields.
+
+      > Please note that it is mandatory to provide both the above mentioned fields, failing which either the app will not be able to connect to firebase backend or the app will not be able to provide payments integration.
+
+<br ><br >
+
+### STEP 3 ( Run Locally on Your Machine)
+
+You need Node, NPM properly installed.
+
+#### Install dependencies
 
 ```shell
     npm install
 ```
 
-Seed the Database (for the very first run only)
+#### Fire up the payments server
 
 ```shell
-    node server.js
+    cd src/HotelX/ && node Stripe.js
 ```
 
-Run the Server
+#### Run the main application server
 
 ```shell
     npm start
 ```
 
-### Technologies
+<br ><br >
+
+## Known Bugs
+
+There are no known bugs.
+
+## Technologies
 
 ###### Back-end
 
-NodeJS, Express, MongoDB, Mongoose.
+NodeJS, Express, Firebase Firestore, Firebase auth.
 
 ###### Fron-end
 
-ejs, Taileindcss, scss.
+React, GSAP, React-Bootstrap, Material-Bootstrap, Material UI.
