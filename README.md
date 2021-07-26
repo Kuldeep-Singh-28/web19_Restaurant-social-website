@@ -31,7 +31,7 @@ Project Developers -
 The website is filled with dummy text wherever necessary.
 
 <hr />
-To see website in action, visit [https://hotelwebx.web.app/](https://hotelwebx.web.app/)
+To see website in action, visit [https://hotelwebx.web.app/] (https://hotelwebx.web.app/)
 <br />
 
 ## Description
@@ -66,10 +66,6 @@ Admin-Features:
 5. Ability to add or edit any product.
 6. Ability to add or edit other admins.
 
-## Technical
-
-Created a seperate server for stripe payments.
-
 ## Snapshots
 
 ![homelightmode1](https://user-images.githubusercontent.com/65676476/105623717-cb340000-5e41-11eb-87a0-877734ee79b5.png)
@@ -97,6 +93,8 @@ Created a seperate server for stripe payments.
 
       2. Remember your app secret key by visiting your app's setting page for further use.
 
+<br />
+
 ### STEP 2 (CLONING AND SETTING ENVIRONMENT VARIABLES)
 
       1. Clone this project into your preffered directory
@@ -105,7 +103,7 @@ Created a seperate server for stripe payments.
 
       > Please note that it is mandatory to provide both the above mentioned fields, failing which either the app will not be able to connect to firebase backend or the app will not be able to provide payments integration.
 
-<br ><br >
+<br >
 
 ### STEP 3 ( Run Locally on Your Machine)
 
@@ -129,7 +127,7 @@ You need Node, NPM properly installed.
     npm start
 ```
 
-<br ><br >
+<br >
 
 ## Known Bugs
 
