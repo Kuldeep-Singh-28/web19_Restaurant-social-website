@@ -44,7 +44,7 @@ function Hotel() {
                 btn.style.visibility = `hidden`;
                 instinct10 = 0;
             } else if (window.scrollY >= 600 && instinct10 !== 1) {
-                btn.style.visibility = `unset`;
+                btn.style.visibility = `inherit`;
                 instinct10 = 1;
             }
         });
