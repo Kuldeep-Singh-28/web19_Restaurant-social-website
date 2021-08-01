@@ -57,9 +57,8 @@ User-Features:
 5. Checkout
 6. Authentication and session using firebase auth.
 7. Get a list of orders.
-8. Ability to check order status.
-9. Real-time order status using firebase firestore.
-10. Access previous order history
+8. Real-time order status using firebase firestore.
+9. Access previous order history
 
 Admin-Features:
 
