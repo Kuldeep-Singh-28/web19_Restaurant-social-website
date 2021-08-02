@@ -23,7 +23,6 @@ const maybeLink = (m) => {
   )
 };
 
-// Small hook for adding a message to a list of messages.
 const useMessages = () => {
   // helper for displaying status messages.
   return useReducer((messages, message) => {
