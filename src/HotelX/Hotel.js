@@ -50,6 +50,16 @@ function Hotel() {
         });
     });
 
+    useEffect(() => {
+        let blank = document.querySelector("#blank");
+        let body = document.querySelector("body");
+        body.style.overflowY = `hidden`;
+        setTimeout(() => {
+            blank.style.display = `none`;
+            body.style.overflowY = `inherit`;
+        }, 5000);
+    });
+
     return (
         <div>
             <div>
@@ -78,6 +88,16 @@ function Hotel() {
                             />
                         </svg>
                     </button>
+                </div>
+                <div className={Style.blank} id="blank">
+                    <div className={Style.wrap}>
+                        <div className={Style.loading}>
+                            <div className={Style.bounceball}></div>
+                            <div className={`display-6 ${Style.text}`}>
+                                NOW LOADING
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <Container fluid={true} className="px-0">
                     <Container

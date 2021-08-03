@@ -142,7 +142,7 @@ function User() {
 			);
 		}
 
-		const tl = gsap.timeline({ delay: 0.5 });
+		const tl = gsap.timeline({ delay: 4 });
 		tl.fromTo(
 			bk_admin.current,
 			1,
