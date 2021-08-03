@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
 import { Container, Row, Col, Carousel } from "react-bootstrap";
 import FormatQuoteRoundedIcon from "@material-ui/icons/FormatQuoteRounded";
@@ -14,6 +14,15 @@ import Homepage_jumbotron from "./Homepage_jumbotron";
 
 function Homepage() {
     //IITISoC---Restaurant-social-website
+
+    useEffect(() => {
+        const home_id = document.getElementById("home_id");
+        home_id.style.textDecoration = `underline`;
+        home_id.style.textDecorationColor = `coral`;
+        home_id.style.textDecorationThickness = `2px`;
+        home_id.style.textUnderlineOffset = `5px`;
+    }, []);
+
     return (
         <div>
             <Homepage_jumbotron />

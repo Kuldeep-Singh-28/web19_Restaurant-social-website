@@ -15,6 +15,13 @@ import "./styles/Menu.css";
 const auth = firebase.auth();
 
 class Menu extends React.Component {
+    componentDidMount() {
+        const menu_id = document.getElementById("menu_id");
+        menu_id.style.textDecoration = `underline`;
+        menu_id.style.textDecorationColor = `coral`;
+        menu_id.style.textDecorationThickness = `2px`;
+        menu_id.style.textUnderlineOffset = `5px`;
+    }
     onLeave(origin, destination, direction) {
         // console.log("i am here");
         const section = destination.item;

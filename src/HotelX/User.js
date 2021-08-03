@@ -140,6 +140,11 @@ function User() {
 				},
 				(err) => console.log(err.message)
 			);
+			const user_id = document.getElementById("user_id");
+			user_id.style.textDecoration = `underline`;
+			user_id.style.textDecorationColor = `coral`;
+			user_id.style.textDecorationThickness = `2px`;
+			user_id.style.textUnderlineOffset = `5px`;
 		}
 
 		const tl = gsap.timeline({ delay: 4 });

@@ -132,6 +132,14 @@ export default function App() {
         };
     }, []);
 
+    useEffect(() => {
+        const locate_id = document.getElementById("locate_id");
+        locate_id.style.textDecoration = `underline`;
+        locate_id.style.textDecorationColor = `coral`;
+        locate_id.style.textDecorationThickness = `2px`;
+        locate_id.style.textUnderlineOffset = `5px`;
+    }, []);
+
     return (
         <div className={Style.master_map_cont}>
             <ReactMapGL

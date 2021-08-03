@@ -263,17 +263,17 @@ function NavBar() {
                         style={{ alignItems: `center` }}
                         id="nav-cont"
                     >
-                        <Nav.Link href="/" className="n2">
+                        <Nav.Link href="/" className="n2" id="home_id">
                             HOME
                         </Nav.Link>
-                        <Nav.Link href="/menu" className="n2">
+                        <Nav.Link href="/menu" className="n2" id="menu_id">
                             MENU
                         </Nav.Link>
-                        <Nav.Link href="/locate" className="n2">
+                        <Nav.Link href="/locate" className="n2" id="locate_id">
                             LOCATE
                         </Nav.Link>
                         {user ? (
-                            <Nav.Link href="/user" className="n2">
+                            <Nav.Link href="/user" className="n2" id="user_id">
                                 MY ACCOUNT
                             </Nav.Link>
                         ) : (
