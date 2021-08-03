@@ -269,6 +269,9 @@ function NavBar() {
                         <Nav.Link href="/menu" className="n2">
                             MENU
                         </Nav.Link>
+                        <Nav.Link href="/locate" className="n2">
+                            LOCATE
+                        </Nav.Link>
                         {user ? (
                             <Nav.Link href="/user" className="n2">
                                 MY ACCOUNT
@@ -296,10 +299,7 @@ function NavBar() {
                         {check()}
                         <div className="_navIcon">
                             <span className="_navIcons">
-                                <a
-                                    href="http://instagram.com"
-                                    target="_blank"
-                                >
+                                <a href="http://instagram.com" target="_blank">
                                     <InstagramIcon
                                         style={{ color: "#7b877c", size: 0.5 }}
                                     />{" "}
@@ -309,10 +309,9 @@ function NavBar() {
                                 <a href="http://facebook.com" target="_blank">
                                     {" "}
                                     <FacebookIcon
-                                    style={{ color: "#7b877c", size: 0.5 }}
-                                />
+                                        style={{ color: "#7b877c", size: 0.5 }}
+                                    />
                                 </a>{" "}
-                                
                             </span>
                         </div>
                     </Nav>
