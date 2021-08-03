@@ -28,7 +28,11 @@ Project Developers -
 1. Sai Kiran Tirunagiri
 2. Ujjawal Mittal
 3. Tushar Goyal
-4. Vangala Abhyuday
+
+Project Mentors - 
+
+1. Kuldeep Singh
+2. Priyal Dubey
  <hr/>
 
 The website is filled with dummy text wherever necessary.
@@ -69,41 +73,7 @@ Admin-Features:
 5. Ability to add or edit any product.
 6. Ability to add or edit other admins.
 
-## Snapshots
-
-### Landing Page
-
-![homelightmode1](/assets/landing_page.png)
-<hr />
-<br /><br />
-
-### Menu Page
-![menudarkmode1](/assets/menu.png)
-<hr />
-<br /><br />
-
-### Admin Page
-![image](/assets/admin.png)
-<hr />
-
-![image](/assets/admin2.png)
-<br /><br />
-
-### User Profile Page
-![image](/assets/user1.png)
-<br /><br />
-
-### User Cart
-![Alt text](/assets/cart.png)
-<br /><br />
-
-### Payments Page
-![image](/assets/payments.png)
-<br /><br />
-
-### Location Page
-![image](/assets/map1.png)
-<br /><br />
+<br />
 
 ## Installation Requirements
 
@@ -170,3 +140,39 @@ NodeJS, Express, Firebase Firestore, Firebase auth.
 ###### Fron-end
 
 React, GSAP, React-Bootstrap, Material-Bootstrap, Material UI.
+<br />
+
+## Snapshots
+
+### Landing Page
+
+![homelightmode1](/assets/landing_page.png)
+<hr />
+<br /><br />
+
+### Menu Page
+![menudarkmode1](/assets/menu.png)
+<hr />
+<br /><br />
+
+### Admin Page
+![image](/assets/admin.png)
+<hr />
+
+![image](/assets/admin2.png)
+<br /><br />
+
+### User Profile Page
+![image](/assets/user1.png)
+<br /><br />
+
+### User Cart
+![Alt text](/assets/cart.png)
+<br /><br />
+
+### Payments Page
+![image](/assets/payments.png)
+<br /><br />
+
+### Location Page
+![image](/assets/map1.png)
