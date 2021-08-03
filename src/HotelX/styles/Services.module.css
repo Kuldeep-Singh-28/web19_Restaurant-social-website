@@ -62,8 +62,8 @@
 }
 
 .atag {
-    color: rgba(0, 0, 0) !important;
-    z-index: 789;
+    color: rgba(255, 255, 255, 0.95) !important;
+    z-index: 7809;
     text-decoration: none;
     transition: color 0.1s linear;
 }
@@ -73,21 +73,24 @@
 
 .col1 {
     margin-left: 0;
-    background-image: url(../images/services1.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url(../images/services1.jpg);
     background-size: cover;
     height: min(381px, 71vw);
     text-align: center;
 }
 
 .col2 {
-    background-image: url(../images/services2.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url(../images/services2.jpg);
     background-size: cover;
     height: min(381px, 71vw);
     text-align: center;
 }
 
 .col3 {
-    background-image: url(../images/services3.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url(../images/services3.jpg);
     background-size: cover;
     height: min(381px, 71vw);
     text-align: center;
@@ -95,7 +98,8 @@
 
 .col4 {
     margin-right: 0;
-    background-image: url(../images/services4.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url(../images/services4.jpg);
     background-size: cover;
     height: min(381px, 71vw);
     text-align: center;
