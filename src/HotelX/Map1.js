@@ -21,7 +21,7 @@ export default function App() {
         latitude: 19.753925670211377,
         longitude: 90.89909860594204,
         width: "100vw",
-        height: "100vh",
+        height: "87vh",
         zoom: 4,
     });
     const navControlStyle = {
