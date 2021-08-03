@@ -10,6 +10,7 @@
 # Restaurant-Social-App
 
 #### This is a web dev project under IIT Indore summer of code
+#### Team Code Web19
 
 A project under IITISoC program to develop a full-stack social website for a restaurant with modern UI, realtime order updates and payment integration.
 <br />
