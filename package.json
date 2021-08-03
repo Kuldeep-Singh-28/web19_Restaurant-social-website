@@ -29,7 +29,7 @@
         "react-firebase-hooks": "^3.0.4",
         "react-google-map": "^3.1.1",
         "react-google-maps": "^9.4.5",
-        "react-map-gl": "^6.1.16",
+        "react-map-gl": "^5.3.10",
         "react-player": "^2.9.0",
         "react-responsive-carousel": "^3.2.18",
         "react-router-dom": "^5.2.0",
