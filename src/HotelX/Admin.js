@@ -114,10 +114,15 @@ function Admin() {
     };
 
     const submit1 = (e) => {
-        db.collection("Admin").add({
-            email: email,
-            id: id,
-        });
+        e.preventDefault();
+        db.collection("Admin")
+            .add({
+                email: email,
+                id: id,
+            })
+            .then(() => {
+                console.log("new admin has been successfully added");
+            });
         setType("");
         setName("");
         setPrice("");
