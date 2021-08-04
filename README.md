@@ -167,12 +167,14 @@ React, GSAP, React-Bootstrap, Material-Bootstrap, Material UI.
 
 ### User Cart
 ![Alt text](/assets/main_course3.jpeg)
+<hr />
 
 ![Alt text](/assets/main_course4.jpeg)
 <br /><br />
 
 ### Payments Page
 ![image](/assets/payments2.jpeg)
+<hr />
 
 ![image](/assets/payments3.jpeg)
 <br /><br />
