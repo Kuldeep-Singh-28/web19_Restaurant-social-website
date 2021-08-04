@@ -12,6 +12,10 @@
     backdrop-filter: blur(0px) !important;
 }
 
+.jumbotron_home_width {
+    backdrop-filter: blur(6px) !important;
+}
+
 .navbar2 {
     backdrop-filter: blur(4px);
     padding-top: 0;
@@ -217,6 +221,13 @@ button.close {
     .n {
         position: absolute;
         right: 0;
+    }
+}
+
+@media (max-width: 991px) {
+    ._navIcon {
+        margin-right: 0;
+        margin-bottom: 2rem;
     }
 }
 
