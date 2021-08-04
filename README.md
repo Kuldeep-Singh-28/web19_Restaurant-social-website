@@ -147,20 +147,18 @@ React, GSAP, React-Bootstrap, Material-Bootstrap, Material UI.
 
 ### Landing Page
 
-![homelightmode1](/assets/landing_page.png)
+![homelightmode1](/assets/landing_page2.jpeg)
 <hr />
-<br /><br />
 
 ### Menu Page
 ![menudarkmode1](/assets/menu.png)
 <hr />
-<br /><br />
 
 ### Admin Page
 ![image](/assets/admin.png)
 <hr />
 
-![image](/assets/admin2.png)
+![image](/assets/admin3.jpeg)
 <br /><br />
 
 ### User Profile Page
@@ -168,12 +166,16 @@ React, GSAP, React-Bootstrap, Material-Bootstrap, Material UI.
 <br /><br />
 
 ### User Cart
-![Alt text](/assets/cart.png)
+![Alt text](/assets/main_course3.jpeg)
+
+![Alt text](/assets/main_course4.jpeg)
 <br /><br />
 
 ### Payments Page
-![image](/assets/payments.png)
+![image](/assets/payments2.jpeg)
+
+![image](/assets/payments3.jpeg)
 <br /><br />
 
 ### Location Page
-![image](/assets/map1.png)
+![image](/assets/map1.jpeg)
