@@ -13,6 +13,7 @@ import Cart from "./Cart";
 const auth = firebase.auth();
 let instinct2;
 let instinct6;
+let instinct_width;
 
 function SignOut() {
     console.log(instinct2, instinct6);
@@ -210,6 +211,13 @@ function NavBar() {
                 });
                 instinct2 = 1;
             }
+
+            if (window.innerWidth >= 992) {
+                instinct_width = 1;
+            } else if (window.innerWidth < 992) {
+                main_navbar.classList.add("jumbotron_home_width");
+                instinct_width = 0;
+            }
         });
 
         window.addEventListener("scroll", (e) => {
@@ -241,6 +249,20 @@ function NavBar() {
                     link.classList.add("dark_link");
                 });
                 instinct2 = 1;
+            }
+        });
+
+        //====================================
+
+        window.addEventListener("resize", function (e) {
+            let main_navbar = document.getElementById("main_navbar");
+
+            if (window.innerWidth >= 992 && instinct_width != 1) {
+                main_navbar.classList.remove("jumbotron_home_width");
+                instinct_width = 1;
+            } else if (window.innerWidth < 992 && instinct_width != 0) {
+                main_navbar.classList.add("jumbotron_home_width");
+                instinct_width = 0;
             }
         });
     }, []);
