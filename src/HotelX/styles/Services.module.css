@@ -63,7 +63,7 @@
 
 .atag {
     color: rgba(255, 255, 255, 0.95) !important;
-    z-index: 7809;
+    z-index: 4;
     text-decoration: none;
     transition: color 0.1s linear;
 }
