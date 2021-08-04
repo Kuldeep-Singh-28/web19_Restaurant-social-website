@@ -114,6 +114,9 @@ function Admin() {
     };
 
     const submit1 = (e) => {
+        console.log(
+            "i am inside of submit1, the function is successfully working"
+        );
         e.preventDefault();
         db.collection("Admin")
             .add({
