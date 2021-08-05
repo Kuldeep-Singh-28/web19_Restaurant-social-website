@@ -107,21 +107,40 @@ function Hotel() {
                     >
                         <Router>
                             <Navbar />
-                            <Route path="/menu" component={Menu} />
-                            <Route exact path="/" component={Homepage} />
-                            <Route path="/login" component={Auth} />
-                            <Route path="/starters" component={Starters} />
-                            <Route
-                                path="/main_course"
-                                component={Main_courses}
-                            />
-                            <Route path="/beverages" component={Beverages} />
-                            <Route path="/desserts" component={Desserts} />
-                            <Route path="/admin" component={Admin} />
-                            <Route path="/locate" component={Map} />
-                            <Route path="/payment" component={Payment} />
-                            <Route path="/user" component={User} />
-                            <Route path="*" component={Not_found} />
+                            <Switch>
+                                <Route exact path="/menu" component={Menu} />
+                                <Route exact path="/" component={Homepage} />
+                                <Route exact path="/login" component={Auth} />
+                                <Route
+                                    exact
+                                    path="/starters"
+                                    component={Starters}
+                                />
+                                <Route
+                                    exact
+                                    path="/main_course"
+                                    component={Main_courses}
+                                />
+                                <Route
+                                    exact
+                                    path="/beverages"
+                                    component={Beverages}
+                                />
+                                <Route
+                                    exact
+                                    path="/desserts"
+                                    component={Desserts}
+                                />
+                                <Route exact path="/admin" component={Admin} />
+                                <Route exact path="/locate" component={Map} />
+                                <Route
+                                    exact
+                                    path="/payment"
+                                    component={Payment}
+                                />
+                                <Route exact path="/user" component={User} />
+                                <Route component={Not_found} />
+                            </Switch>
                         </Router>
                     </Container>
                 </Container>
