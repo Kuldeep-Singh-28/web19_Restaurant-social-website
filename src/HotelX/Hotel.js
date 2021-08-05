@@ -21,6 +21,7 @@ import Style from "./styles/Master_page.module.css";
 import Map from "./Map1";
 import Payment from "./Payment";
 import User from "./User";
+import Not_found from "./Not_found";
 
 function Hotel() {
     const backToTop = (e) => {
@@ -120,6 +121,7 @@ function Hotel() {
                             <Route path="/locate" component={Map} />
                             <Route path="/payment" component={Payment} />
                             <Route path="/user" component={User} />
+                            <Route path="*" component={Not_found} />
                         </Router>
                     </Container>
                 </Container>
