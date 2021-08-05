@@ -259,40 +259,27 @@ function Main_courses() {
             </div>
             <Container className={Style.starter_container}>
                 <Row className={Style.main_row}>
-                    <CardColumns className={Style.accordion}>
+                    <CardColumns
+                        className={Style.accordion}
+                        style={{ zIndex: `43` }}
+                    >
                         {photos.map((item, index) => (
                             <Card key={index} className={`mb-4 ${Style.card}`}>
                                 <MDBRipple
                                     rippleColor="dark"
                                     rippleTag="div"
-                                    className="bg-image hover-overlay"
+                                    className={`bg-image ${Style.hov_styles}`}
                                 >
-                                    <div
+                                    <Card.Img
+                                        variant="top"
+                                        src={item.data().url}
+                                        className={Style.image_card}
                                         style={{
-                                            backgroundColor: `rgba(0,0,0,0.5)`,
-                                            zIndex: `845`,
+                                            filter: "none",
                                         }}
-                                    >
-                                        <Card.Img
-                                            variant="top"
-                                            src={item.data().url}
-                                            className={Style.image_card}
-                                            style={{
-                                                filter: "none",
-                                            }}
-                                        />
-                                    </div>
-                                    <a>
-                                        <div
-                                            className="mask"
-                                            style={{
-                                                backgroundColor:
-                                                    "rgba(251, 251, 251, 0.15)",
-                                            }}
-                                        ></div>
-                                    </a>
+                                    />
                                 </MDBRipple>
-                                <Card.Body>
+                                <Card.Body className={Style.card_body}>
                                     <Card.Title className={Style.card_title}>
                                         <div>{item.data().name}</div>
                                         {isAdmin && (
@@ -350,7 +337,7 @@ function Main_courses() {
                                         </div>
                                     </ListGroupItem>
                                 </ListGroup>
-                                <Card.Body>
+                                <Card.Body className={Style.card_body}>
                                     {user ? (
                                         <button
                                             class="btn btn-primary btn-block add_recipe_button"

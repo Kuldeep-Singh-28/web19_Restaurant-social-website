@@ -259,13 +259,16 @@ function Starters() {
             </div>
             <Container className={Style.starter_container}>
                 <Row className={Style.main_row}>
-                    <CardColumns className={Style.accordion}>
+                    <CardColumns
+                        className={Style.accordion}
+                        style={{ zIndex: `43` }}
+                    >
                         {photos.map((item, index) => (
                             <Card key={index} className={`mb-4 ${Style.card}`}>
                                 <MDBRipple
                                     rippleColor="dark"
                                     rippleTag="div"
-                                    className="bg-image hover-overlay"
+                                    className={`bg-image ${Style.hov_styles}`}
                                 >
                                     <Card.Img
                                         variant="top"
@@ -275,17 +278,8 @@ function Starters() {
                                             filter: "none",
                                         }}
                                     />
-                                    <a>
-                                        <div
-                                            className="mask"
-                                            style={{
-                                                backgroundColor:
-                                                    "rgba(251, 251, 251, 0.15)",
-                                            }}
-                                        ></div>
-                                    </a>
                                 </MDBRipple>
-                                <Card.Body>
+                                <Card.Body className={Style.card_body}>
                                     <Card.Title className={Style.card_title}>
                                         <div>{item.data().name}</div>
                                         {isAdmin && (
@@ -343,7 +337,7 @@ function Starters() {
                                         </div>
                                     </ListGroupItem>
                                 </ListGroup>
-                                <Card.Body>
+                                <Card.Body className={Style.card_body}>
                                     {user ? (
                                         <button
                                             class="btn btn-primary btn-block add_recipe_button"
