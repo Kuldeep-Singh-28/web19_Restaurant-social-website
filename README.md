@@ -147,7 +147,7 @@ React, GSAP, React-Bootstrap, Material-Bootstrap, Material UI.
 
 ### Landing Page
 
-![homelightmode1](/assets/landing_page2.jpeg)
+![homelightmode1](/assets/portfolio.jpg)
 <hr />
 
 ### Menu Page
