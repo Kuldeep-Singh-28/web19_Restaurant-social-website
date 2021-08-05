@@ -36,6 +36,7 @@ export default function App() {
     const viewports = [];
     const setViewports = [];
     let temp_1;
+    let smaller_window;
     temp_1 = useState({
         latitude: Data.features[0].geometry.coordinates[1],
         longitude: Data.features[0].geometry.coordinates[0],
@@ -230,58 +231,131 @@ export default function App() {
                 </Row>
                 <Row className={Style.main_row}>
                     <CardColumns className={Style.accordion}>
-                        {Data.features.map((Hotel, index) => {
-                            return (
-                                <Card className={`mb-4 ${Style.card}`}>
-                                    <ReactMapGL
-                                        {...viewports[index]}
-                                        mapboxApiAccessToken={key}
-                                        mapStyle="mapbox://styles/mapbox/navigation-night-v1"
-                                        onViewportChange={(viewport) => {
-                                            setViewports[index](viewport);
-                                        }}
-                                    >
-                                        <NavigationControl
-                                            style={navControlStyle2}
-                                        />
-                                        <Marker
-                                            key={Hotel.properties.Hotel_ID}
-                                            latitude={
-                                                Hotel.geometry.coordinates[1]
-                                            }
-                                            longitude={
-                                                Hotel.geometry.coordinates[0]
-                                            }
-                                        >
-                                            <button
-                                                class="btn btn-outline-primary btn-rounded px-1"
-                                                style={{
-                                                    color: `transparent`,
-                                                }}
-                                            ></button>
-                                        </Marker>
-                                    </ReactMapGL>
-                                    <Card.Body>
-                                        <Card.Title
-                                            className={Style.card_title}
-                                        >
-                                            <div>
-                                                {Hotel.properties.CITY_NAME}
-                                            </div>
-                                        </Card.Title>
-                                        <Card.Text className={Style.card_text}>
-                                            <small>
-                                                Lorem ipsum dolor sit amet
-                                                consectetur adipisicing elit.
-                                                Praesentium beatae dolor, quia
-                                                numquam Lorem, ipsum dolor sit
-                                                amet consectetur.
-                                            </small>
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            );
-                        })}
+                        {window.innerWidth < 576
+                            ? Data.features.slice(0, 4).map((Hotel, index) => {
+                                  return (
+                                      <Card className={`mb-4 ${Style.card}`}>
+                                          <ReactMapGL
+                                              {...viewports[index]}
+                                              mapboxApiAccessToken={key}
+                                              mapStyle="mapbox://styles/mapbox/navigation-night-v1"
+                                              onViewportChange={(viewport) => {
+                                                  setViewports[index](viewport);
+                                              }}
+                                          >
+                                              <NavigationControl
+                                                  style={navControlStyle2}
+                                              />
+                                              <Marker
+                                                  key={
+                                                      Hotel.properties.Hotel_ID
+                                                  }
+                                                  latitude={
+                                                      Hotel.geometry
+                                                          .coordinates[1]
+                                                  }
+                                                  longitude={
+                                                      Hotel.geometry
+                                                          .coordinates[0]
+                                                  }
+                                              >
+                                                  <button
+                                                      class="btn btn-outline-primary btn-rounded px-1"
+                                                      style={{
+                                                          color: `transparent`,
+                                                      }}
+                                                  ></button>
+                                              </Marker>
+                                          </ReactMapGL>
+                                          <Card.Body>
+                                              <Card.Title
+                                                  className={Style.card_title}
+                                              >
+                                                  <div>
+                                                      {
+                                                          Hotel.properties
+                                                              .CITY_NAME
+                                                      }
+                                                  </div>
+                                              </Card.Title>
+                                              <Card.Text
+                                                  className={Style.card_text}
+                                              >
+                                                  <small>
+                                                      Lorem ipsum dolor sit amet
+                                                      consectetur adipisicing
+                                                      elit. Praesentium beatae
+                                                      dolor, quia numquam Lorem,
+                                                      ipsum dolor sit amet
+                                                      consectetur.
+                                                  </small>
+                                              </Card.Text>
+                                          </Card.Body>
+                                      </Card>
+                                  );
+                              })
+                            : Data.features.map((Hotel, index) => {
+                                  return (
+                                      <Card className={`mb-4 ${Style.card}`}>
+                                          <ReactMapGL
+                                              {...viewports[index]}
+                                              mapboxApiAccessToken={key}
+                                              mapStyle="mapbox://styles/mapbox/navigation-night-v1"
+                                              onViewportChange={(viewport) => {
+                                                  setViewports[index](viewport);
+                                              }}
+                                          >
+                                              <NavigationControl
+                                                  style={navControlStyle2}
+                                              />
+                                              <Marker
+                                                  key={
+                                                      Hotel.properties.Hotel_ID
+                                                  }
+                                                  latitude={
+                                                      Hotel.geometry
+                                                          .coordinates[1]
+                                                  }
+                                                  longitude={
+                                                      Hotel.geometry
+                                                          .coordinates[0]
+                                                  }
+                                              >
+                                                  <button
+                                                      class="btn btn-outline-primary btn-rounded px-1"
+                                                      style={{
+                                                          color: `transparent`,
+                                                      }}
+                                                  ></button>
+                                              </Marker>
+                                          </ReactMapGL>
+                                          <Card.Body>
+                                              <Card.Title
+                                                  className={Style.card_title}
+                                              >
+                                                  <div>
+                                                      {
+                                                          Hotel.properties
+                                                              .CITY_NAME
+                                                      }
+                                                  </div>
+                                              </Card.Title>
+                                              <Card.Text
+                                                  className={Style.card_text}
+                                              >
+                                                  <small>
+                                                      Lorem ipsum dolor sit amet
+                                                      consectetur adipisicing
+                                                      elit. Praesentium beatae
+                                                      dolor, quia numquam Lorem,
+                                                      ipsum dolor sit amet
+                                                      consectetur.
+                                                  </small>
+                                              </Card.Text>
+                                          </Card.Body>
+                                      </Card>
+                                  );
+                              })}
                     </CardColumns>
                 </Row>
             </Container>
