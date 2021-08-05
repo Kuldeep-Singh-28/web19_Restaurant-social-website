@@ -26,6 +26,7 @@
 
 .admin_svg {
     position: absolute;
+    width: 100vw;
     bottom: -1px;
     left: 0;
 }
