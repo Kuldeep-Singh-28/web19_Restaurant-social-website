@@ -11,6 +11,7 @@ import {
 } from "react-bootstrap";
 import { MDBRipple } from "mdb-react-ui-kit";
 import * as Data from "./hotel.json";
+import "mapbox-gl/dist/mapbox-gl.css";
 import Style from "./styles/Map.module.css";
 import "./styles/map_universal.css";
 
