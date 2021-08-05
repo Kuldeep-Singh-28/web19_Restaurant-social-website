@@ -322,17 +322,13 @@ function NavBar() {
                         <div className="_navIcon">
                             <span className="_navIcons">
                                 <a href="http://instagram.com" target="_blank">
-                                    <InstagramIcon
-                                        style={{ color: "#7b877c", size: 0.5 }}
-                                    />{" "}
+                                    <InstagramIcon className="social_icons" />{" "}
                                 </a>
                             </span>
                             <span className="_navIcons">
                                 <a href="http://facebook.com" target="_blank">
                                     {" "}
-                                    <FacebookIcon
-                                        style={{ color: "#7b877c", size: 0.5 }}
-                                    />
+                                    <FacebookIcon className="social_icons" />
                                 </a>{" "}
                             </span>
                         </div>
