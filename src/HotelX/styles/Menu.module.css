@@ -50,22 +50,16 @@
         position: relative;
         height: 100vh;
     }
-    .pic_col {
-        height: 47vh;
-        width: 100%;
-    }
-    .main_text_col,
-    .main_pic_col,
-    .bev_text_col,
-    .bev_text_col {
+    .text_col {
         position: absolute;
+        z-index: 68;
+        height: 100vh;
+        width: 100vw;
+        backdrop-filter: blur(2px);
+        background-color: rgba(0, 0, 0, 0.49);
     }
-    .main_text_col,
-    .bev_text_col {
-        bottom: 6vh;
-    }
-    .main_text_col {
-        bottom: 9vh;
+    .pic_col {
+        width: 100%;
     }
     .bev_text_col {
         margin-bottom: 2rem;

@@ -35,9 +35,16 @@
 
 @media (max-width: 657px) {
 	.fp-tableCell {
-		height: 47vh !important;
+		height: 100vh !important;
 	}
 	.carousel-item img {
 		height: 50vh;
+	}
+	.fp-scrollable {
+		height: 100% !important;
+		width: 100vw;
+	}
+	.fp-scroller {
+		height: 100% !important;
 	}
 }

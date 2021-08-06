@@ -47,7 +47,7 @@ class Menu extends React.Component {
                     0.5,
                     { y: "50", opacity: 0 },
                     { y: "0", opacity: 1 },
-                    "-=0.5"
+                    `-=0.5`
                 )
                 .fromTo(
                     desc,
@@ -68,7 +68,7 @@ class Menu extends React.Component {
                     0.5,
                     { y: "50", opacity: 0 },
                     { y: "0", opacity: 1 },
-                    "-=0.2"
+                    `-=${window.innerWidth < 658 ? 1 : 0.2}`
                 );
         } else {
             tl.fromTo(
@@ -103,7 +103,7 @@ class Menu extends React.Component {
                     0.5,
                     { y: "50", opacity: 0 },
                     { y: "0", opacity: 1 },
-                    "-=0.2"
+                    `-=${window.innerWidth < 658 ? 1 : 0.2}`
                 );
         }
         console.log("Leaving section " + origin.index);
@@ -161,6 +161,7 @@ class Menu extends React.Component {
                                                 style={{
                                                     zIndex: `100`,
                                                     color: `#d0c194`,
+                                                    backgroundColor: `rgba(0,0,0,0.2)`,
                                                 }}
                                                 class="btn btn-outline-light btn-rounded mt-4"
                                             >
@@ -203,6 +204,7 @@ class Menu extends React.Component {
                                                 style={{
                                                     zIndex: `100`,
                                                     color: `#d0c194`,
+                                                    backgroundColor: `rgba(0,0,0,0.2)`,
                                                 }}
                                                 class="btn btn-outline-light btn-rounded mt-4"
                                             >
@@ -258,6 +260,7 @@ class Menu extends React.Component {
                                                 style={{
                                                     zIndex: `100`,
                                                     color: `#d0c194`,
+                                                    backgroundColor: `rgba(0,0,0,0.2)`,
                                                 }}
                                                 class="btn btn-outline-light btn-rounded mt-4"
                                             >
@@ -293,6 +296,7 @@ class Menu extends React.Component {
                                                 style={{
                                                     zIndex: `100`,
                                                     color: `#d0c194`,
+                                                    backgroundColor: `rgba(0,0,0,0.2)`,
                                                 }}
                                                 class="btn btn-outline-light btn-rounded mt-4"
                                             >
