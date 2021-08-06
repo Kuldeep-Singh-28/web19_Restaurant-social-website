@@ -17,7 +17,7 @@ const Services = () => {
 						</a>
 					</Col>
 					<Col className={Style.col2}>
-						<a className={Style.atag} href="#">
+						<a className={Style.atag} href="/contact_us">
 							TEAM BUILDING
 						</a>
 					</Col>
@@ -27,7 +27,7 @@ const Services = () => {
 						</a>
 					</Col>
 					<Col className={Style.col4} style={{ marginRight: `0` }}>
-						<a href="#" className={Style.atag}>
+						<a href="/contact_us" className={Style.atag}>
 							BIRTHDAY PARTY
 						</a>
 					</Col>
