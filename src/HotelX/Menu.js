@@ -68,7 +68,7 @@ class Menu extends React.Component {
                     0.5,
                     { y: "50", opacity: 0 },
                     { y: "0", opacity: 1 },
-                    `-=${window.innerWidth < 658 ? 1 : 0.2}`
+                    `-=${window.innerWidth < 658 ? 1.2 : 0.2}`
                 );
         } else {
             tl.fromTo(
@@ -103,7 +103,7 @@ class Menu extends React.Component {
                     0.5,
                     { y: "50", opacity: 0 },
                     { y: "0", opacity: 1 },
-                    `-=${window.innerWidth < 658 ? 1 : 0.2}`
+                    `-=${window.innerWidth < 658 ? 1.2 : 0.2}`
                 );
         }
         console.log("Leaving section " + origin.index);

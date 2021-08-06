@@ -56,7 +56,7 @@
         height: 100vh;
         width: 100vw;
         backdrop-filter: blur(2px);
-        background-color: rgba(0, 0, 0, 0.49);
+        background-color: rgba(0, 0, 0, 0.37);
     }
     .pic_col {
         width: 100%;
