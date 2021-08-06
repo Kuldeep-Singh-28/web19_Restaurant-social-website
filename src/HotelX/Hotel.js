@@ -22,6 +22,7 @@ import Map from "./Map1";
 import Payment from "./Payment";
 import User from "./User";
 import Not_found from "./Not_found";
+import Contact_us from "./Contact_us";
 
 function Hotel() {
     const backToTop = (e) => {
@@ -139,6 +140,11 @@ function Hotel() {
                                     component={Payment}
                                 />
                                 <Route exact path="/user" component={User} />
+                                <Route
+                                    exact
+                                    path="/contact_us"
+                                    component={Contact_us}
+                                />
                                 <Route component={Not_found} />
                             </Switch>
                         </Router>
