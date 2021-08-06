@@ -294,6 +294,13 @@ function NavBar() {
                         <Nav.Link href="/locate" className="n2" id="locate_id">
                             LOCATE
                         </Nav.Link>
+                        <Nav.Link
+                            href="/contact_us"
+                            className="n2"
+                            id="contact_id"
+                        >
+                            CONTACT US
+                        </Nav.Link>
                         {user ? (
                             <Nav.Link href="/user" className="n2" id="user_id">
                                 MY ACCOUNT
