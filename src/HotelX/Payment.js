@@ -5,6 +5,7 @@ import { Card, Container, Row, Col } from "react-bootstrap";
 import firebase from "firebase";
 import db from "./firebase";
 import Success_svg from "./Success_svg";
+import { gsap } from "gsap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
 import { loadStripe } from "@stripe/stripe-js";
@@ -58,6 +59,38 @@ function Stripe1() {
     );
 }
 // =======================================
+const body_success = React.createRef();
+const svg_success = React.createRef();
+function Scroller() {
+    const scroller = React.createRef();
+    useEffect(() => {
+        // const tl = gsap.timeline({ delay: 4 });
+        const tl = gsap.timeline();
+        tl.fromTo(
+            scroller.current,
+            0.9,
+            { x: "-100%", backgroundColor: "rgb(0, 191, 166)" },
+            { x: "0%", backgroundColor: "black" },
+            "-=0.5"
+        )
+            .fromTo(scroller.current, 0.65, { x: "0%" }, { x: "100%" })
+            .fromTo(
+                body_success.current,
+                0.7,
+                { x: "-100%", opacity: 0 },
+                { x: "0%", opacity: 1 },
+                "-=0.5"
+            )
+            .fromTo(
+                svg_success.current,
+                0.5,
+                { y: "50", opacity: 0 },
+                { y: "0", opacity: 1 },
+                "-=0.3"
+            );
+    }, []);
+    return <div className={Style.scroller} ref={scroller}></div>;
+}
 
 // =======================================
 
@@ -68,6 +101,7 @@ function PaymentForm() {
     const [Tprice, setPrice] = useState();
     const stripe = useStripe();
     const [item, setItem] = useState([]);
+    const [loader, setLoader] = useState(false);
     const elements = useElements();
 
     useEffect(() => {
@@ -329,12 +363,39 @@ function PaymentForm() {
                                                                 borderBottom: `1px solid rgba(0,0,0,0.4)`,
                                                             }}
                                                         />
-
                                                         <button
                                                             class="btn btn-dark btn-block mt-4"
                                                             type="submit"
+                                                            id="pay-id"
                                                         >
-                                                            Pay
+                                                            <div
+                                                                onClick={() => {
+                                                                    setLoader(
+                                                                        true
+                                                                    );
+                                                                }}
+                                                                class="d-flex justify-content-center align-items-center"
+                                                            >
+                                                                <div
+                                                                    className={`spinner-grow ${Style.spinner}`}
+                                                                    role="status"
+                                                                    style={
+                                                                        loader
+                                                                            ? {
+                                                                                  display: `unset`,
+                                                                                  marginRight: `0.23rem`,
+                                                                              }
+                                                                            : {
+                                                                                  display: `none`,
+                                                                              }
+                                                                    }
+                                                                >
+                                                                    <span class="visually-hidden">
+                                                                        Loading...
+                                                                    </span>
+                                                                </div>
+                                                                pay
+                                                            </div>
                                                         </button>
                                                     </form>
                                                 </>
@@ -350,10 +411,15 @@ function PaymentForm() {
                 ) : (
                     <>
                         <Container fluid className={Style.success_cont}>
-                            <div className={Style.svg_img}>
+                            <Scroller />
+
+                            <div className={Style.svg_img} ref={svg_success}>
                                 <Success_svg />
                             </div>
-                            <Row className={Style.success_row}>
+                            <Row
+                                className={Style.success_row}
+                                ref={body_success}
+                            >
                                 <Col className={Style.payment_succ_col}>
                                     <Card className={Style.success_card}>
                                         <Card.Body
@@ -365,7 +431,9 @@ function PaymentForm() {
                                             <Card.Subtitle>
                                                 <div
                                                     className={` mb-4 ${Style.list_item}`}
-                                                    style={{ color: `#00bfa6` }}
+                                                    style={{
+                                                        color: `#00bfa6`,
+                                                    }}
                                                 >
                                                     Order placed
                                                 </div>
