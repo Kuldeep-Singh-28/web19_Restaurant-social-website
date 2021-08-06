@@ -15,8 +15,11 @@ function FormExample({ setClick, click_animation }) {
 		if (form.checkValidity() === false) {
 			event.preventDefault();
 			event.stopPropagation();
+		} else {
+			event.preventDefault();
+			setClick(true);
+			click_animation();
 		}
-
 		setValidated(true);
 	};
 
@@ -68,11 +71,7 @@ function FormExample({ setClick, click_animation }) {
 				</Form.Group>
 			</Row>
 			<Button
-				type="button"
-				onClick={() => {
-					setClick(true);
-					click_animation();
-				}}
+				type="submit"
 				className={`btn btn-dark ${Style.form_submit}`}
 			>
 				Submit form
