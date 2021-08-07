@@ -64,3 +64,52 @@
 		bottom: 18vh;
 	}
 }
+
+@media (max-height: 573px) {
+	.header_container {
+		bottom: 12vh;
+	}
+}
+
+@media (max-height: 527px) {
+	.background_image_admin {
+		height: 100vh;
+	}
+}
+
+@media (max-height: 496px) {
+	.welcome_admin {
+		font-size: 28px;
+	}
+	.order_header {
+		font-size: 39px;
+	}
+	.header_container {
+		bottom: 17vh;
+	}
+}
+
+@media (max-height: 455px) {
+	.header_container {
+		bottom: 11vh;
+	}
+}
+
+@media (max-height: 415px) {
+	.welcome_admin {
+		font-size: 22px;
+	}
+	.order_header {
+		font-size: 36px;
+	}
+}
+
+@media (max-height: 388px) {
+	.header_container {
+		max-width: 84vh;
+		bottom: 15vh;
+	}
+	.order_header {
+		font-size: 30px;
+	}
+}
