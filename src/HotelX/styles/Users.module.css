@@ -487,3 +487,85 @@ textarea {
 		min-height: 55vh;
 	}
 }
+
+@media (max-height: 720px) {
+	.no_user_cont {
+		min-height: 62vh;
+	}
+}
+
+@media (max-height: 676px) {
+	.svg_img {
+		right: -49vh;
+		top: -28vh;
+	}
+}
+
+@media (max-height: 655px) {
+	.no_user_cont {
+		min-height: 68vh;
+	}
+}
+
+@media (max-height: 613px) {
+	.svg_img {
+		transform: scale(0.25);
+		right: -56vh;
+		top: -35vh;
+	}
+}
+
+@media (max-height: 558px) {
+	.svg_img {
+		right: -63vh;
+		top: -40vh;
+	}
+}
+
+@media (max-height: 527px) {
+	.svg_img {
+		right: -66vh;
+		top: -44vh;
+	}
+}
+
+@media (max-height: 508px) {
+	.no_user_cont {
+		min-height: 71vh;
+	}
+	.svg_img {
+		transform: scale(0.23);
+		right: -73vh;
+		top: -45vh;
+	}
+}
+
+@media (max-height: 480px) {
+	.svg_img {
+		right: -75vh;
+		top: -51vh;
+	}
+}
+
+@media (max-height: 461px) {
+	.no_user_cont {
+		min-height: 79vh;
+	}
+}
+
+@media (max-height: 440px) {
+	.svg_img {
+		right: -82vh;
+		top: -56vh;
+	}
+}
+
+@media (max-height: 422px) {
+	.svg_img {
+		display: none;
+	}
+	.no_user_cont {
+		justify-content: center;
+		align-items: center;
+	}
+}
