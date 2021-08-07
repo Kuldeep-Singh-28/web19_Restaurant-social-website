@@ -467,3 +467,163 @@ textarea {
 		min-height: 55vh;
 	}
 }
+
+@media (max-height: 720px) {
+	.no_user_cont {
+		min-height: 62vh;
+	}
+}
+
+@media (max-height: 676px) {
+	.svg_img2 {
+		right: -49vh;
+		top: -28vh;
+	}
+}
+
+@media (max-height: 655px) {
+	.no_user_cont {
+		min-height: 68vh;
+	}
+}
+
+@media (max-height: 613px) {
+	.svg_img2 {
+		transform: scale(0.25);
+		right: -56vh;
+		top: -35vh;
+	}
+}
+
+@media (max-height: 558px) {
+	.svg_img2 {
+		right: -63vh;
+		top: -40vh;
+	}
+}
+
+@media (max-height: 527px) {
+	.svg_img2 {
+		right: -66vh;
+		top: -44vh;
+	}
+}
+
+@media (max-height: 508px) {
+	.no_user_cont {
+		min-height: 71vh;
+	}
+	.svg_img2 {
+		transform: scale(0.23);
+		right: -73vh;
+		top: -45vh;
+	}
+}
+
+@media (max-height: 480px) {
+	.svg_img2 {
+		right: -75vh;
+		top: -51vh;
+	}
+}
+
+@media (max-height: 461px) {
+	.no_user_cont {
+		min-height: 79vh;
+	}
+}
+
+@media (max-height: 440px) {
+	.svg_img2 {
+		right: -82vh;
+		top: -56vh;
+	}
+}
+
+@media (max-height: 422px) {
+	.svg_img2 {
+		display: none;
+	}
+	.no_user_cont {
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+@media (max-height: 695px) {
+	.no_user_cont_height {
+		min-height: 61vh;
+	}
+}
+
+@media (max-height: 655px) {
+	.svg_img2_height {
+		right: -51vh;
+	}
+	.no_user_cont_height {
+		min-height: 65vh;
+	}
+}
+
+@media (max-height: 624px) {
+	.svg_img2_height {
+		right: -57vh;
+		transform: scale(0.25);
+		top: -28vh;
+	}
+}
+
+@media (max-height: 593px) {
+	.svg_img2_height {
+		top: -33vh;
+	}
+}
+
+@media (max-height: 559px) {
+	.svg_img2_height {
+		top: -37vh;
+		right: -64vh;
+	}
+}
+
+@media (max-height: 532px) {
+	.svg_img2_height {
+		top: -42vh;
+		right: -67vh;
+	}
+	.no_user_cont_height {
+		min-height: 71vh;
+	}
+}
+
+@media (max-height: 494px) {
+	.svg_img2_height {
+		top: -46vh;
+		right: -72vh;
+	}
+}
+
+@media (max-height: 477px) {
+	.svg_img2_height {
+		transform: scale(0.2);
+		top: -51vh;
+		right: -78vh;
+	}
+}
+
+@media (max-height: 442px) {
+	.svg_img2_height {
+		top: -57vh;
+		right: -84vh;
+	}
+}
+
+@media (max-height: 422px) {
+	.svg_img2_height {
+		display: none;
+	}
+	.no_user_cont_height {
+		justify-content: center;
+		align-items: center;
+	}
+}
