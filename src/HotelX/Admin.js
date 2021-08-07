@@ -170,13 +170,11 @@ function Admin() {
 			navbar_admin.style.backdropFilter = `blur(0px)`;
 			navbar_admin.style.backgroundColor = `transparent`;
 
-			setTimeout(() => {
-				const right = document.getElementById("right");
-				right.style.textDecoration = `underline`;
-				right.style.textDecorationColor = `coral`;
-				right.style.textDecorationThickness = `2px`;
-				right.style.textUnderlineOffset = `5px`;
-			}, 6000);
+			const right = document.getElementById("right");
+			right.style.textDecoration = `underline`;
+			right.style.textDecorationColor = `coral`;
+			right.style.textDecorationThickness = `2px`;
+			right.style.textUnderlineOffset = `5px`;
 
 			window.addEventListener("DOMContentLoaded", (e) => {
 				const navbar_admin = document.querySelector(".navbar2");
@@ -225,7 +223,7 @@ function Admin() {
 				(err) => console.log(err.message)
 			);
 		}
-	}, []);
+	}, [isAdmin]);
 
 	//=========================================================
 
