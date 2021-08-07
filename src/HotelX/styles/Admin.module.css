@@ -627,3 +627,15 @@ textarea {
 		align-items: center;
 	}
 }
+
+@media (max-height: 613px) {
+	.header_container {
+		bottom: 18vh;
+	}
+}
+
+@media (max-height: 425px) {
+	.header_container {
+		bottom: 9vh;
+	}
+}
