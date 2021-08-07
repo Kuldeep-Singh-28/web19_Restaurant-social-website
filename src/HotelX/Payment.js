@@ -321,7 +321,18 @@ function PaymentForm() {
                                                     );
                                                 })}
                                             {item.length === 0 && (
-                                                <div>Shopping cart empty</div>
+                                                <>
+                                                    <div>
+                                                        Shopping cart empty
+                                                    </div>
+                                                    <a
+                                                        href="/menu"
+                                                        type="button"
+                                                        class="btn  btn-rounded  btn-dark mt-4"
+                                                    >
+                                                        Back to menu
+                                                    </a>
+                                                </>
                                             )}
                                             {item.length !== 0 ? (
                                                 <div
