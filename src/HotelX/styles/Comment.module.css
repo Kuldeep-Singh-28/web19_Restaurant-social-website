@@ -201,3 +201,39 @@
 		line-height: 1.5;
 	}
 }
+
+@media (max-height: 660px) {
+	.button_container {
+		top: 47vh;
+	}
+}
+
+@media (max-height: 625px) {
+	.button_container {
+		top: 53vh;
+	}
+}
+
+@media (max-height: 570px) {
+	.button_container {
+		top: 60vh;
+	}
+}
+
+@media (max-height: 513px) {
+	.button_container {
+		top: 68vh;
+	}
+}
+
+@media (max-height: 456px) {
+	.button_container {
+		top: 78vh;
+	}
+}
+
+@media (max-height: 407px) {
+	.button_container {
+		top: 87vh;
+	}
+}
