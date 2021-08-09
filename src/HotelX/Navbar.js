@@ -4,7 +4,15 @@ import firebase from "firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import { MDBBtn } from "mdb-react-ui-kit";
-import { Navbar, Nav, Form, FormControl, Button, Modal } from "react-bootstrap";
+import {
+    Navbar,
+    Nav,
+    Form,
+    FormControl,
+    Button,
+    Modal,
+    Row,
+} from "react-bootstrap";
 import "./styles/Navbar.css";
 import Google_svg from "./Google_svg";
 import InstagramIcon from "@material-ui/icons/Instagram";
@@ -46,6 +54,46 @@ function NavBar() {
     const [isAdmin, setisAdmin] = useState(false);
     const [email, setEmail] = useState();
     const [show3, setShow3] = useState(false);
+
+    const [validated, setValidated] = useState(false);
+    const [validated2, setValidated2] = useState(false);
+    const [validated3, setValidated3] = useState(false);
+
+    const handleSubmit = (event) => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+            setValidated(true);
+        } else {
+            event.preventDefault();
+            credentialSignIn(event);
+        }
+    };
+    const handleSubmit2 = (event) => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+            setValidated2(true);
+        } else {
+            event.preventDefault();
+            credentialSignUp(event);
+        }
+    };
+    const handleSubmit3 = (event) => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+            setValidated3(true);
+        } else {
+            event.preventDefault();
+            forgot(event);
+            handleClose3();
+        }
+    };
+
     useEffect(async () => {
         if (user) {
             db.collection("Admin")
@@ -99,6 +147,9 @@ function NavBar() {
                 .catch((error) => {
                     var errorCode = error.code;
                     var errorMessage = error.message;
+                    window.alert(
+                        "That address is either invalid or is not associated with any user"
+                    );
                     // ..
                 });
         }
@@ -133,22 +184,24 @@ function NavBar() {
         document.getElementById("email").value = "";
         document.getElementById("password").value = "";
 
-        auth.signInWithEmailAndPassword(email, pass).then((res) => {
-            document.getElementById("email").value = "";
-            document.getElementById("password").value = "";
-            handleClose();
-        });
+        auth.signInWithEmailAndPassword(email, pass)
+            .then((res) => {
+                document.getElementById("email").value = "";
+                document.getElementById("password").value = "";
+                handleClose();
+            })
+            .catch((err) => {
+                console.log("error", err.message);
+                window.alert("incorrect paasword");
+            });
     };
 
     const credentialSignUp = (e) => {
-        const name = document.getElementById("name2").value;
         const email = document.getElementById("email2").value;
         const pass = document.getElementById("password2").value;
-        document.getElementById("email2").value = "";
-        document.getElementById("password2").value = "";
-        document.getElementById("name2").value = "";
 
         auth.createUserWithEmailAndPassword(email, pass).then((cred) => {
+            const name = document.getElementById("name8").value;
             console.log(
                 "the user with email ",
                 cred.user.email,
@@ -160,6 +213,7 @@ function NavBar() {
                 email: email,
                 password: pass,
             });
+            document.getElementById("name8").value = "";
             document.getElementById("email2").value = "";
             document.getElementById("password2").value = "";
             handleClose2();
@@ -380,47 +434,82 @@ function NavBar() {
                             </div>
                         </a>
                     </div>
-                    <div className="input-container">
-                        <input
-                            id="email"
-                            className="input-field"
-                            type="text"
-                            placeholder="Email"
-                            name="email"
-                            style={{ color: `black` }}
-                        />
-                    </div>
-
-                    <div className="input-container">
-                        <input
-                            id="password"
-                            className="input-field"
-                            type="password"
-                            placeholder="Password"
-                            name="psw"
-                            style={{ color: `black` }}
-                        />
-                    </div>
-
-                    <div className="login_forgot" style={{ marginTop: `1rem` }}>
-                        <MDBBtn
-                            outline
-                            rounded
-                            className="login-btn-submit"
-                            onClick={credentialSignIn}
-                            style={{ margin: `0` }}
+                    <Form
+                        noValidate
+                        validated={validated}
+                        onSubmit={handleSubmit}
+                    >
+                        <Row>
+                            <Form.Group
+                                controlId="validationCustom01"
+                                className="input-container"
+                            >
+                                <Form.Control
+                                    id="email"
+                                    className="input-field"
+                                    type="text"
+                                    placeholder="Email"
+                                    name="email"
+                                    style={{ color: `black` }}
+                                    required
+                                />
+                                <Form.Control.Feedback className="feedback">
+                                    Looks good!
+                                </Form.Control.Feedback>
+                                <Form.Control.Feedback
+                                    type="invalid"
+                                    className="feedback"
+                                >
+                                    Please provide a valid email.
+                                </Form.Control.Feedback>
+                            </Form.Group>
+                        </Row>
+                        <Row>
+                            <Form.Group
+                                controlId="validationCustom04"
+                                className="input-container"
+                                style={{ marginTop: `0.6rem` }}
+                            >
+                                <Form.Control
+                                    id="password"
+                                    className="input-field"
+                                    type="password"
+                                    placeholder="Password"
+                                    name="psw"
+                                    style={{ color: `black` }}
+                                    required
+                                />
+                                <Form.Control.Feedback
+                                    type="invalid"
+                                    className="feedback"
+                                >
+                                    Please provide a valid password.
+                                </Form.Control.Feedback>
+                            </Form.Group>
+                        </Row>
+                        <div
+                            className="login_forgot"
+                            style={{ marginTop: `-0.2rem` }}
                         >
-                            Log In
-                        </MDBBtn>
-                        <span
-                            outline
-                            rounded
-                            className="forgot_pass"
-                            onClick={dualEvent3}
-                        >
-                            forgot password?
-                        </span>
-                    </div>
+                            <MDBBtn
+                                outline
+                                rounded
+                                className="login-btn-submit"
+                                type="submit"
+                                style={{ margin: `0.2rem` }}
+                            >
+                                Log In
+                            </MDBBtn>
+                            <span
+                                outline
+                                rounded
+                                className="forgot_pass"
+                                onClick={dualEvent3}
+                            >
+                                forgot password?
+                            </span>
+                        </div>
+                    </Form>
                     <div className="divider"></div>
                     <div></div>
                     <div className="terms">
@@ -445,27 +534,50 @@ function NavBar() {
                         </h1>
                         <br />
                     </div>
-                    <div className="input-container">
-                        <input
-                            id="email"
-                            className="input-field mb-4"
-                            type="text"
-                            placeholder="Enter Email"
-                            name="email"
-                            style={{ color: `black`, width: `92%` }}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                    </div>
-                    <button
-                        class="mb-3 btn btn-primary btn-block"
-                        onClick={(e) => {
-                            forgot(e);
-                            handleClose3();
-                        }}
-                        style={{ margin: `0` }}
+                    <Form
+                        noValidate
+                        validated={validated3}
+                        onSubmit={handleSubmit3}
                     >
-                        Send recovery email
-                    </button>
+                        <Row>
+                            <Form.Group
+                                controlId="validationCustom07"
+                                className="input-container"
+                                style={{ marginTop: `0.6rem` }}
+                            >
+                                <Form.Control
+                                    id="email"
+                                    className="input-field "
+                                    type="text"
+                                    placeholder="Enter Email"
+                                    name="email"
+                                    style={{ color: `black`, width: `92%` }}
+                                    required
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                                <Form.Control.Feedback
+                                    className="feedback"
+                                    style={{ width: `92%` }}
+                                >
+                                    Looks good!
+                                </Form.Control.Feedback>
+                                <Form.Control.Feedback
+                                    type="invalid"
+                                    className="feedback"
+                                    style={{ width: `92%` }}
+                                >
+                                    Please provide a valid email.
+                                </Form.Control.Feedback>
+                            </Form.Group>
+                        </Row>
+                        <button
+                            class="mb-3 btn btn-primary btn-block"
+                            type="submit"
+                            style={{ margin: `0` }}
+                        >
+                            Send recovery email
+                        </button>
+                    </Form>
                 </Modal.Body>
             </Modal>
             <Modal show={show2} onHide={handleClose2}>
@@ -504,44 +616,93 @@ function NavBar() {
                             </div>
                         </a>
                     </div>
-                    <div className="input-container">
-                        <input
-                            id="name2"
-                            className="input-field"
-                            type="text"
-                            placeholder="Name"
-                            name="name"
-                            style={{ color: `black` }}
-                        />
-                    </div>
-                    <div className="input-container">
-                        <input
-                            id="email2"
-                            className="input-field"
-                            type="text"
-                            placeholder="Email"
-                            name="email"
-                            style={{ color: `black` }}
-                        />
-                    </div>
-
-                    <div className="input-container">
-                        <input
-                            id="password2"
-                            className="input-field"
-                            type="password"
-                            placeholder="Password"
-                            name="psw"
-                            style={{ color: `black` }}
-                        />
-                    </div>
-                    <Button
-                        variant="outline-primary"
-                        className="login-btn-submit"
-                        onClick={credentialSignUp}
+                    <Form
+                        noValidate
+                        validated={validated2}
+                        onSubmit={handleSubmit2}
                     >
-                        Sign Up
-                    </Button>
+                        <Row>
+                            <Form.Group
+                                controlId="validationCustom01"
+                                className="input-container"
+                            >
+                                <Form.Control
+                                    id="name8"
+                                    className="input-field"
+                                    type="text"
+                                    placeholder="Name"
+                                    name="name"
+                                    style={{ color: `black` }}
+                                    required
+                                />
+                                <Form.Control.Feedback className="feedback">
+                                    Looks good!
+                                </Form.Control.Feedback>
+                                <Form.Control.Feedback
+                                    type="invalid"
+                                    className="feedback"
+                                >
+                                    Please provide a valid name.
+                                </Form.Control.Feedback>
+                            </Form.Group>
+                        </Row>
+                        <Row>
+                            <Form.Group
+                                controlId="validationCustom02"
+                                className="input-container"
+                                style={{ marginTop: `0.6rem` }}
+                            >
+                                <Form.Control
+                                    id="email2"
+                                    className="input-field"
+                                    type="text"
+                                    placeholder="Email"
+                                    name="email"
+                                    style={{ color: `black` }}
+                                    required
+                                />
+                                <Form.Control.Feedback className="feedback">
+                                    Looks good!
+                                </Form.Control.Feedback>
+                                <Form.Control.Feedback
+                                    type="invalid"
+                                    className="feedback"
+                                >
+                                    Please provide a valid email.
+                                </Form.Control.Feedback>
+                            </Form.Group>
+                        </Row>
+                        <Row>
+                            <Form.Group
+                                controlId="validationCustom04"
+                                className="input-container"
+                                style={{ marginTop: `0.6rem` }}
+                            >
+                                <Form.Control
+                                    id="password2"
+                                    className="input-field"
+                                    type="password"
+                                    placeholder="Password"
+                                    name="psw"
+                                    style={{ color: `black` }}
+                                    required
+                                />
+                                <Form.Control.Feedback
+                                    type="invalid"
+                                    className="feedback"
+                                >
+                                    Please provide a valid password.
+                                </Form.Control.Feedback>
+                            </Form.Group>
+                        </Row>
+                        <Button
+                            variant="outline-primary"
+                            className="login-btn-submit"
+                            type="submit"
+                        >
+                            Sign Up
+                        </Button>
+                    </Form>
                     <div className="divider"></div>
                     <div className="terms">
                         * By logging in, you agree to our{" "}

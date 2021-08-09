@@ -110,6 +110,13 @@
     margin-bottom: 15px;
     margin-top: 20px;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feedback {
+    width: 77%;
+    position: relative;
 }
 
 /* Style the input fields */
@@ -121,10 +128,16 @@
     border-top: 0;
     border-left: 0;
     color: rgba(0, 0, 0);
+    border-radius: 0.1rem;
     font-size: 18px;
     padding-bottom: 0.4rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     transition: border-color 0.5s linear;
+}
+
+.input-field:active,
+.input-field:focus {
+    box-shadow: none;
 }
 
 .login_forgot {
@@ -188,7 +201,7 @@ button.close {
     /*border-color: #3483ff !important;*/
 }
 
-::placeholder {
+.form-control::placeholder {
     color: #162d3d;
     opacity: 1;
 }
