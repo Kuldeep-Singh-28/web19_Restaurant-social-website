@@ -28,6 +28,7 @@ function Admin() {
 	const [type, setType] = useState("");
 	const [email, setEmail] = useState("");
 	const [id, setId] = useState("");
+	const [show_loader, setLoader] = useState(false);
 	const [isAdmin, setisAdmin] = useState(false);
 	//const [url, setUrl] = useState("");
 	const [res_orders, setOrders] = useState([]);
@@ -92,6 +93,7 @@ function Admin() {
 										console.log(
 											"Document successfully written!"
 										);
+										setLoader(false);
 									})
 									.catch((error) => {
 										console.error(
@@ -111,6 +113,7 @@ function Admin() {
 	// ========================================================
 	const submit = async (e) => {
 		e.preventDefault();
+		setLoader(true);
 		await uploadToFirebase();
 	};
 
@@ -271,6 +274,20 @@ function Admin() {
 						</>
 					) : (
 						<>
+							{show_loader ? (
+								<div
+									className={Style.loader_admin}
+									style={{ top: `${window.scrollY}px` }}
+								>
+									<div class="spinner-border" role="status">
+										<span class="visually-hidden">
+											Loading...
+										</span>
+									</div>
+								</div>
+							) : (
+								""
+							)}
 							<div className={Style.background_image_admin}>
 								<div className={Style.header_container}>
 									<h2 className={Style.welcome_admin}>
